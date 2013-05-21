@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+		<title>ColorMix Library</title>
+		<link rel='stylesheet' href='assets/css/vendor/normalize.css'>
+		<link rel='stylesheet' href='assets/css/vendor/bootstrap-2.3.2.min.css'>
+		<link rel='stylesheet' href='assets/css/vendor/bootstrap-responsive-2.3.2.min.css'>
+		<link rel='stylesheet' href='assets/css/vendor/colorpicker.css'>
+		<link rel='stylesheet' href='assets/css/app.min.css'>
+	</head>
+	<body>
+		<section id='app' class='container'>
+			<header class='jumbotron'>
+				<h1>ColorMix</h1>
+				<h3>An open-source JavaScript library that allow you to mix colors using the Lab ColorSpace</h3>
+			</header>
+			<div class="accordion" id="accordion">
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#what-is-it">What is it ?</a>
+					</div>
+					<section id="what-is-it" class='accordion-body collapse in'>
+						<div class="accordion-inner">
+							<h4>What is it ?</h4>
+						</div>
+					</section>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#how-to-use">How it works</a>
+					</div>
+					<section id="how-to-use" class='accordion-body collapse'>
+						<div class="accordion-inner">
+							<h4>How it works ?</h4>
+							<ol>
+								<li>
+									<h5>Include the library in your HTML page or template - It is recommended to use it with jQuery, however it is not required.</h5>
+									<pre>
+	&lt;!DOCTYPE html&gt;
+	&lt;head&gt;
+		[...]
+	&lt;/head&gt;
+	&lt;body&gt;
+		[...]
+		&lt;script src='/path/to/your/scripts/jquery-1.9.1.min.js'&gt;&lt;/script&gt;
+		&lt;script src='/path/to/your/scripts/colormix.js'&gt;&lt;/script&gt;
+		&lt;script&gt;
+			// Use ColorMix here !
+			var Color = new ColorMix.Color(1, 2, 3);
+		&lt;/script&gt;
+	&lt;/body&gt;
+									</pre>
+								</li>
+								<li>
+									<h5>Set your own gradient to the ColorMix object</h5>
+									<h5>Note: Your gradient have to respect the following object schema</h5>
+									<h5>Note: Your gradient should be sorted by the reference property of its objects, from smallest to biggest</h5>
+									<pre>
+	// Your objects must have 2 properties:
+	- Reference [integer], who is basically the "value" of the gradient step
+	- Color [object], who is just an object with red, green and blue properties [integer values; 0-255]
+
+	// Set an array of objects
+	ColorMix.setGradient([{
+		reference: 0,
+		color: {
+			red: 0,
+			green: 0,
+			blue: 255
+		}
+	}, {
+		reference: 25,
+		color: {
+			red: 64,
+			green: 0,
+			blue: 191
+		}
+	}, {
+		reference: 50,
+		color: {
+			red: 128,
+			green: 0,
+			blue: 128
+		}
+	}, {
+		reference: 75,
+		color: {
+			red: 191,
+			green: 0,
+			blue: 64
+		}
+	}, {
+		reference: 100,
+		color: {
+			red: 255,
+			green: 0,
+			blue: 0
+		}
+	}]);
+									</pre>
+								</li>
+								<li>
+									<h5>You can use it to directly mix some colors !</h5>
+									<pre>
+	var C1 = new ColorMix.Color(41, 51, 61),
+		C2 = new ColorMix.Color(125, 140, 220),
+		C3 = new ColorMix.Color(255, 128, 0),
+		mix = ColorMix.mix([C1, C2, C3], [25, 25, 50]);
+	console.log(C1, C2, C3, mix);
+	alert('Your mixed color is: rgb(' + mix.red + ', ' + mix.green + ', ' + mix.blue + ')');
+									</pre>
+								</li>
+								<li>
+									<h5>Or to blend a color on your gradient !</h5>
+									<pre>
+	var color = ColorMix.blend(69);
+	console.log(color);
+	alert('Your blended color is: rgb(' + color.red + ', ' + color.green + ', ' + color.blue + ')');
+									</pre>
+								</li>
+								<li>
+									<h5>Then apply it on DOM HTML elements !</h5>
+									<pre>
+	var color = ColorMix.blend(69);
+	color.useAsBackground('body');
+									</pre>
+								</li>
+							</ol>
+						</div>
+					</section>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#demo">Demo</a>
+					</div>
+					<section id="demo" class='accordion-body collapse'>
+						<div class="accordion-inner">
+							<h4>Demo</h4>
+							<form action='#' method='post' id='form-mix'>
+								<div class='row-fluid'>
+									<div class='span6'>
+										<label for='color-1'>Pick a first color</label>
+										<input type='text' name='color-1' id='color-1' class='color' />
+									</div>
+									<div class='span6'>
+										<label for='color-2'>Pick a second color</label>
+										<input type='text' name='color-2' id='color-2' class='color' />
+									</div>
+								</div>
+								<input type='submit' name='submit' value='Mix it!' />
+							</form>
+							<div id='color-mix'></div>
+						</div>
+					</section>
+				</div>
+				<div class="accordion-group">
+					<div class="accordion-heading">
+						<a class="accordion-toggle" href="assets/js/colormix.js" target='_blank'>Download</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer class='container'>This library is open-sourced on GitHub - currently maintained by Florent SCHILDKNECHT - Front End Developer</footer>
+		<script src='assets/js/vendor/jquery-1.9.1.min.js'></script>
+		<script src='assets/js/vendor/colorpicker.js'></script>
+		<script src='assets/js/vendor/bootstrap-2.3.2.min.js'></script>
+		<script src='assets/js/colormix.js'></script>
+		<script src='assets/js/app.js'></script>
+	</body>
+</html>

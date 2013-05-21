@@ -1,0 +1,57 @@
+@footerHeight: 60px;
+
+.color-value() {
+	display: table-cell;
+	font-size: 18px;
+	text-align: center;
+	vertical-align: middle;
+	color: rgb(245, 248, 251);
+	text-shadow: 0 0 5px rgb(41, 41, 41);
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	body {
+		width: 100%;
+		height: 100%;
+		#app {
+			min-height: 100%;
+			height: auto !important;
+			margin: 0 auto -@footerHeight auto;
+			.jumbotron {
+				margin: 50px 0;
+				text-align: center;
+				.btn {
+					padding: 14px 24px;
+				}
+			}
+			#demo {
+				input {
+					&.color {
+						width: 60px;
+						height: 20px;
+					}
+				}
+				#color-mix {
+					display: table;
+					table-layout: fixed;
+					width: 100%;
+					height: 120px;
+					.color-value-rgb {
+						.color-value();
+					}
+					.color-value-hsl {
+						.color-value();	
+					}
+					.color-value-hex {
+						.color-value();
+					}
+				}
+			}
+		}
+		footer {
+			height: @footerHeight;
+		}
+	}
+}
