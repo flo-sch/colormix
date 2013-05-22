@@ -36,7 +36,8 @@ html {
 					margin: 0;
 					input {
 						margin: 0;
-						&.color {
+						&#color-1,
+						&#color-2 {
 							width: 60px;
 							height: 20px;
 						}
@@ -80,12 +81,15 @@ html {
 				}
 			}
 			#documentation {
+				> h5 {
+					margin: 5px 0;
+				}
 				ul {
 					&#colormix {
 						margin: 0 0 0 25px;
 					}
 					li {
-						padding: 5px 0;
+						padding: 10px 0;
 						border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 						&:last-child {
 							border: none;
@@ -95,18 +99,47 @@ html {
 						&.collapsed {
 							list-style-image: url('../images/icon-plus.png');
 						}
+						.collapse {
+							> :first-child {
+								margin-top: 15px;
+							}
+						}
 					}
 				}
 				.documentation-singleton {
-
+					> h6,
+					> span {
+						&:before {
+							content: '{Singleton} - ';
+						}
+						color: rgb(241, 196, 15);
+					}
 				}
 				.documentation-class {
+					> h6,
+					> span {
+						&:before {
+							content: '{Class} - ';
+						}
+						color: rgb(26, 188, 156);
+					}
 					.documentation-property {
-
+						> h6,
+						> span {
+							&:before {
+								content: '{Property} - ';
+							}
+							color: rgb(46, 204, 113);
+						}
 					}
 				}
 				.documentation-method {
+					> h6,
 					> span {
+						&:before {
+							content: '{Method} - ';
+						}
+						color: rgb(52, 152, 219);
 						cursor: pointer;
 					}
 				}
@@ -135,7 +168,7 @@ html {
 						margin: 4px 0;
 					}
 					.documentation-description {
-						padding: 5px 0;
+						padding: 10px 0;
 						margin: 0;
 						font-size: 12px;
 						font-style: italic;
@@ -143,7 +176,7 @@ html {
 						text-align: justify;
 					}
 					.documentation-example {
-						margin: 5px 0;
+						margin: 10px 0;
 					}
 					.documentation-note {
 						font-size: 12px;
@@ -156,8 +189,10 @@ html {
 						font-weight: bold;
 						text-align: justify;
 						color: rgb(70, 136, 71);
+						padding: 10px 0;
 					}
 					.documentation-arguments {
+						margin: 10px 0 10px 25px;
 						.documentation-argument {
 							list-style-type: circle;
 							list-style-image: none;
@@ -167,7 +202,7 @@ html {
 							border: none;
 							&.required {
 								.documentation-argument-name {
-									color: rgb(192, 152, 83);
+									color: rgb(231, 126, 34);
 									&:after {
 										content: ' [required]';
 									}

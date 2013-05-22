@@ -181,19 +181,19 @@ $(function () {
 		},
 		Weather = (new WeatherWidget($weatherWidget)).init();
 
-	$color1.ColorPicker({
-		onChange: function (hsb, hex, rgb) {
-			$color1.val('#' + hex).css('background-color', 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b +')');
+	$color1.colorpicker().on({
+		changeColor: function (e) {
+			$(this).val(e.color.toHex()).css('background-color', e.color.toHex());
 			mixColors();
-		},
-		onSubmit: function(hsb, hex, rgb, el) {
-			$(el).val('#' + hex).css('background-color', 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b +')');
-			$(el).ColorPickerHide();
-		},
-		onBeforeShow: function () {
-			$(this).ColorPickerSetColor(this.value);
 		}
 	});
+	$color2.colorpicker().on({
+		changeColor: function (e) {
+			$(this).val(e.color.toHex()).css('background-color', e.color.toHex());
+			mixColors();
+		}
+	})
+	/*
 	$color2.ColorPicker({
 		onChange: function (hsb, hex, rgb) {
 			$color2.val('#' + hex).css('background-color', 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b +')');
@@ -207,7 +207,7 @@ $(function () {
 			$(this).ColorPickerSetColor(this.value);
 		}
 	});
-
+	*/
 	$form.on({
 		submit: function (e) {
 			e.preventDefault();

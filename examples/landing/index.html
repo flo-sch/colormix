@@ -7,7 +7,7 @@
 		<link rel='stylesheet' href='assets/css/vendor/normalize.css'>
 		<link rel='stylesheet' href='assets/css/vendor/bootstrap-2.3.2.min.css'>
 		<link rel='stylesheet' href='assets/css/vendor/bootstrap-responsive-2.3.2.min.css'>
-		<link rel='stylesheet' href='assets/css/vendor/colorpicker.css'>
+		<link rel='stylesheet' href='assets/css/vendor/bootstrap-colorpicker.css'>
 		<link rel='stylesheet' href='assets/css/app.min.css'>
 	</head>
 	<body>
@@ -74,9 +74,27 @@
 								</li>
 								<li class="accordion-group">
 									<div class="accordion-heading">
-										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-implement" href="#step-2">Set your own gradient to the ColorMix object.</a>
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-implement" href="#step-2">You can already use it to mix some colors!</a>
 									</div>
 									<div id="step-2" class='accordion-body collapse'>
+										<div class="accordion-inner">
+<pre>
+var C1 = new ColorMix.Color(41, 51, 61),
+	C2 = new ColorMix.Color(125, 140, 220),
+	C3 = new ColorMix.Color(255, 128, 0),
+	mix = ColorMix.mix([C1, C2, C3], [25, 25, 50]);
+
+console.log(C1, C2, C3, mix);
+alert('Your mixed color is: rgb(' + mix.red + ', ' + mix.green + ', ' + mix.blue + ')');
+</pre>
+										</div>
+									</div>
+								</li>
+								<li class="accordion-group">
+									<div class="accordion-heading">
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-implement" href="#step-3">Or if you want to blend a value, just set up your own gradient to the ColorMix singleton.</a>
+									</div>
+									<div id="step-3" class='accordion-body collapse'>
 										<div class="accordion-inner">
 											<h5>Note - your gradient must be an array of objects as following</h5>
 <pre>
@@ -109,25 +127,7 @@ ColorMix.setGradient([
 								</li>
 								<li class="accordion-group">
 									<div class="accordion-heading">
-										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-implement" href="#step-3">You can use it to directly mix some colors!</a>
-									</div>
-									<div id="step-3" class='accordion-body collapse'>
-										<div class="accordion-inner">
-<pre>
-var C1 = new ColorMix.Color(41, 51, 61),
-	C2 = new ColorMix.Color(125, 140, 220),
-	C3 = new ColorMix.Color(255, 128, 0),
-	mix = ColorMix.mix([C1, C2, C3], [25, 25, 50]);
-
-console.log(C1, C2, C3, mix);
-alert('Your mixed color is: rgb(' + mix.red + ', ' + mix.green + ', ' + mix.blue + ')');
-</pre>
-										</div>
-									</div>
-								</li>
-								<li class="accordion-group">
-									<div class="accordion-heading">
-										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-implement" href="#step-4">Or to blend a color on your gradient!</a>
+										<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-implement" href="#step-4">Then blend the value on your fresh gradient!</a>
 									</div>
 									<div id="step-4" class='accordion-body collapse'>
 										<div class="accordion-inner">
@@ -145,9 +145,9 @@ alert('Your blended color is: rgb(' + color.red + ', ' + color.green + ', ' + co
 									</div>
 									<div id="step-5" class='accordion-body collapse'>
 										<div class="accordion-inner">
+											<h5>Note - You can chain operations for a more comfortable syntax.</h5>
 <pre>
-var color = ColorMix.blend(69);
-color.useAsBackground('body');
+var color = ColorMix.blend(69).useAsBackground('body');
 </pre>
 										</div>
 									</div>
@@ -194,7 +194,7 @@ color.useAsBackground('body');
 										</ul>
 										<h6>Constructor</h6>
 										<ul>
-											<li class='documentation-property collapsed'>
+											<li class='documentation-method collapsed'>
 												<span data-toggle='collapse' data-target='#documentation-color-constructor' data-parent='#colormix-color'>Color(R, G, B)</span>
 												<div id='documentation-color-constructor' class='collapse'>
 													<div class='label label-info'>Description</div>
@@ -619,16 +619,16 @@ ColorMix.setGradient([
 					</div>
 					<section id="demo" class='accordion-body collapse'>
 						<div class="accordion-inner">
-							<h4>Online demonstration</h4>
+							<h4>Average mixing of two colors</h4>
 							<form action='#' method='post' id='form-mix'>
 								<div class='row-fluid'>
 									<div class='span6'>
 										<label for='color-1'>Pick a first color</label>
-										<input type='text' name='color-1' id='color-1' class='color' />
+										<input type='text' name='color-1' id='color-1' />
 									</div>
 									<div class='span6'>
 										<label for='color-2'>Pick a second color</label>
-										<input type='text' name='color-2' id='color-2' class='color' />
+										<input type='text' name='color-2' id='color-2' />
 									</div>
 								</div>
 								<input type='submit' class='btn btn-success hidden' name='submit' value='Mix it!' />
@@ -662,7 +662,7 @@ ColorMix.setGradient([
 			<span class='muted'>Fork on <a href='https://github.com/Flo-Schield-Bobby/colormix' target='_blank'><i class='icon icon-github'></i> GitHub</a> - By <a href='http://florentschildknecht.com/' target='_blank'>Florent SCHILDKNECHT</a></span>
 		</footer>
 		<script src='assets/js/vendor/jquery-1.9.1.min.js'></script>
-		<script src='assets/js/vendor/colorpicker.js'></script>
+		<script src='assets/js/vendor/bootstrap-colorpicker.js'></script>
 		<script src='assets/js/vendor/bootstrap-2.3.2.min.js'></script>
 		<script src='assets/js/vendor/colormix-1.0.0.js'></script>
 		<script src='assets/js/plugins.js'></script>
