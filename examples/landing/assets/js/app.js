@@ -131,7 +131,7 @@ $(function () {
 				load = function () {
 					var weather = this;
 					SDK.Weather.load({
-						dataType: 'jsonp',
+						dataType: 'json',
 						location: _location,
 						callback: function (success, response, status, XHR) {
 							if (success) {
