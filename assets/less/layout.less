@@ -32,25 +32,154 @@ html {
 				}
 			}
 			#demo {
-				input {
-					&.color {
-						width: 60px;
-						height: 20px;
+				#form-mix {
+					margin: 0;
+					input {
+						margin: 0;
+						&.color {
+							width: 60px;
+							height: 20px;
+						}
 					}
 				}
 				#color-mix {
-					display: table;
-					table-layout: fixed;
+					position: relative;
+					box-sizing: border-box;
 					width: 100%;
 					height: 120px;
-					.color-value-rgb {
-						.color-value();
+					.color-1 {
+						position: absolute;
+						left: 0;
+						top: 0;
+						width: 10px;
+						height: 100%;
 					}
-					.color-value-hsl {
-						.color-value();	
+					.color-2 {
+						position: absolute;
+						right: 0;
+						top: 0;
+						width: 10px;
+						height: 100%;
 					}
-					.color-value-hex {
-						.color-value();
+					.color-values-container {
+						display: table;
+						table-layout: fixed;
+						position: relative;
+						width: 100%;
+						height: 120px;
+						.color-value-rgb {
+							.color-value();
+						}
+						.color-value-hsl {
+							.color-value();	
+						}
+						.color-value-hex {
+							.color-value();
+						}
+					}
+				}
+			}
+			#documentation {
+				ul {
+					&#colormix {
+						margin: 0 0 0 25px;
+					}
+					li {
+						padding: 5px 0;
+						border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+						&:last-child {
+							border: none;
+						}
+						list-style-type: none;
+						list-style-image: url('../images/icon-minus.png');
+						&.collapsed {
+							list-style-image: url('../images/icon-plus.png');
+						}
+					}
+				}
+				.documentation-singleton {
+
+				}
+				.documentation-class {
+					.documentation-property {
+
+					}
+				}
+				.documentation-method {
+					> span {
+						cursor: pointer;
+					}
+				}
+				.documentation-property h6,
+				.documentation-singleton h6,
+				.documentation-class h6,
+				.documentation-method h6 {
+					margin: 0;
+				}
+				.documentation-property > span,
+				.documentation-singleton > span,
+				.documentation-class > span,
+				.documentation-method > span,
+				.documentation-property > h6,
+				.documentation-singleton > h6,
+				.documentation-class > h6,
+				.documentation-method > h6 {
+					font-size: 14px;
+					cursor: pointer;
+				}
+				.documentation-property,
+				.documentation-singleton,
+				.documentation-class,
+				.documentation-method {
+					.documentation-label {
+						margin: 4px 0;
+					}
+					.documentation-description {
+						padding: 5px 0;
+						margin: 0;
+						font-size: 12px;
+						font-style: italic;
+						font-weight: bold;
+						text-align: justify;
+					}
+					.documentation-example {
+						margin: 5px 0;
+					}
+					.documentation-note {
+						font-size: 12px;
+						font-weight: bold;
+						text-align: justify;
+						color: rgb(58, 135, 173);
+					}
+					.documentation-tags {
+						font-size: 12px;
+						font-weight: bold;
+						text-align: justify;
+						color: rgb(70, 136, 71);
+					}
+					.documentation-arguments {
+						.documentation-argument {
+							list-style-type: circle;
+							list-style-image: none;
+							font-size: 12px;
+							text-align: justify;
+							padding: 2px 0;
+							border: none;
+							&.required {
+								.documentation-argument-name {
+									color: rgb(192, 152, 83);
+									&:after {
+										content: ' [required]';
+									}
+								}
+							}
+							.documentation-argument-name {
+								text-decoration: underline;
+							}
+							.documentation-argument-type {
+								font-weight: bold;
+							}
+						}
 					}
 				}
 			}

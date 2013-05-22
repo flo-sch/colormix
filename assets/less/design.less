@@ -15,6 +15,10 @@
 	.color-value-default();
 	font-size: 12px;
 }
+.color-value-360() {
+	.color-value-default();
+	font-size: 8px;
+}
 
 html {
 	body {
@@ -41,6 +45,8 @@ html {
 					}
 				}
 				#color-mix {
+					border-radius: 5px;
+					border: 2px solid black;
 					.color-value-rgb {
 						.color-value-1200();
 					}
@@ -94,7 +100,7 @@ html {
 			#app {
 				.jumbotron {
 					h1 {
-						font-size: 82px;
+						font-size: 74px;
 					}
 				}
 				#demo {
@@ -107,6 +113,33 @@ html {
 						}
 						.color-value-hex {
 							.color-value-767();
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 360px) {
+	html {
+		body {
+			#app {
+				.jumbotron {
+					h1 {
+						font-size: 44px;
+					}
+				}
+				#demo {
+					#color-mix {
+						.color-value-rgb {
+							.color-value-360();
+						}
+						.color-value-hsl {
+							.color-value-360();
+						}
+						.color-value-hex {
+							.color-value-360();
 						}
 					}
 				}
