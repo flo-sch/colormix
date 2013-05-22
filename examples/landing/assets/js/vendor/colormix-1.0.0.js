@@ -1,5 +1,5 @@
 var ColorMix = (function () {
-	var gradient = [{
+	var _gradient = [{
 			reference: 0,
 			color: {
 				red: 0,
@@ -32,162 +32,6 @@ var ColorMix = (function () {
 				this.setBlue(0);
 			}
 			return this;
-		};
-		Color.prototype = {
-			fromHex: function (hex) {
-				hex = String(hex || '');
-				if (hex.length > 0) {
-					if (hex[0] === '#') {
-						hex = hex.slice(1);
-					}
-					if (hex.length === 3) {
-						hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2]; 
-					}
-					var red = parseInt(hex.slice(0, 2), 16),
-						green = parseInt(hex.slice(2, 4), 16),
-						blue = parseInt(hex.slice(4, 6), 16);
-
-					this.setRed(isNaN(red) ? 0 : red);
-					this.setGreen(isNaN(green) ? 0 : green);
-					this.setBlue(isNaN(blue) ? 0 : blue);
-				} else {
-					this.setRed(0);
-					this.setGreen(0);
-					this.setBlue(0);
-				}
-				return this;
-			},
-			setRed: function (R) {
-				if (R !== undefined) {
-					this.red = Math.min(255, Math.max(0, parseInt(R)));
-				}
-				return this;
-			},
-			getRed: function () {
-				return this.red;
-			},
-			setGreen: function (G) {
-				if (G !== undefined) {
-					this.green = Math.min(255, Math.max(0, parseInt(G)));
-				}
-				return this;
-			},
-			getGreen: function () {
-				return this.green;
-			},
-			setBlue: function (B) {
-				if (B !== undefined) {
-					this.blue = Math.min(255, Math.max(0, parseInt(B)));
-				}
-				return this;
-			},
-			getBlue: function () {
-				return this.blue;
-			},
-			toString: function (mode) {
-				var colorString = '';
-				switch (mode) {
-					case 'rgb':
-						colorString = 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')';
-						break;
-					case 'rgba':
-						colorString = 'rgba(' + this.red + ', ' + this.green + ', ' + this.blue + ', 1)';
-						break;
-					case 'hsl':
-						var HSL = ColorMix.ColorSpace.RGBtoHSL(this.red, this.green, this.blue);
-						colorString = 'hsl(' +  HSL.hue + ', ' + HSL.sat + '%, ' + HSL.lig + '%)';
-						break;
-					case 'hsla':
-						var HSL = ColorMix.ColorSpace.RGBtoHSL(this.red, this.green, this.blue);
-						colorString = 'hsla(' +  HSL.hue + ', ' + HSL.sat + '%, ' + HSL.lig + '%, 1)';
-						break;
-					case 'hex':
-					default:
-						colorString = '#' + ((1 << 24) + (this.red << 16) + (this.green << 8) + this.blue).toString(16).slice(1);
-						break;
-				}
-				return colorString; 
-			},
-			useAsBackground: function (selector) {
-				selector = String(selector);
-				if (selector.length > 0) {
-					if (window.jQuery !== undefined) {
-						window.jQuery(selector).css('background-color', 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')');
-					} else {
-						var elts,
-							i;
-						if (typeof selector === 'string') {
-							switch (selector[0]) {
-								case '#':
-									elts = document.getElementById(selector);
-									break;
-								case '.':
-									if (document.getElementsByClassName) {
-										elts = document.getElementsByClassName(selector);
-									} else {
-										elts = [];
-										var DOMelts = document.getElementsByTagName('*');
-										i = DOMelts.length;
-										while (i--) {
-											if (DOMelts[i].className === selector.slice(1)) {
-												elts.push(DOMelts[i]);
-											}
-										}
-									}
-									break;
-								default:
-									elts = document.getElementsByTagName(selector);
-									break;
-							}
-						}
-						i = elts.length;
-						while (i--) {
-							elts[i].style['background-color'] = 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')';
-						}
-					}
-				}
-				return this;
-			},
-			useAsColor: function (selector) {
-				selector = String(selector);
-				if (selector.length > 0) {
-					if (window.jQuery !== undefined) {
-						window.jQuery(selector).css('color', 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')');
-					} else {
-						var elts,
-							i;
-						if (typeof selector === 'string') {
-							switch (selector[0]) {
-								case '#':
-									elts = document.getElementById(selector);
-									break;
-								case '.':
-									if (document.getElementsByClassName) {
-										elts = document.getElementsByClassName(selector);
-									} else {
-										elts = [];
-										var DOMelts = document.getElementsByTagName('*');
-										i = DOMelts.length;
-										while (i--) {
-											if (DOMelts[i].className === selector.slice(1)) {
-												elts.push(DOMelts[i]);
-											}
-										}
-									}
-									break;
-								default:
-									elts = document.getElementsByTagName(selector);
-									break;
-							}
-						}
-						i = elts.length;
-						while (i--) {
-							elts[i].style['color'] = 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')';
-						}
-					}
-				}
-				return this;
-			}
 		},
 		ColorSpace = (function () {
 			// Singleton tool for ColorSpace manipulation
@@ -448,6 +292,163 @@ var ColorMix = (function () {
 			}
 		})();
 
+	Color.prototype = {
+		fromHex: function (hex) {
+			hex = String(hex || '');
+			if (hex.length > 0) {
+				if (hex[0] === '#') {
+					hex = hex.slice(1);
+				}
+				if (hex.length === 3) {
+					hex = hex[0] + hex[0] + hex[1] + hex[1] + hex[2] + hex[2]; 
+				}
+				var red = parseInt(hex.slice(0, 2), 16),
+					green = parseInt(hex.slice(2, 4), 16),
+					blue = parseInt(hex.slice(4, 6), 16);
+
+				this.setRed(isNaN(red) ? 0 : red);
+				this.setGreen(isNaN(green) ? 0 : green);
+				this.setBlue(isNaN(blue) ? 0 : blue);
+			} else {
+				this.setRed(0);
+				this.setGreen(0);
+				this.setBlue(0);
+			}
+			return this;
+		},
+		setRed: function (R) {
+			if (R !== undefined) {
+				this.red = Math.min(255, Math.max(0, parseInt(R)));
+			}
+			return this;
+		},
+		getRed: function () {
+			return this.red;
+		},
+		setGreen: function (G) {
+			if (G !== undefined) {
+				this.green = Math.min(255, Math.max(0, parseInt(G)));
+			}
+			return this;
+		},
+		getGreen: function () {
+			return this.green;
+		},
+		setBlue: function (B) {
+			if (B !== undefined) {
+				this.blue = Math.min(255, Math.max(0, parseInt(B)));
+			}
+			return this;
+		},
+		getBlue: function () {
+			return this.blue;
+		},
+		toString: function (mode) {
+			var colorString = '';
+			switch (mode) {
+				case 'rgb':
+					colorString = 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')';
+					break;
+				case 'rgba':
+					colorString = 'rgba(' + this.red + ', ' + this.green + ', ' + this.blue + ', 1)';
+					break;
+				case 'hsl':
+					var HSL = ColorMix.ColorSpace.RGBtoHSL(this.red, this.green, this.blue);
+					colorString = 'hsl(' +  HSL.hue + ', ' + HSL.sat + '%, ' + HSL.lig + '%)';
+					break;
+				case 'hsla':
+					var HSL = ColorMix.ColorSpace.RGBtoHSL(this.red, this.green, this.blue);
+					colorString = 'hsla(' +  HSL.hue + ', ' + HSL.sat + '%, ' + HSL.lig + '%, 1)';
+					break;
+				case 'hex':
+				default:
+					colorString = '#' + ((1 << 24) + (this.red << 16) + (this.green << 8) + this.blue).toString(16).slice(1);
+					break;
+			}
+			return colorString; 
+		},
+		useAsBackground: function (selector) {
+			selector = String(selector);
+			if (selector.length > 0) {
+				if (window.jQuery !== undefined) {
+					window.jQuery(selector).css('background-color', 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')');
+				} else {
+					var elts,
+						i;
+					if (typeof selector === 'string') {
+						switch (selector[0]) {
+							case '#':
+								elts = document.getElementById(selector);
+								break;
+							case '.':
+								if (document.getElementsByClassName) {
+									elts = document.getElementsByClassName(selector);
+								} else {
+									elts = [];
+									var DOMelts = document.getElementsByTagName('*');
+									i = DOMelts.length;
+									while (i--) {
+										if (DOMelts[i].className === selector.slice(1)) {
+											elts.push(DOMelts[i]);
+										}
+									}
+								}
+								break;
+							default:
+								elts = document.getElementsByTagName(selector);
+								break;
+						}
+					}
+					i = elts.length;
+					while (i--) {
+						elts[i].style['background-color'] = 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')';
+					}
+				}
+			}
+			return this;
+		},
+		useAsColor: function (selector) {
+			selector = String(selector);
+			if (selector.length > 0) {
+				if (window.jQuery !== undefined) {
+					window.jQuery(selector).css('color', 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')');
+				} else {
+					var elts,
+						i;
+					if (typeof selector === 'string') {
+						switch (selector[0]) {
+							case '#':
+								elts = document.getElementById(selector);
+								break;
+							case '.':
+								if (document.getElementsByClassName) {
+									elts = document.getElementsByClassName(selector);
+								} else {
+									elts = [];
+									var DOMelts = document.getElementsByTagName('*');
+									i = DOMelts.length;
+									while (i--) {
+										if (DOMelts[i].className === selector.slice(1)) {
+											elts.push(DOMelts[i]);
+										}
+									}
+								}
+								break;
+							default:
+								elts = document.getElementsByTagName(selector);
+								break;
+						}
+					}
+					i = elts.length;
+					while (i--) {
+						elts[i].style['color'] = 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')';
+					}
+				}
+			}
+			return this;
+		}
+	}
+
 	return {
 		'Color': Color,
 		'ColorSpace': ColorSpace,
@@ -487,13 +488,13 @@ var ColorMix = (function () {
 			return new ColorMix.Color(RGB.red, RGB.green, RGB.blue);
 		},
 		'setGradient': function (newGradient) {
-			if (newGradient !== undefined && Object.prototype.toString.call(newGradient) !== '[object Array]') {
-				gradient = newGradient;
-				return this;
+			if (newGradient !== undefined && Object.prototype.toString.call(newGradient) === '[object Array]') {
+				_gradient = newGradient;
 			}
+			return this;
 		},
 		'getGradient': function () {
-			return gradient;
+			return _gradient;
 		},
 		'blend': function (reference) {
 			if (reference === undefined) {
@@ -506,9 +507,9 @@ var ColorMix = (function () {
 			}
 
 			var i,
-				l = gradient.length,
-				previous = gradient[0],
-				next = gradient[l - 1],
+				l = _gradient.length,
+				previous = _gradient[0],
+				next = _gradient[l - 1],
 				C1,
 				C2;
 
@@ -520,7 +521,7 @@ var ColorMix = (function () {
 			}
 
 			while (l--) {
-				var step = gradient[l];
+				var step = _gradient[l];
 				if (step.reference <= reference && step.reference > previous.reference) {
 					previous = step;
 				} else if (step.reference >= reference && step.reference < next.reference) {
