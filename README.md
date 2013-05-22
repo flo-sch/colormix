@@ -3,7 +3,9 @@
 ColorMix.js makes it easy to manipulate Color objects in RGB, HSL, XYZ and Lab color spaces.
 It allows you to mix, blend and render these colors with a gradient some colors.
 
-Authored and currently maintained by [Flo-Schield-Bobby](http://florentschildknecht.com).
+Authored and currently maintained by [Flo-Schield-Bobby](http://florentschildknecht.com/).
+
+Please refer to the [website](http://colormix.florentschildknecht.com/) to get started or watch the complete documentation!
 
 ##### Contributions are welcome !
 
