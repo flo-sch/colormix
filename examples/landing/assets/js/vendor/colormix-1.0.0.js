@@ -59,7 +59,7 @@ var ColorMix = (function () {
 			},
 			setRed: function (R) {
 				if (R !== undefined) {
-					this.red = Math.min(0, Math.max(255, parseInt(R)));
+					this.red = Math.min(255, Math.max(0, parseInt(R)));
 				}
 				return this;
 			},
@@ -68,7 +68,7 @@ var ColorMix = (function () {
 			},
 			setGreen: function (G) {
 				if (G !== undefined) {
-					this.green = Math.min(0, Math.max(255, parseInt(G)));
+					this.green = Math.min(255, Math.max(0, parseInt(G)));
 				}
 				return this;
 			},
@@ -77,7 +77,7 @@ var ColorMix = (function () {
 			},
 			setBlue: function (B) {
 				if (B !== undefined) {
-					this.blue = Math.min(0, Math.max(255, parseInt(B)));
+					this.blue = Math.min(255, Math.max(0, parseInt(B)));
 				}
 				return this;
 			},

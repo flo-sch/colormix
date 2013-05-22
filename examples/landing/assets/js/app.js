@@ -7,7 +7,7 @@ $(function () {
 			var c1 = new ColorMix.Color($color1.val()),
 				c2 = new ColorMix.Color($color2.val()),
 				mix = ColorMix.mix([c1, c2], [50, 50]);
-
+			
 			mix.useAsBackground($mix.selector);
 			$mix.empty().append($('<div>', {
 				'class': 'color-1'
