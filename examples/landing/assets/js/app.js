@@ -53,7 +53,8 @@ SDK.Weather = (function () {
 				url: url,
 				type: 'get',
 				data: data,
-				dataType: config.dataType
+				dataType: config.dataType,
+				crossDomain: true
 			}).done(function (response, status, XHR) {
 				config.callback.apply(config.scope, [true, response, status, XHR]);
 			}).fail(function (XHR, status, error) {
@@ -130,7 +131,8 @@ $(function () {
 				load = function () {
 					var weather = this;
 					SDK.Weather.load({
-						city: _location,
+						dataType: 'jsonp',
+						location: _location,
 						callback: function (success, response, status, XHR) {
 							if (success) {
 								_data = response.data;
@@ -192,22 +194,8 @@ $(function () {
 			$(this).val(e.color.toHex()).css('background-color', e.color.toHex());
 			mixColors();
 		}
-	})
-	/*
-	$color2.ColorPicker({
-		onChange: function (hsb, hex, rgb) {
-			$color2.val('#' + hex).css('background-color', 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b +')');
-			mixColors();
-		},
-		onSubmit: function(hsb, hex, rgb, el) {
-			$(el).val('#' + hex).css('background-color', 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b +')');
-			$(el).ColorPickerHide();
-		},
-		onBeforeShow: function () {
-			$(this).ColorPickerSetColor(this.value);
-		}
 	});
-	*/
+
 	$form.on({
 		submit: function (e) {
 			e.preventDefault();
