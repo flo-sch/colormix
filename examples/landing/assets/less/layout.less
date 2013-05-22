@@ -52,14 +52,14 @@ html {
 						position: absolute;
 						left: 0;
 						top: 0;
-						width: 10px;
+						width: 5%;
 						height: 100%;
 					}
 					.color-2 {
 						position: absolute;
 						right: 0;
 						top: 0;
-						width: 10px;
+						width: 5%;
 						height: 100%;
 					}
 					.color-values-container {
@@ -81,8 +81,12 @@ html {
 				}
 			}
 			#documentation {
-				> h5 {
-					margin: 5px 0;
+				#root-object {
+					margin: 0;
+					&:before {
+						content: '{Singleton} - ';
+					}
+					color: rgb(241, 196, 15);
 				}
 				ul {
 					&#colormix {
