@@ -10,12 +10,18 @@ $(function () {
 
 			mix.useAsBackground($mix.selector);
 			$mix.empty().append($('<div>', {
+				'class': 'color-1'
+			}).css('background-color', $color1.val())).append($('<div>', {
+				'class': 'color-2'
+			}).css('background-color', $color2.val())).append($('<div>', {
+				'class': 'color-values-container'
+			}).append($('<div>', {
 				'class': 'color-value-rgb'
 			}).text(mix.toString('rgb'))).append($('<div>', {
 				'class': 'color-value-hsl'
 			}).text(mix.toString('hsl'))).append($('<div>', {
 				'class': 'color-value-hex'
-			}).text(mix.toString('hex')));
+			}).text(mix.toString('hex'))));
 		};
 
 	$color1.ColorPicker({
@@ -24,7 +30,6 @@ $(function () {
 			mixColors();
 		},
 		onSubmit: function(hsb, hex, rgb, el) {
-			console.log(this, el, rgb);
 			$(el).val('#' + hex).css('background-color', 'rgb(' + rgb.r + ', ' + rgb.g + ', ' + rgb.b +')');
 			$(el).ColorPickerHide();
 		},
