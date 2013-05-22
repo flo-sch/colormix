@@ -28,8 +28,14 @@
 						<div class="accordion-inner">
 							<h4>What is it ?</h4>
 							<p>A javascript library for mixing, blending and easily manipulating colors and color spaces [Hex, RGB, XYZ, HSL, Lab].</p>
-							<p>The mixing methods are using the <a href='http://en.wikipedia.org/wiki/Lab_color_space' target='_blank'>Lab color space</a>.</p>
-							<p>It means that your colors will first be converted to this schema, what can be a bit heavy / slow if you use it inside an interval as requestAnimationFrame.</p>
+							<p>
+								The mixing methods are using the <a href='http://en.wikipedia.org/wiki/Lab_color_space' target='_blank'>Lab color space</a>.
+								<br />
+								This color space is designed to approximate the human vision, that's why a Lab mix is closer to our vision than a RGB mix.
+							</p>
+							<p>
+								It means that your colors will first be converted to this schema, what can be a bit heavy / slow if you use it inside an interval as requestAnimationFrame.
+							</p>
 						</div>
 					</section>
 				</div>
@@ -160,32 +166,329 @@ color.useAsBackground('body');
 							<h5 class='documentation-singleton'>ColorMix</h5>
 							<ul>
 								<li class='documentation-class'>
-									<h6>Color(R, G, B)</h6>
-									<h6>Public properties</h6>
-									<ul>
-										<li class='documentation-property'>red</li>
-										<li class='documentation-property'>green</li>
-										<li class='documentation-property'>blue</li>
-									</ul>
-									<h6>Public methods</h6>
-									<ul>
-										<li class='documentation-method'>fromHex(hexString)</li>
-										<li class='documentation-method'>getRed()</li>
-										<li class='documentation-method'>setRed(R)</li>
-										<li class='documentation-method'>getGreen()</li>
-										<li class='documentation-method'>setGreen(G)</li>
-										<li class='documentation-method'>getBlue()</li>
-										<li class='documentation-method'>setBlue(B)</li>
-										<li class='documentation-method'>toString(mode)</li>
-										<li class='documentation-method'>useAsBackground(selector)</li>
-										<li class='documentation-method'>useAsColor(selector)</li>
-									</ul>
+									<h6 data-toggle='collapse' data-target='#colormix-color'>Color(R, G, B) - Create and manipulate a Color object</h6>
+									<div id='colormix-color' class='collapse'>
+										<h6>Public properties</h6>
+										<ul>
+											<li class='documentation-property'>
+												<span data-toggle='collapse' data-target='#documentation-red'>red</span>
+												<div id='documentation-red' class='collapse'><span class='documentation-type'>Integer</span> - The red value of the color [0 - 255]</div>
+											</li>
+											<li class='documentation-property'>
+												<span data-toggle='collapse' data-target='#documentation-green'>green</span>
+												<div id='documentation-green' class='collapse'><span class='documentation-type'>Integer</span> - The green value of the color [0 - 255]</div>
+											</li>
+											<li class='documentation-property'>
+												<span data-toggle='collapse' data-target='#documentation-blue'>blue</span>
+												<div id='documentation-blue' class='collapse'><span class='documentation-type'>Integer</span> - The blue value of the color [0 - 255]</div>
+											</li>
+										</ul>
+										<h6>Public methods</h6>
+										<ul>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-fromHex'>fromHex(hexString)</span>
+												<div id='documentation-fromHex' class='collapse'>
+													Set the RGB properties from an hexadecimal String. 
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument'><span class='documentation-argument-name'>hexString</span> (<span class='documentation-argument-type'>String</span>) - hexString to set: ['(#)RRGGBB', '(#)RGB']</li>
+													</ul>
+													<pre class='documentation-example'>var a = new ColorMix.Color().fromHex('#RRGGBB');</pre>
+													<div class='documentation-note'>The invalid Hex values will be replaced by 0.</div>
+													<div class='documentation-tags'>Chainable</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-getRed'>getRed()</span>
+												<div id='documentation-getRed' class='collapse'>
+													Getter - returns the red value of the color
+													<pre class='documentation-example'>var red = new ColorMix.Color(255, 255, 255).getRed();</pre>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-setRed'>setRed(R)</span>
+												<div id='documentation-setRed' class='collapse'>
+													Setter - set the red value for a color, and returns the color instance.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument'><span class='documentation-argument-name'>R</span> (<span class='documentation-argument-type'>Integer</span>) - red value to set: [0 - 255]</li>
+													</ul>
+													<pre class='documentation-example'>var red = new ColorMix.Color(255, 255, 255).setRed(0);</pre>
+													<div class='documentation-tags'>Chainable</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-getGreen'>getGreen()</span>
+												<div id='documentation-getGreen' class='collapse'>
+													Getter - returns the green value of the color
+													<pre class='documentation-example'>var green = new ColorMix.Color(255, 255, 255).getGreen();</pre>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-setGreen'>setGreen(G)</span>
+												<div id='documentation-setGreen' class='collapse'>
+													Setter - set the green value for a color, and returns the color instance.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument'><span class='documentation-argument-name'>G</span> (<span class='documentation-argument-type'>Integer</span>) - green value to set: [0 - 255]</li>
+													</ul>
+													<pre class='documentation-example'>var green = new ColorMix.Color(255, 255, 255).setGreen(0);</pre>
+													<div class='documentation-tags'>Chainable</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-getBlue'>getBlue()</span>
+												<div id='documentation-getBlue' class='collapse'>
+													Getter - returns the blue value of the color
+													<pre class='documentation-example'>var blue = new ColorMix.Color(255, 255, 255).getBlue();</pre>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-setBlue'>setBlue(B)</span>
+												<div id='documentation-setBlue' class='collapse'>
+													Setter - set the blue value for a color, and returns the color instance.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument'><span class='documentation-argument-name'>B</span> (<span class='documentation-argument-type'>Integer</span>) - blue value to set: [0 - 255]</li>
+													</ul>
+													<pre class='documentation-example'>var blue = new ColorMix.Color(255, 255, 255).setBlue(0);</pre>
+													<div class='documentation-tags'>Chainable</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-toString'>toString(mode)</span>
+												<div id='documentation-toString' class='collapse'>
+													Format the color for a given mode. Returns a string representation of the color.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument'><span class='documentation-argument-name'>mode</span> (<span class='documentation-argument-type'>String</span>) - format mode: ['hex', 'rgb', 'rgba', 'hsl', 'hsla']</li>
+													</ul>
+													<pre class='documentation-example'>var colorName = new ColorMix.Color(255, 255, 255).toString('rgb'); // colorName = rgb(255, 255, 255);</pre>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-useAsBackground'>useAsBackground(selector)</span>
+												<div id='documentation-useAsBackground' class='collapse'>
+													Set this color as CSS background-color for a given selector. Returns the colors instance.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument'><span class='documentation-argument-name'>selector</span> (<span class='documentation-argument-type'>String</span>) - element selector: ['#(id)', '.(class)', '(tag)']</li>
+													</ul>
+													<div class='documentation-note'>Without jQuery, it may not works for some complex selectors like tag#id or tag.class.</div>
+													<pre class='documentation-example'>var colorName = new ColorMix.Color(255, 255, 255).useAsBackground('body'); // &lt;body&gt;.style.backgroundColor = rgb(255, 255, 255);</pre>
+													<div class='documentation-tags'>Chainable</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-useAsColor'>useAsColor(selector)</span>
+												<div id='documentation-useAsColor' class='collapse'>
+													Set this color as CSS color for a given selector. Returns the colors instance.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument'><span class='documentation-argument-name'>selector</span> (<span class='documentation-argument-type'>String</span>) - element selector: ['#(id)', '.(class)', '(tag)']</li>
+													</ul>
+													<div class='documentation-note'>Without jQuery, it may not works for some complex selectors like tag#id or tag.class.</div>
+													<pre class='documentation-example'>var colorName = new ColorMix.Color(255, 255, 255).useAsColor('body'); // &lt;body&gt;.style.color = rgb(255, 255, 255);</pre>
+													<div class='documentation-tags'>Chainable</div>
+												</div>
+											</li>
+										</ul>
+									</div>
 								</li>
-								<li class='documentation-singleton'>ColorSpace</li>
-								<li class='documentation-method'>mix()</li>
-								<li class='documentation-method'>getGradient()</li>
-								<li class='documentation-method'>setGradient(gradient)</li>
-								<li class='documentation-method'>blend(colors, percents)</li>
+								<li class='documentation-singleton'>
+									<h6 data-toggle='collapse' data-target='#colormix-colorspace'>ColorSpace - Convert colors from a color space to another one and mix colors in Lab space</h6>
+									<div id='colormix-colorspace' class='collapse'>
+										<h6>Public methods</h6>
+										<ul>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-RGB'>RGB(R, G, B)</span>
+												<div id='documentation-RGB' class='collapse'>
+													Create and returns an RGB-color object
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>R</span> (<span class='documentation-argument-type'>Integer</span>) - red value to set: [0 - 255]</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>G</span> (<span class='documentation-argument-type'>Integer</span>) - green value to set: [0 - 255]</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>B</span> (<span class='documentation-argument-type'>Integer</span>) - blue value to set: [0 - 255]</li>
+													</ul>
+													<pre class='documentation-example'>var RGB = new ColorMix.ColorSpace.RGB(255, 255, 255); // { red: 255, green: 255, blue: 255 }</pre>
+													<div class='documentation-note'>The invalid values will be replaced by 0.</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-XYZ'>XYZ(X, Y, Z)</span>
+												<div id='documentation-XYZ' class='collapse'>
+													Create and returns an XYZ-color object
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>X</span> (<span class='documentation-argument-type'>Float</span>) - X value to set</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>Y</span> (<span class='documentation-argument-type'>Float</span>) - Y value to set</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>Z</span> (<span class='documentation-argument-type'>Float</span>) - Z value to set</li>
+													</ul>
+													<pre class='documentation-example'>var XYZ = new ColorMix.ColorSpace.XYZ(0, 0, 0); // { x: 0, y: 0, z: 0 }</pre>
+													<div class='documentation-note'>The invalid values will be replaced by 0.</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-HSL'>HSL(H, S, L)</span>
+												<div id='documentation-HSL' class='collapse'>
+													Create and returns an HSL-color object
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>H</span> (<span class='documentation-argument-type'>Integer</span>) - H value to set: [0 - 360]</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>S</span> (<span class='documentation-argument-type'>Integer</span>) - S value to set: [0 - 100]</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>L</span> (<span class='documentation-argument-type'>Integer</span>) - L value to set: [0 - 100]</li>
+													</ul>
+													<pre class='documentation-example'>var HSL = new ColorMix.ColorSpace.HSL(360, 100, 100); // { hue: 360, sat: 100, lig: 100 }</pre>
+													<div class='documentation-note'>The invalid values will be replaced by 0.</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-Lab'>Lab(L, a, b)</span>
+												<div id='documentation-Lab' class='collapse'>
+													Create and returns an Lab-color object
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>L</span> (<span class='documentation-argument-type'>Float</span>) - L value to set: [0 - 100]</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>a</span> (<span class='documentation-argument-type'>Float</span>) - a value to set</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>b</span> (<span class='documentation-argument-type'>Float</span>) - b value to set</li>
+													</ul>
+													<pre class='documentation-example'>var Lab = new ColorMix.ColorSpace.Lab(100, 0, 0); // { L: 100, a: 0, b: 0 }</pre>
+													<div class='documentation-note'>The invalid values will be replaced by 0.0.</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-RGBtoXYZ'>RGBtoXYZ(R, G, B)</span>
+												<div id='documentation-RGBtoXYZ' class='collapse'>
+													Convert a RGB color to a XYZ one and returns a XYZ-color object.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>R</span> (<span class='documentation-argument-type'>Integer</span>) - R value to convert: [0 - 255]</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>G</span> (<span class='documentation-argument-type'>Integer</span>) - G value to convert: [0 - 255]</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>B</span> (<span class='documentation-argument-type'>Integer</span>) - B value to convert: [0 - 255]</li>
+													</ul>
+													<pre class='documentation-example'>var XYZ = new ColorMix.ColorSpace.RGBtoXYZ(255, 255, 255); // { x: 95, y: 100, z: 108 }</pre>
+													<div class='documentation-note'>The invalid values will be replaced by 0.0.</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-RGBtoHSL'>RGBtoHSL(R, G, B)</span>
+												<div id='documentation-RGBtoHSL' class='collapse'>
+													Convert a RGB color to a HSL one and returns a HSL-color object.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>R</span> (<span class='documentation-argument-type'>Integer</span>) - R value to convert: [0 - 255]</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>G</span> (<span class='documentation-argument-type'>Integer</span>) - G value to convert: [0 - 255]</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>B</span> (<span class='documentation-argument-type'>Integer</span>) - B value to convert: [0 - 255]</li>
+													</ul>
+													<pre class='documentation-example'>var HSL = new ColorMix.ColorSpace.RGBtoHSL(255, 255, 255); // { hue: 0, sat: 0, lig: 100 }</pre>
+													<div class='documentation-note'>The invalid values will be replaced by 0.</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-RGBtoHSL'>RGBtoLab(R, G, B)</span>
+												<div id='documentation-RGBtoLab' class='collapse'>
+													Convert a RGB color to a Lab one and returns a Lab-color object.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>R</span> (<span class='documentation-argument-type'>Integer</span>) - R value to convert: [0 - 255]</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>G</span> (<span class='documentation-argument-type'>Integer</span>) - G value to convert: [0 - 255]</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>B</span> (<span class='documentation-argument-type'>Integer</span>) - B value to convert: [0 - 255]</li>
+													</ul>
+													<pre class='documentation-example'>var Lab = new ColorMix.ColorSpace.RGBtoLab(255, 255, 255); // { L: 100, a: 0, b: 0 }</pre>
+													<div class='documentation-note'>The invalid values will be replaced by 0.0.</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-XYZtoRGB'>XYZtoRGB(X, Y, Z)</span>
+												<div id='documentation-XYZtoRGB' class='collapse'>
+													Convert a XYZ color to a RGB one and returns a RGB-color object.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>X</span> (<span class='documentation-argument-type'>Float</span>) - X value to convert</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>Y</span> (<span class='documentation-argument-type'>Float</span>) - Y value to convert</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>Z</span> (<span class='documentation-argument-type'>Float</span>) - Z value to convert</li>
+													</ul>
+													<pre class='documentation-example'>var RGB = new ColorMix.ColorSpace.XYZtoRGB(50, 50, 50); // { red: 204, green: 183, blue: 180 }</pre>
+													<div class='documentation-note'>The invalid values will be replaced by 0.</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-XYZtoLab'>XYZtoLab(X, Y, Z)</span>
+												<div id='documentation-XYZtoLab' class='collapse'>
+													Convert a XYZ color to a Lab one and returns a Lab-color object.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>X</span> (<span class='documentation-argument-type'>Float</span>) - X value to convert</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>Y</span> (<span class='documentation-argument-type'>Float</span>) - Y value to convert</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>Z</span> (<span class='documentation-argument-type'>Float</span>) - Z value to convert</li>
+													</ul>
+													<pre class='documentation-example'>var Lab = new ColorMix.ColorSpace.XYZtoLab(50, 50, 50); // { L: 76.06926101415557, a: 6.777038667061586, b: 4.4398523641493215 }</pre>
+													<div class='documentation-note'>The invalid values will be replaced by 0.0.</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-LabtoRGB'>LabtoRGB(L, a, b)</span>
+												<div id='documentation-LabtoRGB' class='collapse'>
+													Convert a XYZ color to a Lab one and returns a Lab-color object.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>L</span> (<span class='documentation-argument-type'>Float</span>) - L value to convert</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>a</span> (<span class='documentation-argument-type'>Float</span>) - a value to convert</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>b</span> (<span class='documentation-argument-type'>Float</span>) - b value to convert</li>
+													</ul>
+													<pre class='documentation-example'>var RGB = new ColorMix.ColorSpace.LabtoRGB(100, 0.00526049995830391, -0.010408184525267927); // { red: 255, green: 255, blue: 255 }</pre>
+													<div class='documentation-note'>The invalid values will be replaced by 0.</div>
+												</div>
+											</li>
+											<li class='documentation-method'>
+												<span data-toggle='collapse' data-target='#documentation-LabtoXYZ'>LabtoXYZ(L, a, b)</span>
+												<div id='documentation-LabtoXYZ' class='collapse'>
+													Convert a XYZ color to a Lab one and returns a Lab-color object.
+													<ul class='documentation-arguments'>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>L</span> (<span class='documentation-argument-type'>Float</span>) - L value to convert</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>a</span> (<span class='documentation-argument-type'>Float</span>) - a value to convert</li>
+														<li class='documentation-argument required'><span class='documentation-argument-name'>b</span> (<span class='documentation-argument-type'>Float</span>) - b value to convert</li>
+													</ul>
+													<pre class='documentation-example'>var XYZ = new ColorMix.ColorSpace.LabtoXYZ(100, 0.00526049995830391, -0.010408184525267927); // { x: 95.05, y: 100, z: 108.89999999999996 }</pre>
+													<div class='documentation-note'>The invalid values will be replaced by 0.0.</div>
+												</div>
+											</li>
+										</ul>
+									</div>
+								</li>
+								<li class='documentation-method'>
+									<h6 data-toggle='collapse' data-target='#documentation-mix'>mix(colors, percents)</h6>
+									<div id='documentation-mix' class='collapse'>
+										Mix an array of colors with corresponding percents
+										<ul class='documentation-arguments'>
+											<li class='documentation-argument required'><span class='documentation-argument-name'>colors</span> (<span class='documentation-argument-type'>Array</span>) - ColorMix.Color instances to mix, at leat 1.</li>
+											<li class='documentation-argument required'><span class='documentation-argument-name'>percents</span> (<span class='documentation-argument-type'>Array</span>) - percents integer of each color instance. The sum must be equal to 100.</li>
+										</ul>
+<pre class='documentation-example'>var C1 = new ColorMix.Color(0, 152, 204),
+C2 = new ColorMix.Color(0, 120, 240),
+mix = ColorMix.mix([C1, C2], [50, 50]); // ColorMix.Color { red: 18, green: 136, blue: 222 } --> Average between C1 and C2 in Lab color space
+</pre>
+										<div class='documentation-note'>Your parameters should be array of same size.</div>
+										<div class='documentation-note'>The sum of all the "percents" parameter items should be equal to 100.</div>
+										<div class='documentation-note'>You can of course mix several colors!</div>
+									</div>
+								</li>
+								<li class='documentation-method'>
+									<h6 data-toggle='collapse' data-target='#documentation-getGradient'>getGradient()</h6>
+									<div id='documentation-getGradient' class='collapse'>
+										Getter - returns the gradient of the ColorMix.
+										<pre class='documentation-example'>var gradient = new ColorMix.getGradient(); // [{ reference: (reference), color: (color) }]</pre>
+									</div>
+								</li>
+								<li class='documentation-method'>
+									<h6 data-toggle='collapse' data-target='#documentation-setGradient'>setGradient(gradient)</h6>
+									<div id='documentation-setGradient' class='collapse'>
+										Setter - set the gradient for the ColorMix.
+										<ul class='documentation-arguments'>
+											<li class='documentation-argument'><span class='documentation-argument-name'>gradient</span> (<span class='documentation-argument-type'>Array</span>) - Gradient items objects. All these objects must have two properties: "reference", the integer value that will be used to blend, and "color", a simple RGB object with red, green and blue properties, that will be used for mixing.</li>
+										</ul>
+<pre class='documentation-example'>ColorMix.setGradient([
+	{ reference: -100, color: { red: 0, green: 0, blue: 0 } },
+	{ reference: 100, color: { red: 255, green: 255, blue: 255 } }
+]);</pre>
+										<div class='documentation-note'>The more detailled the gradient is, the more precise your blending will be.</div>
+									</div>
+								</li>
+								<li class='documentation-method'>
+									<h6 data-toggle='collapse' data-target='#documentation-blend'>blend(reference)</h6>
+									<div id='documentation-blend' class='collapse'>
+										Blend a reference with the gradient and returns the mixed color instance.
+										<ul class='documentation-arguments'>
+											<li class='documentation-argument'><span class='documentation-argument-name'>reference</span> (<span class='documentation-argument-type'>Integer</span>) - reference to blend.</li>
+										</ul>
+										<pre class='documentation-example'>var blend = ColorMix.blend(50); // ColorMix.Color { red: (red), green: (green), blue: (blue) }</pre>
+										<div class='documentation-note'>This method is directly depending of the gradient you should have set before.</div>
+										<div class='documentation-note'>If the reference is out of bounds relative to the gradient, the closest limit color of the gradient will be returned.</div>
+									</div>
+								</li>
 							</ul>
 						</div>
 					</section>
