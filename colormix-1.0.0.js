@@ -456,8 +456,14 @@ var ColorMix = (function () {
 			if (colors === undefined || Object.prototype.toString.call(colors) !== '[object Array]') {
 				throw '"ColorMix.mix()" first parameter should be an array of ColorMix.Color objects';
 			}
-			if (percents === undefined || Object.prototype.toString.call(percents) !== '[object Array]') {
-				throw '"ColorMix.mix()" second parameter should be an array of percents. (integer values)';
+			if (percents === undefined) {
+				percents = [];
+				var i = colors.length;
+				while (i-- > 0) {
+					percents[i] = 100 / colors.length;
+				}
+			} else if (Object.prototype.toString.call(percents) !== '[object Array]') {
+				throw '"ColorMix.mix()" second parameter should be an array of percents. (nnumber values)';
 			}
 			if (colors.length !== percents.length) {
 				throw '"ColorMix.mix()" parameters should be arrays of the same size !';
