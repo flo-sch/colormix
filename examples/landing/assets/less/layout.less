@@ -32,8 +32,13 @@ html {
 				}
 			}
 			#what-is-it {
-				#buy-me-a-beer-form {
-					position: relative;
+				#buy-me-a-beer {
+					> form,
+					> p {
+						display: inline-block;
+						position: relative;
+						margin: 0;
+					}
 					#buy-me-a-beer-icon {
 						position: absolute;
 						top: 9px;
