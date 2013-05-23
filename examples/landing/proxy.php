@@ -14,6 +14,8 @@
 		case 'xml':
 			header("Content-Type: text/xml"); 	
 			break;
+		case 'jsonp':
+			header("Content-Type: application/javascript");
 		case 'json':
 		default:
 			header("Content-Type: application/json");

@@ -101,9 +101,9 @@ $(function () {
 					if (ColorMix) {
 						ColorMix.setGradient([
 							{ reference: -30, color: { red: 123, green: 219, blue: 243 } },
-							{ reference: -27.5, color: { red: 124, green: 217, blue: 238 	} },
+							{ reference: -27.5, color: { red: 124, green: 217, blue: 238 } },
 							{ reference: -25, color: { red: 128, green: 214, blue: 233 } },
-							{ reference: -22.5, color: { red: 128, green: 214, blue: 233 	} },
+							{ reference: -22.5, color: { red: 128, green: 214, blue: 233 } },
 							{ reference: -20, color: { red: 136, green: 207, blue: 219 } },
 							{ reference: -17.5, color: { red: 141, green: 203, blue: 212 } },
 							{ reference: -15, color: { red: 146, green: 204, blue: 243 } },
