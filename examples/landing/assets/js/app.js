@@ -44,11 +44,12 @@ SDK.Weather = (function () {
 				};
 
 			// Escape the URL and call the proxy.php file that will solve the Access-Control-Allow-Origin problem while working on localhost.
+			/*
 			if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
 				url = 'proxy.php?type=' + config.dataType + '&url=' + encodeURIComponent(url + '?key=' + _key + '&q=' + config.location + '&format=' + config.format + '&num_of_days=' + config.days + '&includelocation=' + (config.location === true ? 'yes' : 'no') + '&show_comments=' + (config.comments === true ? 'yes' : 'no'));
 				data = null;
 			}
-
+			*/
 			$.ajax({
 				url: url,
 				type: 'get',
@@ -147,8 +148,8 @@ $(function () {
 				},
 				displayWeather = function () {
 					if ($target.length > 0) {
-						$target.css('background-color', ColorMix.blend(_data.current_condition[0].temp_C)).empty().append($('<div>', {
-							'class': 'widget-weather-location',
+						$target.empty().append($('<div>', {
+							'class': 'widget-weather-location'
 						}).text(_location)).append($('<div>', {
 							'class': 'widget-weather-temperature'
 						}).text(_data.current_condition[0].temp_C + ' °C')).append($('<div>', {
@@ -165,7 +166,7 @@ $(function () {
 							'class': 'widget-weather-humidity-container'
 						}).append($('<span>', {
 							'class': 'widget-weather-humidity-value'
-						}).text(_data.current_condition[0].humidity + ' %')))));
+						}).text(_data.current_condition[0].humidity + ' %'))))).css('backgroundColor', ColorMix.blend(_data.current_condition[0].temp_C).toString('rgb'));
 					}
 				};
 
