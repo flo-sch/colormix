@@ -1,0 +1,273 @@
+html {
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+}
+html body {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+html body #app {
+  min-height: 100%;
+  height: auto !important;
+  height: auto;
+  margin: 0 auto -60px auto;
+}
+html body #app .github-ribbon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+}
+html body #app .jumbotron {
+  margin: 50px 0;
+  text-align: center;
+}
+html body #app .jumbotron .btn {
+  padding: 14px 24px;
+}
+html body #app #what-is-it #buy-me-a-beer > form,
+html body #app #what-is-it #buy-me-a-beer > p {
+  display: inline-block;
+  position: relative;
+  margin: 0;
+}
+html body #app #what-is-it #buy-me-a-beer #buy-me-a-beer-icon {
+  position: absolute;
+  top: 9px;
+  left: 8px;
+}
+html body #app #what-is-it #buy-me-a-beer #buy-me-a-beer-input {
+  padding: 4px 12px 4px 26px;
+}
+html body #app #demo #form-mix {
+  margin: 0;
+}
+html body #app #demo #form-mix input {
+  margin: 0;
+}
+html body #app #demo #form-mix input#color-1,
+html body #app #demo #form-mix input#color-2 {
+  width: 60px;
+  height: 20px;
+}
+html body #app #demo #color-mix {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 120px;
+}
+html body #app #demo #color-mix .color-1 {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 5%;
+  height: 100%;
+}
+html body #app #demo #color-mix .color-2 {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 5%;
+  height: 100%;
+}
+html body #app #demo #color-mix .color-values-container {
+  display: table;
+  table-layout: fixed;
+  position: relative;
+  width: 100%;
+  height: 120px;
+}
+html body #app #demo #color-mix .color-values-container .color-value-rgb {
+  display: table-cell;
+  vertical-align: middle;
+}
+html body #app #demo #color-mix .color-values-container .color-value-hsl {
+  display: table-cell;
+  vertical-align: middle;
+}
+html body #app #demo #color-mix .color-values-container .color-value-hex {
+  display: table-cell;
+  vertical-align: middle;
+}
+html body #app #documentation #root-object {
+  margin: 0;
+  color: #f1c40f;
+}
+html body #app #documentation #root-object:before {
+  content: '{Singleton} - ';
+}
+html body #app #documentation ul#colormix {
+  margin: 0 0 0 25px;
+}
+html body #app #documentation ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  list-style-type: none;
+  list-style-image: url('../images/icon-minus.png');
+}
+html body #app #documentation ul li:last-child {
+  border: none;
+}
+html body #app #documentation ul li.collapsed {
+  list-style-image: url('../images/icon-plus.png');
+}
+html body #app #documentation ul li .collapse > :first-child {
+  margin-top: 15px;
+}
+html body #app #documentation ul li .collapse h6 {
+  color: #34495e;
+  text-decoration: underline;
+}
+html body #app #documentation .documentation-singleton > h6,
+html body #app #documentation .documentation-singleton > span {
+  color: #f1c40f;
+}
+html body #app #documentation .documentation-singleton > h6:before,
+html body #app #documentation .documentation-singleton > span:before {
+  content: '{Singleton} - ';
+}
+html body #app #documentation .documentation-class > h6,
+html body #app #documentation .documentation-class > span {
+  color: #1abc9c;
+}
+html body #app #documentation .documentation-class > h6:before,
+html body #app #documentation .documentation-class > span:before {
+  content: '{Class} - ';
+}
+html body #app #documentation .documentation-class .documentation-property > h6,
+html body #app #documentation .documentation-class .documentation-property > span {
+  color: #2ecc71;
+}
+html body #app #documentation .documentation-class .documentation-property > h6:before,
+html body #app #documentation .documentation-class .documentation-property > span:before {
+  content: '{Property} - ';
+}
+html body #app #documentation .documentation-method > h6,
+html body #app #documentation .documentation-method > span {
+  color: #3498db;
+  cursor: pointer;
+}
+html body #app #documentation .documentation-method > h6:before,
+html body #app #documentation .documentation-method > span:before {
+  content: '{Method} - ';
+}
+html body #app #documentation .documentation-property h6,
+html body #app #documentation .documentation-singleton h6,
+html body #app #documentation .documentation-class h6,
+html body #app #documentation .documentation-method h6 {
+  margin: 0;
+}
+html body #app #documentation .documentation-property > span,
+html body #app #documentation .documentation-singleton > span,
+html body #app #documentation .documentation-class > span,
+html body #app #documentation .documentation-method > span,
+html body #app #documentation .documentation-property > h6,
+html body #app #documentation .documentation-singleton > h6,
+html body #app #documentation .documentation-class > h6,
+html body #app #documentation .documentation-method > h6 {
+  font-size: 14px;
+  cursor: pointer;
+}
+html body #app #documentation .documentation-property .documentation-label,
+html body #app #documentation .documentation-singleton .documentation-label,
+html body #app #documentation .documentation-class .documentation-label,
+html body #app #documentation .documentation-method .documentation-label {
+  margin: 4px 0;
+}
+html body #app #documentation .documentation-property .documentation-description,
+html body #app #documentation .documentation-singleton .documentation-description,
+html body #app #documentation .documentation-class .documentation-description,
+html body #app #documentation .documentation-method .documentation-description {
+  padding: 10px 0;
+  margin: 0;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: bold;
+  text-align: justify;
+}
+html body #app #documentation .documentation-property .documentation-example,
+html body #app #documentation .documentation-singleton .documentation-example,
+html body #app #documentation .documentation-class .documentation-example,
+html body #app #documentation .documentation-method .documentation-example {
+  margin: 10px 0;
+}
+html body #app #documentation .documentation-property .documentation-note,
+html body #app #documentation .documentation-singleton .documentation-note,
+html body #app #documentation .documentation-class .documentation-note,
+html body #app #documentation .documentation-method .documentation-note {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: justify;
+  color: #3a87ad;
+}
+html body #app #documentation .documentation-property .documentation-tags,
+html body #app #documentation .documentation-singleton .documentation-tags,
+html body #app #documentation .documentation-class .documentation-tags,
+html body #app #documentation .documentation-method .documentation-tags {
+  font-size: 12px;
+  font-weight: bold;
+  text-align: justify;
+  color: #468847;
+  padding: 10px 0;
+}
+html body #app #documentation .documentation-property .documentation-arguments,
+html body #app #documentation .documentation-singleton .documentation-arguments,
+html body #app #documentation .documentation-class .documentation-arguments,
+html body #app #documentation .documentation-method .documentation-arguments {
+  margin: 10px 0 10px 25px;
+}
+html body #app #documentation .documentation-property .documentation-arguments .documentation-argument,
+html body #app #documentation .documentation-singleton .documentation-arguments .documentation-argument,
+html body #app #documentation .documentation-class .documentation-arguments .documentation-argument,
+html body #app #documentation .documentation-method .documentation-arguments .documentation-argument {
+  list-style-type: circle;
+  list-style-image: none;
+  font-size: 12px;
+  text-align: justify;
+  padding: 2px 0;
+  border: none;
+}
+html body #app #documentation .documentation-property .documentation-arguments .documentation-argument.required .documentation-argument-name,
+html body #app #documentation .documentation-singleton .documentation-arguments .documentation-argument.required .documentation-argument-name,
+html body #app #documentation .documentation-class .documentation-arguments .documentation-argument.required .documentation-argument-name,
+html body #app #documentation .documentation-method .documentation-arguments .documentation-argument.required .documentation-argument-name {
+  color: #e77e22;
+}
+html body #app #documentation .documentation-property .documentation-arguments .documentation-argument.required .documentation-argument-name:after,
+html body #app #documentation .documentation-singleton .documentation-arguments .documentation-argument.required .documentation-argument-name:after,
+html body #app #documentation .documentation-class .documentation-arguments .documentation-argument.required .documentation-argument-name:after,
+html body #app #documentation .documentation-method .documentation-arguments .documentation-argument.required .documentation-argument-name:after {
+  content: ' [required]';
+}
+html body #app #documentation .documentation-property .documentation-arguments .documentation-argument .documentation-argument-name,
+html body #app #documentation .documentation-singleton .documentation-arguments .documentation-argument .documentation-argument-name,
+html body #app #documentation .documentation-class .documentation-arguments .documentation-argument .documentation-argument-name,
+html body #app #documentation .documentation-method .documentation-arguments .documentation-argument .documentation-argument-name {
+  text-decoration: underline;
+}
+html body #app #documentation .documentation-property .documentation-arguments .documentation-argument .documentation-argument-type,
+html body #app #documentation .documentation-singleton .documentation-arguments .documentation-argument .documentation-argument-type,
+html body #app #documentation .documentation-class .documentation-arguments .documentation-argument .documentation-argument-type,
+html body #app #documentation .documentation-method .documentation-arguments .documentation-argument .documentation-argument-type {
+  font-weight: bold;
+}
+html body #app .push {
+  width: 100%;
+  height: 60px;
+}
+html body footer {
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+html body .icon {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+html body .icon.icon-github {
+  width: 16px;
+  height: 16px;
+}
