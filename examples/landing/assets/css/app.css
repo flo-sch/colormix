@@ -43,6 +43,9 @@ html body #app .jumbotron .btn {
   padding: 14px 24px;
   font-size: 21px;
 }
+html body #app #app-content {
+  margin: 20px 0 0 0;
+}
 html body #app #what-is-it #buy-me-a-beer > form,
 html body #app #what-is-it #buy-me-a-beer > p {
   display: inline-block;
@@ -125,7 +128,6 @@ html body #app #demo #gradient {
   box-sizing: border-box;
   width: 100%;
   height: 120px;
-  margin: 10px 0;
   border-radius: 5px;
   border: 2px solid black;
 }

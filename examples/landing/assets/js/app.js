@@ -212,6 +212,7 @@ $(function () {
 	$appTitle.find('.character').each(function (i, character) {
 		ColorMix.blend(i).useAsColor($(this));
 	});
+	gradientise();
 
 	$averageMixingFirstColor.colorpicker().on({
 		changeColor: function (e) {
