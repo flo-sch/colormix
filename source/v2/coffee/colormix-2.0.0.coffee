@@ -1,4 +1,4 @@
-###
+###!
 # ColorMix JavaScript Library v2.0.0
 # http://color-mix.it
 #
@@ -24,9 +24,9 @@ ColorMix = do ->
         }
     }]
     Color = (R, G, B) ->
-        @.setRed 0
-        @.setGreen 0
-        @.setBlue 0
+        @.red = 0
+        @.green = 0
+        @.blue = 0
         if R != undefined
             if G != undefined and B != undefined
                 @.setRed parseInt(R)
@@ -42,33 +42,33 @@ ColorMix = do ->
                 if R == undefined or G == undefined or B == undefined
                     throw 'Invalid parameter(s) provided for "ColorMix.ColorSpace.RGB()"'
                 return {
-                    'red': isNaN(parseInt(R)) ? 0 : parseInt(R)
-                    'green': isNaN(parseInt(G)) ? 0 : parseInt(G)
-                    'blue': isNaN(parseInt(B)) ? 0 : parseInt(B)
+                    'red': if isNaN(parseInt(R)) then 0 else parseInt(R)
+                    'green': if isNaN(parseInt(G)) then 0 else parseInt(G)
+                    'blue': if isNaN(parseInt(B)) then 0 else parseInt(B)
                 }
             XYZ: (X, Y, Z) ->
                 if X == undefined or Y == undefined or Z == undefined
                     throw 'Invalid parameter(s) provided for "ColorMix.ColorSpace.XYZ()"'
                 return {
-                    'x': isNaN(parseFloat(X)) ? 0.0 : parseFloat(X)
-                    'y': isNaN(parseFloat(Y)) ? 0.0 : parseFloat(Y)
-                    'z': isNaN(parseFloat(Z)) ? 0.0 : parseFloat(Z)
+                    'x': if isNaN(parseFloat(X)) then 0.0 else parseFloat(X)
+                    'y': if isNaN(parseFloat(Y)) then 0.0 else parseFloat(Y)
+                    'z': if isNaN(parseFloat(Z)) then 0.0 else parseFloat(Z)
                 }
             HSL: (H, S, L) ->
                 if H == undefined or S == undefined or L == undefined
                     throw 'Invalid parameter(s) provided for "ColorMix.ColorSpace.HSL()"'
                 return {
-                    'hue': isNaN(parseInt(H)) ? 0.0 : parseInt(H)
-                    'sat': isNaN(parseInt(S)) ? 0.0 : parseInt(S)
-                    'lig': isNaN(parseInt(L)) ? 0.0 : parseInt(L)
+                    'hue': if isNaN(parseInt(H)) then 0.0 else parseInt(H)
+                    'sat': if isNaN(parseInt(S)) then 0.0 else parseInt(S)
+                    'lig': if isNaN(parseInt(L)) then 0.0 else parseInt(L)
                 }
             Lab: (L, a, b) ->
                 if L == undefined or a == undefined or b == undefined
                     throw 'Invalid parameter(s) provided for "ColorMix.ColorSpace.Lab()"'
                 return {
-                    'L': isNaN(parseFloat(L)) ? 0.0 : parseFloat(L)
-                    'a': isNaN(parseFloat(a)) ? 0.0 : parseFloat(a)
-                    'b': isNaN(parseFloat(b)) ? 0.0 : parseFloat(b)
+                    'L': if isNaN(parseFloat(L)) then 0.0 else parseFloat(L)
+                    'a': if isNaN(parseFloat(a)) then 0.0 else parseFloat(a)
+                    'b': if isNaN(parseFloat(b)) then 0.0 else parseFloat(b)
                 }
             RGBtoXYZ: (R, G, B) ->
                 if R != undefined and G != undefined and B != undefined
@@ -81,21 +81,9 @@ ColorMix = do ->
                 green = parseFloat RGB.green / 255 # G [0::255] as %
                 blue = parseFloat RGB.blue / 255 # B [0::255] as %
 
-                if red > 0.04045
-                    red = Math.pow (( red + 0.055) / 1.055), 2.4
-                else
-                    red /= 12.92
-                red *= 100
-                if green > 0.04045
-                    green = Math.pow ((green + 0.055) / 1.055), 2.4
-                else
-                    green /= 12.92
-                green *= 100
-                if blue > 0.04045
-                    blue = Math.pow ((blue + 0.055) / 1.055), 2.4
-                else
-                    blue /= 12.92
-                blue *= 100
+                red = 100 * (if red > 0.04045 then Math.pow (( red + 0.055) / 1.055), 2.4 else red /= 12.92)
+                green = 100 * (if green > 0.04045 then Math.pow ((green + 0.055) / 1.055), 2.4 else green /= 12.92)
+                blue = 100 * (if blue > 0.04045 then Math.pow ((blue + 0.055) / 1.055), 2.4 else blue /= 12.92)
 
                 return new @.XYZ red * 0.4124 + green * 0.3576 + blue * 0.1805, red * 0.2126 + green * 0.7152 + blue * 0.0722, red * 0.0193 + green * 0.1192 + blue * 0.9505
             XYZtoRGB: (X, Y, Z) ->
@@ -113,21 +101,9 @@ ColorMix = do ->
                 green = x * -0.9689 + y * 1.8758 + z * 0.0415
                 blue = x * 0.0557 + y * -0.2040 + z * 1.0570
 
-                if red > 0.0031308
-                    red = 1.055 * (Math.pow(red, (1 / 2.4))) - 0.055
-                else
-                    red *= 12.92
-                red *= 255
-                if green > 0.0031308
-                    green = 1.055 * (Math.pow(green, (1 / 2.4))) - 0.055
-                else
-                    green *= 12.92
-                green *= 255
-                if blue > 0.0031308
-                    blue = 1.055 * (Math.pow(blue, (1 / 2.4))) - 0.055
-                else
-                    blue *= 12.92
-                blue *= 255
+                red = 255 * (if red > 0.0031308 then 1.055 * (Math.pow(red, (1 / 2.4))) - 0.055 else red *= 12.92)
+                green = 255 * (if green > 0.0031308 then 1.055 * (Math.pow(green, (1 / 2.4))) - 0.055 else green *= 12.92)
+                blue = 255 * (if blue > 0.0031308 then 1.055 * (Math.pow(blue, (1 / 2.4))) - 0.055 else blue *= 12.92)
 
                 return new @.RGB Math.round(red), Math.round(green), Math.round(blue)
             RGBtoHSL: (R, G, B) ->
@@ -180,18 +156,9 @@ ColorMix = do ->
                 y = XYZ.y / 100.000
                 z = XYZ.z / 108.883
 
-                if x > 0.008856
-                    x = Math.pow(x,  (1 / 3))
-                else
-                    x = (7.787 * x) + 16 / 116
-                if y > 0.008856
-                    y = Math.pow(y,  (1 / 3))
-                else
-                    y = (7.787 * y) + 16 / 116
-                if z > 0.008856
-                    z = Math.pow(z,  (1 / 3))
-                else
-                    z = (7.787 * z) + 16 / 116
+                x = if x > 0.008856 then Math.pow(x,  (1 / 3)) else (7.787 * x) + 16 / 116
+                y = if y > 0.008856 then Math.pow(y,  (1 / 3)) else (7.787 * y) + 16 / 116
+                z = if z > 0.008856 then Math.pow(z,  (1 / 3)) else (7.787 * z) + 16 / 116
 
                 return new @.Lab (116 * y) - 16, 500 * (x - y), 200 * (y - z)
             LabtoXYZ: (L, a, b) ->
@@ -206,18 +173,9 @@ ColorMix = do ->
                 X = Lab.a / 500 + Y
                 Z = Y - Lab.b / 200
 
-                if Math.pow(Y, 3) > 0.008856
-                    Y = Math.pow Y, 3
-                else
-                    Y = (Y - 16 / 116) / 7.787
-                if Math.pow(X, 3) > 0.008856
-                    X = Math.pow X, 3
-                else
-                    X = (X - 16 / 116) / 7.787
-                if Math.pow(Z, 3) > 0.008856
-                    Z = Math.pow Z, 3
-                else
-                    Z = (Z - 16 / 116) / 7.787
+                Y = if Math.pow(Y, 3) > 0.008856 then Math.pow Y, 3 else (Y - 16 / 116) / 7.787
+                X = if Math.pow(X, 3) > 0.008856 then Math.pow X, 3 else (X - 16 / 116) / 7.787
+                Z = if Math.pow(Z, 3) > 0.008856 then Math.pow Z, 3 else (Z - 16 / 116) / 7.787
 
                 return new @.XYZ(X * 95.047, Y * 100.000, Z * 108.883)
             RGBtoLab: (R, G, B) ->
@@ -232,7 +190,7 @@ ColorMix = do ->
 
     Color.prototype = {
         fromHex: (hex) ->
-            hex = String(hex or '')
+            hex = String(hex) or ''
             if hex.length > 0
                 if hex[0] == '#'
                     hex = hex.slice 1
@@ -241,10 +199,9 @@ ColorMix = do ->
                 red = parseInt hex.slice(0, 2), 16
                 green = parseInt hex.slice(2, 4), 16
                 blue = parseInt hex.slice(4, 6), 16
-
-                @.setRed isNaN(red) ? 0 : red
-                @.setGreen isNaN(green) ? 0 : green
-                @.setBlue isNaN(blue) ? 0 : blue
+                @.setRed if isNaN(red) then 0 else red
+                @.setGreen if isNaN(green) then 0 else green
+                @.setBlue if isNaN(blue) then 0 else blue
             else
                 @.setRed 0
                 @.setGreen 0
@@ -269,75 +226,81 @@ ColorMix = do ->
         getBlue: () ->
             return @.blue
         toString: (mode) ->
-            colorString = switch
-                when mode =='rgb' then 'rgb(' + @.red + ', ' + @.green + ', ' + @.blue + ')'
-                when mode == 'rgba'
-                    colorString = 'rgba(' + @.red + ', ' + @.green + ', ' + @.blue + ', 1)'
-                when mode == 'hsl'
+            return switch(mode)
+                when 'rgb' then 'rgb(' + @.red + ', ' + @.green + ', ' + @.blue + ')'
+                when 'rgba' then 'rgba(' + @.red + ', ' + @.green + ', ' + @.blue + ', 1)'
+                when 'hsl'
                     HSL = ColorMix.ColorSpace.RGBtoHSL @.red, @.green, @.blue
-                    colorString = 'hsl(' +  HSL.hue + ', ' + HSL.sat + '%, ' + HSL.lig + '%)'
-                when mode == 'hsla'
+                    'hsl(' +  HSL.hue + ', ' + HSL.sat + '%, ' + HSL.lig + '%)'
+                when 'hsla'
                     HSL = ColorMix.ColorSpace.RGBtoHSL @.red, @.green, @.blue
-                    colorString = 'hsla(' +  HSL.hue + ', ' + HSL.sat + '%, ' + HSL.lig + '%, 1)'
+                    'hsla(' +  HSL.hue + ', ' + HSL.sat + '%, ' + HSL.lig + '%, 1)'
                 else '#' + ((1 << 24) + (@.red << 16) + (@.green << 8) + @.blue).toString(16).slice(1)
-            return colorString
         useAsBackground: (selector) ->
-            selector = String selector
-            if selector.length > 0
-                if window.jQuery != undefined
-                    window.jQuery(selector).css 'background-color', 'rgb(' + @.red + ', ' + @.green + ', ' + @.blue + ')'
-                else
-                    if typeof selector == 'string'
-                        switch selector[0]
-                            when '#'
-                                elts = document.getElementById selector
-                                break
-                            when '.'
-                                if document.getElementsByClassName
-                                    elts = document.getElementsByClassName selector
+            if typeof selector == 'object' and selector != null
+                if selector.css
+                    selector.css 'background-color', 'rgb(' + @.red + ', ' + @.green + ', ' + @.blue + ')'
+            else
+                selector = String selector
+                if selector.length > 0
+                    if window.jQuery != undefined
+                        window.jQuery(selector).css 'background-color', 'rgb(' + @.red + ', ' + @.green + ', ' + @.blue + ')'
+                    else
+                        if typeof selector == 'string'
+                            switch selector[0]
+                                when '#'
+                                    elts = document.getElementById selector
+                                    break
+                                when '.'
+                                    if document.getElementsByClassName
+                                        elts = document.getElementsByClassName selector
+                                    else
+                                        elts = []
+                                        DOMelts = document.getElementsByTagName('*')
+                                        i = DOMelts.length
+                                        do elts.push(DOMelts[i]) while i-- when DOMelts[i].className == selector.slice(1)
+                                    break
                                 else
-                                    elts = []
-                                    DOMelts = document.getElementsByTagName('*')
-                                    i = DOMelts.length
-                                    do elts.push(DOMelts[i]) while i-- when DOMelts[i].className == selector.slice(1)
-                                break
-                            else
-                                elts = document.getElementsByTagName selector
-                                break
-                    i = elts.length
-                    do elts[i].style['background-color'] = 'rgb(' + @.red + ', ' + @.green + ', ' + @.blue + ')' while i--
+                                    elts = document.getElementsByTagName selector
+                                    break
+                        i = elts.length
+                        do elts[i].style['background-color'] = 'rgb(' + @.red + ', ' + @.green + ', ' + @.blue + ')' while i--
             return @
         useAsColor: (selector) ->
-            selector = String selector
-            if selector.length > 0
-                if window.jQuery != undefined
-                    window.jQuery(selector).css('color', 'rgb(' + @.red + ', ' + @.green + ', ' + @.blue + ')')
-                else
-                    if typeof selector == 'string'
-                        switch selector[0]
-                            when '#'
-                                elts = document.getElementById selector
-                                break
-                            when '.'
-                                if document.getElementsByClassName
-                                    elts = document.getElementsByClassName selector
+            if typeof selector == 'object' and selector != null
+                if selector.css
+                    selector.css 'color', 'rgb(' + @.red + ', ' + @.green + ', ' + @.blue + ')'
+            else
+                selector = String selector
+                if selector.length > 0
+                    if window.jQuery != undefined
+                        window.jQuery(selector).css 'color', 'rgb(' + @.red + ', ' + @.green + ', ' + @.blue + ')'
+                    else
+                        if typeof selector == 'string'
+                            switch selector[0]
+                                when '#'
+                                    elts = document.getElementById selector
+                                    break
+                                when '.'
+                                    if document.getElementsByClassName
+                                        elts = document.getElementsByClassName selector
+                                    else
+                                        elts = []
+                                        DOMelts = document.getElementsByTagName '*'
+                                        i = DOMelts.length
+                                        do elts.push(DOMelts[i]) while i-- when DOMelts[i].className == selector.slice(1)
+                                    break
                                 else
-                                    elts = []
-                                    DOMelts = document.getElementsByTagName '*'
-                                    i = DOMelts.length
-                                    do elts.push(DOMelts[i]) while i-- when DOMelts[i].className == selector.slice(1)
-                                break
-                            else
-                                elts = document.getElementsByTagName selector
-                    i = elts.length
-                    do elts[i].style['color'] = 'rgb(' + @.red + ', ' + @.green + ', ' + @.blue + ')' while i--
+                                    elts = document.getElementsByTagName selector
+                        i = elts.length
+                        do elts[i].style['color'] = 'rgb(' + @.red + ', ' + @.green + ', ' + @.blue + ')' while i--
             return @
     }
 
     return {
-        'Color': Color,
-        'ColorSpace': ColorSpace,
-        'mix': (colors, percents) ->
+        Color: Color
+        ColorSpace: ColorSpace
+        mix: (colors, percents) ->
             if colors == undefined or Object.prototype.toString.call(colors) != '[object Array]'
                 throw '"ColorMix.mix()" first parameter should be an array of ColorMix.Color objects'
             if percents == undefined
@@ -368,13 +331,13 @@ ColorMix = do ->
                 throw 'Invalid "ColorMix.mix()" second parameter: the sum of all the percents array items should be 100.'
             RGB = ColorMix.ColorSpace.LabtoRGB L, a, b
             return new ColorMix.Color RGB.red, RGB.green, RGB.blue
-        'setGradient': (newGradient) ->
+        setGradient: (newGradient) ->
             if newGradient != undefined and Object.prototype.toString.call(newGradient) == '[object Array]'
                 _gradient = newGradient
             return @
-        'getGradient': () ->
+        getGradient: () ->
             return _gradient
-        'blend': (reference) ->
+        blend: (reference) ->
             if reference == undefined
                 throw 'Missing "ColorMix.blend()" first parameter.'
             reference = parseInt reference

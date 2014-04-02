@@ -10,13 +10,18 @@ var gulp         = require('gulp'),
     livereload   = require('gulp-livereload'),
     lr           = require('tiny-lr'),
     server       = lr(),
+    // Styles [sass, css]
+    sass         = require('gulp-ruby-sass'),
+    minifycss    = require('gulp-minify-css'),
+    csso         = require('gulp-csso'),
+    autoprefixer = require('gulp-autoprefixer'),
     // Scripts [coffee, js]
     coffee       = require('gulp-coffee'),
     coffeelint   = require('gulp-coffeelint'),
     uglify       = require('gulp-uglify'),
     __ports      = {
-        'server': 1337,
-        'livereload': 35731
+        'server': 1339,
+        'livereload': 35730
     };
 
 // Sripts
@@ -42,6 +47,27 @@ gulp.task('scripts', function () {
         .pipe(livereload(server));
 });
 
+// Styles
+gulp.task('styles', function () {
+    return gulp.src(['examples/landing/assets/sass/{,*/}*.{scss,sass}', '!examples/{,*/}*.min*'])
+        .pipe(sass({
+            style: 'expanded',
+            quiet: true,
+            trace: true
+        }))
+        .on('error', gutil.log)
+        .pipe(gulp.dest('examples/landing/assets/css'))
+        .pipe(autoprefixer('last 1 version'))
+        .pipe(csso())
+        .pipe(minifycss())
+        .pipe(size())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('examples/landing/assets/css'))
+        .pipe(livereload(server));
+});
+
 // Connect & livereload
 gulp.task('connect', connect.server({
     root: __dirname + '/',
@@ -59,16 +85,19 @@ gulp.task('watch', function () {
 
         // Watch .coffee files
         gulp.watch('source/{,*/}*.{coffee,coffee.md}', ['scripts']);
+
+        // Watch .coffee files
+        gulp.watch('examples/{,*/}*.{sass,scss}', ['styles']);
     });
 });
 
 // Dev
-gulp.task('serve', ['scripts'], function () {
+gulp.task('serve', ['scripts', 'styles'], function () {
     gulp.start('connect', 'watch');
 });
 
-gulp.task('build', ['scripts'], function () {
-    return gulp.src('source/v2/js/colormix-2.0.0.min.js')
+gulp.task('build', ['scripts', 'styles'], function () {
+    return gulp.src('source/v2/js/*.js')
         .pipe(gulp.dest('build'));
 });
 

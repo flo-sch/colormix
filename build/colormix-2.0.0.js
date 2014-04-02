@@ -1,5 +1,5 @@
 
-/*!
+/*
  * ColorMix JavaScript Library v2.0.0
  * http://color-mix.it
  *
@@ -30,9 +30,9 @@ ColorMix = (function() {
     }
   ];
   Color = function(R, G, B) {
-    this.red = 0;
-    this.green = 0;
-    this.blue = 0;
+    this.setRed(0);
+    this.setGreen(0);
+    this.setBlue(0);
     if (R !== void 0) {
       if (G !== void 0 && B !== void 0) {
         this.setRed(parseInt(R));
@@ -47,43 +47,71 @@ ColorMix = (function() {
   ColorSpace = (function() {
     return {
       RGB: function(R, G, B) {
+        var _ref, _ref1, _ref2;
         if (R === void 0 || G === void 0 || B === void 0) {
           throw 'Invalid parameter(s) provided for "ColorMix.ColorSpace.RGB()"';
         }
         return {
-          'red': isNaN(parseInt(R)) ? 0 : parseInt(R),
-          'green': isNaN(parseInt(G)) ? 0 : parseInt(G),
-          'blue': isNaN(parseInt(B)) ? 0 : parseInt(B)
+          'red': (_ref = isNaN(parseInt(R))) != null ? _ref : {
+            0: parseInt(R)
+          },
+          'green': (_ref1 = isNaN(parseInt(G))) != null ? _ref1 : {
+            0: parseInt(G)
+          },
+          'blue': (_ref2 = isNaN(parseInt(B))) != null ? _ref2 : {
+            0: parseInt(B)
+          }
         };
       },
       XYZ: function(X, Y, Z) {
+        var _ref, _ref1, _ref2;
         if (X === void 0 || Y === void 0 || Z === void 0) {
           throw 'Invalid parameter(s) provided for "ColorMix.ColorSpace.XYZ()"';
         }
         return {
-          'x': isNaN(parseFloat(X)) ? 0.0 : parseFloat(X),
-          'y': isNaN(parseFloat(Y)) ? 0.0 : parseFloat(Y),
-          'z': isNaN(parseFloat(Z)) ? 0.0 : parseFloat(Z)
+          'x': (_ref = isNaN(parseFloat(X))) != null ? _ref : {
+            0.0: parseFloat(X)
+          },
+          'y': (_ref1 = isNaN(parseFloat(Y))) != null ? _ref1 : {
+            0.0: parseFloat(Y)
+          },
+          'z': (_ref2 = isNaN(parseFloat(Z))) != null ? _ref2 : {
+            0.0: parseFloat(Z)
+          }
         };
       },
       HSL: function(H, S, L) {
+        var _ref, _ref1, _ref2;
         if (H === void 0 || S === void 0 || L === void 0) {
           throw 'Invalid parameter(s) provided for "ColorMix.ColorSpace.HSL()"';
         }
         return {
-          'hue': isNaN(parseInt(H)) ? 0.0 : parseInt(H),
-          'sat': isNaN(parseInt(S)) ? 0.0 : parseInt(S),
-          'lig': isNaN(parseInt(L)) ? 0.0 : parseInt(L)
+          'hue': (_ref = isNaN(parseInt(H))) != null ? _ref : {
+            0.0: parseInt(H)
+          },
+          'sat': (_ref1 = isNaN(parseInt(S))) != null ? _ref1 : {
+            0.0: parseInt(S)
+          },
+          'lig': (_ref2 = isNaN(parseInt(L))) != null ? _ref2 : {
+            0.0: parseInt(L)
+          }
         };
       },
       Lab: function(L, a, b) {
+        var _ref, _ref1, _ref2;
         if (L === void 0 || a === void 0 || b === void 0) {
           throw 'Invalid parameter(s) provided for "ColorMix.ColorSpace.Lab()"';
         }
         return {
-          'L': isNaN(parseFloat(L)) ? 0.0 : parseFloat(L),
-          'a': isNaN(parseFloat(a)) ? 0.0 : parseFloat(a),
-          'b': isNaN(parseFloat(b)) ? 0.0 : parseFloat(b)
+          'L': (_ref = isNaN(parseFloat(L))) != null ? _ref : {
+            0.0: parseFloat(L)
+          },
+          'a': (_ref1 = isNaN(parseFloat(a))) != null ? _ref1 : {
+            0.0: parseFloat(a)
+          },
+          'b': (_ref2 = isNaN(parseFloat(b))) != null ? _ref2 : {
+            0.0: parseFloat(b)
+          }
         };
       },
       RGBtoXYZ: function(R, G, B) {
@@ -98,9 +126,24 @@ ColorMix = (function() {
         red = parseFloat(RGB.red / 255);
         green = parseFloat(RGB.green / 255);
         blue = parseFloat(RGB.blue / 255);
-        red = 100 * (red > 0.04045 ? Math.pow((red + 0.055) / 1.055, 2.4) : red /= 12.92);
-        green = 100 * (green > 0.04045 ? Math.pow((green + 0.055) / 1.055, 2.4) : green /= 12.92);
-        blue = 100 * (blue > 0.04045 ? Math.pow((blue + 0.055) / 1.055, 2.4) : blue /= 12.92);
+        if (red > 0.04045) {
+          red = Math.pow((red + 0.055) / 1.055, 2.4);
+        } else {
+          red /= 12.92;
+        }
+        red *= 100;
+        if (green > 0.04045) {
+          green = Math.pow((green + 0.055) / 1.055, 2.4);
+        } else {
+          green /= 12.92;
+        }
+        green *= 100;
+        if (blue > 0.04045) {
+          blue = Math.pow((blue + 0.055) / 1.055, 2.4);
+        } else {
+          blue /= 12.92;
+        }
+        blue *= 100;
         return new this.XYZ(red * 0.4124 + green * 0.3576 + blue * 0.1805, red * 0.2126 + green * 0.7152 + blue * 0.0722, red * 0.0193 + green * 0.1192 + blue * 0.9505);
       },
       XYZtoRGB: function(X, Y, Z) {
@@ -118,9 +161,24 @@ ColorMix = (function() {
         red = x * 3.2406 + y * -1.5372 + z * -0.4986;
         green = x * -0.9689 + y * 1.8758 + z * 0.0415;
         blue = x * 0.0557 + y * -0.2040 + z * 1.0570;
-        red = 255 * (red > 0.0031308 ? 1.055 * (Math.pow(red, 1 / 2.4)) - 0.055 : red *= 12.92);
-        green = 255 * (green > 0.0031308 ? 1.055 * (Math.pow(green, 1 / 2.4)) - 0.055 : green *= 12.92);
-        blue = 255 * (blue > 0.0031308 ? 1.055 * (Math.pow(blue, 1 / 2.4)) - 0.055 : blue *= 12.92);
+        if (red > 0.0031308) {
+          red = 1.055 * (Math.pow(red, 1 / 2.4)) - 0.055;
+        } else {
+          red *= 12.92;
+        }
+        red *= 255;
+        if (green > 0.0031308) {
+          green = 1.055 * (Math.pow(green, 1 / 2.4)) - 0.055;
+        } else {
+          green *= 12.92;
+        }
+        green *= 255;
+        if (blue > 0.0031308) {
+          blue = 1.055 * (Math.pow(blue, 1 / 2.4)) - 0.055;
+        } else {
+          blue *= 12.92;
+        }
+        blue *= 255;
         return new this.RGB(Math.round(red), Math.round(green), Math.round(blue));
       },
       RGBtoHSL: function(R, G, B) {
@@ -176,9 +234,21 @@ ColorMix = (function() {
         x = XYZ.x / 95.047;
         y = XYZ.y / 100.000;
         z = XYZ.z / 108.883;
-        x = x > 0.008856 ? Math.pow(x, 1 / 3) : (7.787 * x) + 16 / 116;
-        y = y > 0.008856 ? Math.pow(y, 1 / 3) : (7.787 * y) + 16 / 116;
-        z = z > 0.008856 ? Math.pow(z, 1 / 3) : (7.787 * z) + 16 / 116;
+        if (x > 0.008856) {
+          x = Math.pow(x, 1 / 3);
+        } else {
+          x = (7.787 * x) + 16 / 116;
+        }
+        if (y > 0.008856) {
+          y = Math.pow(y, 1 / 3);
+        } else {
+          y = (7.787 * y) + 16 / 116;
+        }
+        if (z > 0.008856) {
+          z = Math.pow(z, 1 / 3);
+        } else {
+          z = (7.787 * z) + 16 / 116;
+        }
         return new this.Lab((116 * y) - 16, 500 * (x - y), 200 * (y - z));
       },
       LabtoXYZ: function(L, a, b) {
@@ -193,9 +263,21 @@ ColorMix = (function() {
         Y = (Lab.L + 16) / 116;
         X = Lab.a / 500 + Y;
         Z = Y - Lab.b / 200;
-        Y = Math.pow(Y, 3) > 0.008856 ? Math.pow(Y, 3) : (Y - 16 / 116) / 7.787;
-        X = Math.pow(X, 3) > 0.008856 ? Math.pow(X, 3) : (X - 16 / 116) / 7.787;
-        Z = Math.pow(Z, 3) > 0.008856 ? Math.pow(Z, 3) : (Z - 16 / 116) / 7.787;
+        if (Math.pow(Y, 3) > 0.008856) {
+          Y = Math.pow(Y, 3);
+        } else {
+          Y = (Y - 16 / 116) / 7.787;
+        }
+        if (Math.pow(X, 3) > 0.008856) {
+          X = Math.pow(X, 3);
+        } else {
+          X = (X - 16 / 116) / 7.787;
+        }
+        if (Math.pow(Z, 3) > 0.008856) {
+          Z = Math.pow(Z, 3);
+        } else {
+          Z = (Z - 16 / 116) / 7.787;
+        }
         return new this.XYZ(X * 95.047, Y * 100.000, Z * 108.883);
       },
       RGBtoLab: function(R, G, B) {
@@ -214,8 +296,8 @@ ColorMix = (function() {
   })();
   Color.prototype = {
     fromHex: function(hex) {
-      var blue, green, red;
-      hex = String(hex) || '';
+      var blue, green, red, _ref, _ref1, _ref2;
+      hex = String(hex || '');
       if (hex.length > 0) {
         if (hex[0] === '#') {
           hex = hex.slice(1);
@@ -226,9 +308,15 @@ ColorMix = (function() {
         red = parseInt(hex.slice(0, 2), 16);
         green = parseInt(hex.slice(2, 4), 16);
         blue = parseInt(hex.slice(4, 6), 16);
-        this.setRed(isNaN(red) ? 0 : red);
-        this.setGreen(isNaN(green) ? 0 : green);
-        this.setBlue(isNaN(blue) ? 0 : blue);
+        this.setRed((_ref = isNaN(red)) != null ? _ref : {
+          0: red
+        });
+        this.setGreen((_ref1 = isNaN(green)) != null ? _ref1 : {
+          0: green
+        });
+        this.setBlue((_ref2 = isNaN(blue)) != null ? _ref2 : {
+          0: blue
+        });
       } else {
         this.setRed(0);
         this.setGreen(0);
@@ -264,62 +352,59 @@ ColorMix = (function() {
       return this.blue;
     },
     toString: function(mode) {
-      var HSL;
-      switch (mode) {
-        case 'rgb':
-          return 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')';
-        case 'rgba':
-          return 'rgba(' + this.red + ', ' + this.green + ', ' + this.blue + ', 1)';
-        case 'hsl':
-          HSL = ColorMix.ColorSpace.RGBtoHSL(this.red, this.green, this.blue);
-          return 'hsl(' + HSL.hue + ', ' + HSL.sat + '%, ' + HSL.lig + '%)';
-        case 'hsla':
-          HSL = ColorMix.ColorSpace.RGBtoHSL(this.red, this.green, this.blue);
-          return 'hsla(' + HSL.hue + ', ' + HSL.sat + '%, ' + HSL.lig + '%, 1)';
-        default:
-          return '#' + ((1 << 24) + (this.red << 16) + (this.green << 8) + this.blue).toString(16).slice(1);
-      }
+      var HSL, colorString;
+      colorString = (function() {
+        switch (false) {
+          case mode !== 'rgb':
+            return 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')';
+          case mode !== 'rgba':
+            return colorString = 'rgba(' + this.red + ', ' + this.green + ', ' + this.blue + ', 1)';
+          case mode !== 'hsl':
+            HSL = ColorMix.ColorSpace.RGBtoHSL(this.red, this.green, this.blue);
+            return colorString = 'hsl(' + HSL.hue + ', ' + HSL.sat + '%, ' + HSL.lig + '%)';
+          case mode !== 'hsla':
+            HSL = ColorMix.ColorSpace.RGBtoHSL(this.red, this.green, this.blue);
+            return colorString = 'hsla(' + HSL.hue + ', ' + HSL.sat + '%, ' + HSL.lig + '%, 1)';
+          default:
+            return '#' + ((1 << 24) + (this.red << 16) + (this.green << 8) + this.blue).toString(16).slice(1);
+        }
+      }).call(this);
+      return colorString;
     },
     useAsBackground: function(selector) {
       var DOMelts, elts, i;
-      if (typeof selector === 'object' && selector !== null) {
-        if (selector.css) {
-          selector.css('background-color', 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')');
-        }
-      } else {
-        selector = String(selector);
-        if (selector.length > 0) {
-          if (window.jQuery !== void 0) {
-            window.jQuery(selector).css('background-color', 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')');
-          } else {
-            if (typeof selector === 'string') {
-              switch (selector[0]) {
-                case '#':
-                  elts = document.getElementById(selector);
-                  break;
-                case '.':
-                  if (document.getElementsByClassName) {
-                    elts = document.getElementsByClassName(selector);
-                  } else {
-                    elts = [];
-                    DOMelts = document.getElementsByTagName('*');
-                    i = DOMelts.length;
-                    while (i--) {
-                      if (DOMelts[i].className === selector.slice(1)) {
-                        elts.push(DOMelts[i])();
-                      }
+      selector = String(selector);
+      if (selector.length > 0) {
+        if (window.jQuery !== void 0) {
+          window.jQuery(selector).css('background-color', 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')');
+        } else {
+          if (typeof selector === 'string') {
+            switch (selector[0]) {
+              case '#':
+                elts = document.getElementById(selector);
+                break;
+              case '.':
+                if (document.getElementsByClassName) {
+                  elts = document.getElementsByClassName(selector);
+                } else {
+                  elts = [];
+                  DOMelts = document.getElementsByTagName('*');
+                  i = DOMelts.length;
+                  while (i--) {
+                    if (DOMelts[i].className === selector.slice(1)) {
+                      elts.push(DOMelts[i])();
                     }
                   }
-                  break;
-                default:
-                  elts = document.getElementsByTagName(selector);
-                  break;
-              }
+                }
+                break;
+              default:
+                elts = document.getElementsByTagName(selector);
+                break;
             }
-            i = elts.length;
-            while (i--) {
-              (elts[i].style['background-color'] = 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')')();
-            }
+          }
+          i = elts.length;
+          while (i--) {
+            (elts[i].style['background-color'] = 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')')();
           }
         }
       }
@@ -327,43 +412,37 @@ ColorMix = (function() {
     },
     useAsColor: function(selector) {
       var DOMelts, elts, i;
-      if (typeof selector === 'object' && selector !== null) {
-        if (selector.css) {
-          selector.css('color', 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')');
-        }
-      } else {
-        selector = String(selector);
-        if (selector.length > 0) {
-          if (window.jQuery !== void 0) {
-            window.jQuery(selector).css('color', 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')');
-          } else {
-            if (typeof selector === 'string') {
-              switch (selector[0]) {
-                case '#':
-                  elts = document.getElementById(selector);
-                  break;
-                case '.':
-                  if (document.getElementsByClassName) {
-                    elts = document.getElementsByClassName(selector);
-                  } else {
-                    elts = [];
-                    DOMelts = document.getElementsByTagName('*');
-                    i = DOMelts.length;
-                    while (i--) {
-                      if (DOMelts[i].className === selector.slice(1)) {
-                        elts.push(DOMelts[i])();
-                      }
+      selector = String(selector);
+      if (selector.length > 0) {
+        if (window.jQuery !== void 0) {
+          window.jQuery(selector).css('color', 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')');
+        } else {
+          if (typeof selector === 'string') {
+            switch (selector[0]) {
+              case '#':
+                elts = document.getElementById(selector);
+                break;
+              case '.':
+                if (document.getElementsByClassName) {
+                  elts = document.getElementsByClassName(selector);
+                } else {
+                  elts = [];
+                  DOMelts = document.getElementsByTagName('*');
+                  i = DOMelts.length;
+                  while (i--) {
+                    if (DOMelts[i].className === selector.slice(1)) {
+                      elts.push(DOMelts[i])();
                     }
                   }
-                  break;
-                default:
-                  elts = document.getElementsByTagName(selector);
-              }
+                }
+                break;
+              default:
+                elts = document.getElementsByTagName(selector);
             }
-            i = elts.length;
-            while (i--) {
-              (elts[i].style['color'] = 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')')();
-            }
+          }
+          i = elts.length;
+          while (i--) {
+            (elts[i].style['color'] = 'rgb(' + this.red + ', ' + this.green + ', ' + this.blue + ')')();
           }
         }
       }
@@ -371,9 +450,9 @@ ColorMix = (function() {
     }
   };
   return {
-    Color: Color,
-    ColorSpace: ColorSpace,
-    mix: function(colors, percents) {
+    'Color': Color,
+    'ColorSpace': ColorSpace,
+    'mix': function(colors, percents) {
       var L, Lab, P, RGB, a, b, i;
       if (colors === void 0 || Object.prototype.toString.call(colors) !== '[object Array]') {
         throw '"ColorMix.mix()" first parameter should be an array of ColorMix.Color objects';
@@ -414,16 +493,16 @@ ColorMix = (function() {
       RGB = ColorMix.ColorSpace.LabtoRGB(L, a, b);
       return new ColorMix.Color(RGB.red, RGB.green, RGB.blue);
     },
-    setGradient: function(newGradient) {
+    'setGradient': function(newGradient) {
       if (newGradient !== void 0 && Object.prototype.toString.call(newGradient) === '[object Array]') {
         _gradient = newGradient;
       }
       return this;
     },
-    getGradient: function() {
+    'getGradient': function() {
       return _gradient;
     },
-    blend: function(reference) {
+    'blend': function(reference) {
       var C1, C2, l, next, previous, step;
       if (reference === void 0) {
         throw 'Missing "ColorMix.blend()" first parameter.';

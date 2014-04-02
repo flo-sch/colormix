@@ -1,0 +1,25 @@
+{
+  "name": "colormix",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~1.11.0",
+    "underscore": "~1.6.0",
+    "buzz": "~1.1.0",
+    "font-awesome": "~4.0.3",
+    "jquery-ui": "~1.10.3",
+    "bootstrap": "~3.1.1",
+    "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git#~3.1.1",
+    "bootstrap-datetimepicker": "~0.0.11",
+    "momentjs": "~2.5.1"
+  },
+  "devDependencies": {
+    "buzz": "~1.1.0",
+    "bootstrap": "~3.1.1",
+    "bootstrap-datetimepicker": "~0.0.11",
+    "bootstrap-sass": "git://github.com/twbs/bootstrap-sass.git#~3.1.1"
+  },
+  "resolutions": {
+    "bootstrap": "~3.1.1"
+  }
+}
