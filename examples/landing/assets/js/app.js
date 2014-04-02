@@ -67,21 +67,22 @@ SDK.Weather = (function () {
 
 
 $(function () {
-	var $form = $('form#form-mix'),
-		$color1 = $('#color-1').val('#ffffff').css('background-color', '#ffffff'),
-		$color2 = $('#color-2').val('#000000').css('background-color', '#000000'),
+	var $appTitle = $('#app-title'),
+		$form = $('form#form-mix'),
+		$averageMixingFirstColor = $('#average-mixing-color-1').val('#ffffff').css('background-color', '#ffffff'),
+		$averageMixingSecondColor = $('#average-mixing-color-2').val('#000000').css('background-color', '#000000'),
 		$mix = $('#color-mix'),
 		mixColors = function () {
-			var c1 = new ColorMix.Color($color1.val()),
-				c2 = new ColorMix.Color($color2.val()),
+			var c1 = new ColorMix.Color($averageMixingFirstColor.val()),
+				c2 = new ColorMix.Color($averageMixingSecondColor.val()),
 				mix = ColorMix.mix([c1, c2], [50, 50]);
-			
+
 			mix.useAsBackground($mix.selector);
 			$mix.empty().append($('<div>', {
 				'class': 'color-1'
-			}).css('background-color', $color1.val())).append($('<div>', {
+			}).css('background-color', $averageMixingFirstColor.val())).append($('<div>', {
 				'class': 'color-2'
-			}).css('background-color', $color2.val())).append($('<div>', {
+			}).css('background-color', $averageMixingSecondColor.val())).append($('<div>', {
 				'class': 'color-values-container'
 			}).append($('<div>', {
 				'class': 'color-value-rgb'
@@ -91,6 +92,23 @@ $(function () {
 				'class': 'color-value-hex'
 			}).text(mix.toString('hex'))));
 		},
+		$gradientFirstColor = $('#gradient-color-1').val('#ffffff').css('background-color', '#ffffff'),
+		$gradientSecondColor = $('#gradient-color-2').val('#000000').css('background-color', '#000000'),
+		$gradient = $('#gradient'),
+		gradientise = function () {
+			var c1 = new ColorMix.Color($gradientFirstColor.val()),
+				c2 = new ColorMix.Color($gradientSecondColor.val());
+			ColorMix.setGradient([{
+				'reference': 0,
+				'color': c1
+			}, {
+				'reference': 11,
+				'color': c2
+			}]);
+			$('.gradient-step').each(function (i, gradientStep) {
+				ColorMix.blend(i).useAsBackground($(this));
+			});
+		}
 		$weatherWidget = $('#widget-weather'),
 		$weatherButton = $('#weather-button'),
 		WeatherWidget = function (target) {
@@ -184,23 +202,46 @@ $(function () {
 		},
 		Weather = (new WeatherWidget($weatherWidget)).init();
 
-	$color1.colorpicker().on({
+	ColorMix.setGradient([{
+		'reference': 0,
+		'color': new ColorMix.Color(0, 179, 255)
+	}, {
+		'reference': 7,
+		'color': new ColorMix.Color(255, 61, 0)
+	}])
+	$appTitle.find('.character').each(function (i, character) {
+		ColorMix.blend(i).useAsColor($(this));
+	});
+
+	$averageMixingFirstColor.colorpicker().on({
 		changeColor: function (e) {
 			$(this).val(e.color.toHex()).css('background-color', e.color.toHex());
 			mixColors();
 		}
 	});
-	$color2.colorpicker().on({
+	$averageMixingSecondColor.colorpicker().on({
 		changeColor: function (e) {
 			$(this).val(e.color.toHex()).css('background-color', e.color.toHex());
 			mixColors();
+		}
+	});
+	$gradientFirstColor.colorpicker().on({
+		changeColor: function (e) {
+			$(this).val(e.color.toHex()).css('background-color', e.color.toHex());
+			gradientise();
+		}
+	});
+	$gradientSecondColor.colorpicker().on({
+		changeColor: function (e) {
+			$(this).val(e.color.toHex()).css('background-color', e.color.toHex());
+			gradientise();
 		}
 	});
 
 	$form.on({
 		submit: function (e) {
 			e.preventDefault();
-			if ($color1.val() && $color2.val()) {
+			if ($averageMixingFirstColor.val() && $averageMixingSecondColor.val()) {
 				mixColors();
 			}
 		}

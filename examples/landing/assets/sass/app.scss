@@ -1,0 +1,410 @@
+@mixin color-value-default() {
+    text-align: center;
+    color: rgb(245, 248, 251);
+    text-shadow: 0 0 5px rgb(41, 41, 41);
+}
+@mixin color-value-1200() {
+    @include color-value-default();
+    font-size: 18px;
+}
+@mixin color-value-980() {
+    @include color-value-default();
+    font-size: 16px;
+}
+@mixin color-value-767() {
+    @include color-value-default();
+    font-size: 12px;
+}
+@mixin color-value-360() {
+    @include color-value-default();
+    font-size: 8px;
+}
+
+$footerHeight: 60px;
+
+@mixin color-value() {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+html {
+    width: 100%;
+    height: 100%;
+    font-size: 100%;
+    body {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        i {
+            color: rgb(0, 0, 0);
+            &.icon-white {
+                color: rgb(255, 255, 255);
+            }
+        }
+        #app {
+            min-height: 100%;
+            height: auto !important;
+            height: auto;
+            margin: 0 auto -$footerHeight auto;
+            .github-ribbon {
+                position: absolute;
+                top: 0;
+                right: 0;
+                border: 0;
+            }
+            .jumbotron {
+                margin: 50px 0;
+                text-align: center;
+                h1 {
+                    font-size: 100px;
+                    line-height: 1;
+                }
+                .lead {
+                    font-size: 24px;
+                    line-height: 1.25;
+                }
+                .btn {
+                    padding: 14px 24px;
+                    font-size: 21px;
+                }
+            }
+            #what-is-it {
+                #buy-me-a-beer {
+                    > form,
+                    > p {
+                        display: inline-block;
+                        position: relative;
+                        margin: 0;
+                    }
+                    #buy-me-a-beer-icon {
+                        position: absolute;
+                        top: 9px;
+                        left: 8px;
+                    }
+                    #buy-me-a-beer-input {
+                        padding: 4px 12px 4px 26px;
+                    }
+                }
+            }
+            #demo {
+                #form-mix {
+                    margin: 0;
+                    input {
+                        margin: 0;
+                        &#color-1,
+                        &#color-2 {
+                            width: 60px;
+                            height: 20px;
+                        }
+                    }
+                }
+                #color-mix {
+                    position: relative;
+                    box-sizing: border-box;
+                    width: 100%;
+                    height: 120px;
+                    border-radius: 5px;
+                    border: 2px solid black;
+                    .color-1 {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        width: 5%;
+                        height: 100%;
+                    }
+                    .color-2 {
+                        position: absolute;
+                        right: 0;
+                        top: 0;
+                        width: 5%;
+                        height: 100%;
+                    }
+                    .color-values-container {
+                        display: table;
+                        table-layout: fixed;
+                        position: relative;
+                        width: 100%;
+                        height: 120px;
+                        .color-value-rgb {
+                            @include color-value();
+                            @include color-value-1200();
+                        }
+                        .color-value-hsl {
+                            @include color-value();
+                            @include color-value-1200();
+                        }
+                        .color-value-hex {
+                            @include color-value();
+                            @include color-value-1200();
+                        }
+                    }
+                }
+                #gradient {
+                    position: relative;
+                    box-sizing: border-box;
+                    width: 100%;
+                    height: 120px;
+                    margin: 10px 0;
+                    border-radius: 5px;
+                    border: 2px solid black;
+                    .gradient-step {
+                        height: 100%;
+                    }
+                }
+                input {
+                    &.color {
+                        color: rgb(245, 248, 251);
+                        text-shadow: 0 0 1px rgb(41, 41, 41);
+                    }
+                }
+            }
+            #documentation {
+                #root-object {
+                    margin: 0;
+                    &:before {
+                        content: '{Singleton} - ';
+                    }
+                    color: rgb(241, 196, 15);
+                }
+                ul {
+                    &#colormix {
+                        margin: 0 0 0 25px;
+                    }
+                    li {
+                        padding: 10px 0;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+                        &:last-child {
+                            border: none;
+                        }
+                        list-style-type: none;
+                        list-style-image: url('../images/icon-minus.png');
+                        &.collapsed {
+                            list-style-image: url('../images/icon-plus.png');
+                        }
+                        .collapse {
+                            > :first-child {
+                                margin-top: 15px;
+                            }
+                            h6 {
+                                color: rgb(52, 73, 94);
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+                .documentation-singleton {
+                    > h6,
+                    > span {
+                        &:before {
+                            content: '{Singleton} - ';
+                        }
+                        color: rgb(241, 196, 15);
+                    }
+                }
+                .documentation-class {
+                    > h6,
+                    > span {
+                        &:before {
+                            content: '{Class} - ';
+                        }
+                        color: rgb(26, 188, 156);
+                    }
+                    .documentation-property {
+                        > h6,
+                        > span {
+                            &:before {
+                                content: '{Property} - ';
+                            }
+                            color: rgb(46, 204, 113);
+                        }
+                    }
+                }
+                .documentation-method {
+                    > h6,
+                    > span {
+                        &:before {
+                            content: '{Method} - ';
+                        }
+                        color: rgb(52, 152, 219);
+                        cursor: pointer;
+                    }
+                }
+                .documentation-property h6,
+                .documentation-singleton h6,
+                .documentation-class h6,
+                .documentation-method h6 {
+                    margin: 0;
+                }
+                .documentation-property > span,
+                .documentation-singleton > span,
+                .documentation-class > span,
+                .documentation-method > span,
+                .documentation-property > h6,
+                .documentation-singleton > h6,
+                .documentation-class > h6,
+                .documentation-method > h6 {
+                    font-size: 14px;
+                    cursor: pointer;
+                }
+                .documentation-property,
+                .documentation-singleton,
+                .documentation-class,
+                .documentation-method {
+                    .documentation-label {
+                        margin: 4px 0;
+                    }
+                    .documentation-description {
+                        padding: 10px 0;
+                        margin: 0;
+                        font-size: 12px;
+                        font-style: italic;
+                        font-weight: bold;
+                        text-align: justify;
+                    }
+                    .documentation-example {
+                        margin: 10px 0;
+                    }
+                    .documentation-note {
+                        font-size: 12px;
+                        font-weight: bold;
+                        text-align: justify;
+                        color: rgb(58, 135, 173);
+                    }
+                    .documentation-tags {
+                        font-size: 12px;
+                        font-weight: bold;
+                        text-align: justify;
+                        color: rgb(70, 136, 71);
+                        padding: 10px 0;
+                    }
+                    .documentation-arguments {
+                        margin: 10px 0 10px 25px;
+                        .documentation-argument {
+                            list-style-type: circle;
+                            list-style-image: none;
+                            font-size: 12px;
+                            text-align: justify;
+                            padding: 2px 0;
+                            border: none;
+                            &.required {
+                                .documentation-argument-name {
+                                    color: rgb(231, 126, 34);
+                                    &:after {
+                                        content: ' [required]';
+                                    }
+                                }
+                            }
+                            .documentation-argument-name {
+                                text-decoration: underline;
+                            }
+                            .documentation-argument-type {
+                                font-weight: bold;
+                            }
+                        }
+                    }
+                }
+            }
+            .push {
+                width: 100%;
+                height: 60px;
+            }
+        }
+        footer {
+            height: $footerHeight;
+            line-height: $footerHeight;
+            text-align: center;
+        }
+        .icon {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            &.icon-github {
+                width: 16px;
+                height: 16px;
+                background: url('../images/icon-github.png') center center no-repeat;
+            }
+        }
+    }
+}
+
+@media (max-width: 980px) {
+    html {
+        body {
+            #app {
+                .jumbotron {
+                    h1 {
+                        font-size: 90px;
+                    }
+                }
+                #demo {
+                    #color-mix {
+                        .color-value-rgb {
+                            @include color-value-980();
+                        }
+                        .color-value-hsl {
+                            @include color-value-980();
+                        }
+                        .color-value-hex {
+                            @include color-value-980();
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    html {
+        body {
+            #app {
+                .jumbotron {
+                    h1 {
+                        font-size: 74px;
+                    }
+                }
+                #demo {
+                    #color-mix {
+                        .color-value-rgb {
+                            @include color-value-767();
+                        }
+                        .color-value-hsl {
+                            @include color-value-767();
+                        }
+                        .color-value-hex {
+                            @include color-value-767();
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 360px) {
+    html {
+        body {
+            #app {
+                .jumbotron {
+                    h1 {
+                        font-size: 44px;
+                    }
+                }
+                #demo {
+                    #color-mix {
+                        .color-value-rgb {
+                            @include color-value-360();
+                        }
+                        .color-value-hsl {
+                            @include color-value-360();
+                        }
+                        .color-value-hex {
+                            @include color-value-360();
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
