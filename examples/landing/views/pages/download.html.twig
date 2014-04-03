@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block link_class_download %}active{% endblock %}
+
+{% block app_container %}
+    <section id='download'>
+        <div class='panel-body'>
+            <div class='label label-info'>Version 2</div>
+            <div>
+                <a href='../../build/colormix-2.0.0.js' target='_blank'><i class='icon icon-download'></i> Download the unminified, development version - 2.0.0 [17.09 Kb]</a>
+            </div>
+            <div>
+                <a href='../../build/colormix-2.0.0.min.js' target='_blank'><i class='icon icon-download'></i> Download the minified, production version - 2.0.0 [9.50 Kb]</a>
+            </div>
+            <div class='label label-info'>Version 1</div>
+            <div>
+                <a href='../../build/colormix-1.0.0.js' target='_blank'><i class='icon icon-download'></i> Download the unminified, development version - 1.0.0 [13.47 Kb]</a>
+            </div>
+            <div>
+                <a href='../../build/colormix-1.0.0.min.js' target='_blank'><i class='icon icon-download'></i> Download the minified, production version - 1.0.0 [9.01 Kb]</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

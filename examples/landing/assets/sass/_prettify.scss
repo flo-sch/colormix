@@ -1,0 +1,102 @@
+$prettify-class: "prettyprint" !default;
+
+$prettify-background: #002b36 !default;
+$prettify-border-color: #002b36 !default;
+
+$prettify-color-string: #65b042 !default;
+$prettify-color-keyword: #e28964 !default;
+$prettify-color-comment: #aeaeae !default;
+$prettify-color-type: #89bdff !default;
+$prettify-color-litteral: #3387cc !default;
+$prettify-color-punctuation: #ffffff !default;
+$prettify-color-plaintext: #ffffff !default;
+$prettify-color-tag: #89bdff !default;
+$prettify-color-attribute-name: #bdb76b !default;
+$prettify-color-attribute-value: #65b042 !default;
+$prettify-color-decimal: #3387cc !default;
+$prettify-color-options: #839496 !default;
+$prettify-color-clo: #839496 !default;
+$prettify-color-var: #268bd2 !default;
+$prettify-color-functions: #ff0000 !default;
+$prettify-color-line-numbers: #aeaeae !default;
+
+html {
+    body {
+        pre.#{$prettify-class},
+        code.#{$prettify-class} {
+            background-color: $prettify-background;
+            padding: 10px;
+            border: 1px solid $prettify-border-color;
+            .str {
+                // String
+                color: $prettify-color-string;
+            }
+            .kwd {
+                // Keyword
+                color: $prettify-color-keyword;
+            }
+            .com {
+                // Comment
+                color: $prettify-color-comment;
+                font-style: italic;
+            }
+            .typ {
+                // Type
+                color: $prettify-color-type;
+            }
+            .lit {
+                // Litteral
+                color: $prettify-color-litteral;
+            }
+            .pun {
+                // Punctuation
+                color: $prettify-color-punctuation;
+            }
+            .pln {
+                // Plaintext
+                color: $prettify-color-plaintext;
+            }
+            .tag {
+                // Tag [html/xml]
+                color: $prettify-color-tag;
+                font-style: bold;
+            }
+            .atn {
+                // Attribute name [html/xml]
+                color: $prettify-color-attribute-name;
+            }
+            .atv {
+                // Attribute value [hmtl/xml]
+                color: $prettify-color-attribute-value;
+            }
+            .dec {
+                // Decimal
+                color: $prettify-color-decimal;
+            }
+            .opn {
+                // Decimal
+                color: $prettify-color-options;
+            }
+            .clo {
+                // Decimal
+                color: $prettify-color-clo;
+            }
+            .var {
+                // Decimal
+                color: $prettify-color-var;
+            }
+            .fun {
+                // Function
+                color: $prettify-color-functions;
+            }
+        }
+        ol.linenums {
+            margin-top: 0;
+            margin-bottom: 0;
+            color: $prettify-color-line-numbers;
+            li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8,li.L9 {
+                line-height: 18px;
+            }
+        }
+    }
+}

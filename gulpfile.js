@@ -49,7 +49,7 @@ gulp.task('scripts', function () {
 
 // Styles
 gulp.task('styles', function () {
-    return gulp.src(['examples/landing/assets/sass/{,*/}*.{scss,sass}', '!examples/{,*/}*.min*'])
+    return gulp.src(['examples/landing/assets/sass/{,*/}*.{scss,sass}', '!examples/{,*/}*.min*', '!examples/landing/assets/sass/*_*.{scss,sass}'])
         .pipe(sass({
             style: 'expanded',
             quiet: true,

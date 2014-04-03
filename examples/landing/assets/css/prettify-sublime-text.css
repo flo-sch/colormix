@@ -1,0 +1,76 @@
+html body pre.sublime-text,
+html body code.sublime-text {
+  background-color: #002b36;
+  padding: 10px;
+  border: 1px solid #002b36;
+}
+html body pre.sublime-text .str,
+html body code.sublime-text .str {
+  color: #65b042;
+}
+html body pre.sublime-text .kwd,
+html body code.sublime-text .kwd {
+  color: #859900;
+}
+html body pre.sublime-text .com,
+html body code.sublime-text .com {
+  color: #657b83;
+  font-style: italic;
+}
+html body pre.sublime-text .typ,
+html body code.sublime-text .typ {
+  color: white;
+}
+html body pre.sublime-text .lit,
+html body code.sublime-text .lit {
+  color: #268bd2;
+}
+html body pre.sublime-text .pun,
+html body code.sublime-text .pun {
+  color: #839496;
+}
+html body pre.sublime-text .pln,
+html body code.sublime-text .pln {
+  color: white;
+}
+html body pre.sublime-text .tag,
+html body code.sublime-text .tag {
+  color: #89bdff;
+  font-style: bold;
+}
+html body pre.sublime-text .atn,
+html body code.sublime-text .atn {
+  color: #93a1a1;
+}
+html body pre.sublime-text .atv,
+html body code.sublime-text .atv {
+  color: #65b042;
+}
+html body pre.sublime-text .dec,
+html body code.sublime-text .dec {
+  color: #89bdff;
+}
+html body pre.sublime-text .opn,
+html body code.sublime-text .opn {
+  color: #839496;
+}
+html body pre.sublime-text .clo,
+html body code.sublime-text .clo {
+  color: #839496;
+}
+html body pre.sublime-text .var,
+html body code.sublime-text .var {
+  color: #268bd2;
+}
+html body pre.sublime-text .fun,
+html body code.sublime-text .fun {
+  color: #89bdff;
+}
+html body ol.linenums {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #aeaeae;
+}
+html body ol.linenums li.L0, html body ol.linenums li.L1, html body ol.linenums li.L2, html body ol.linenums li.L3, html body ol.linenums li.L5, html body ol.linenums li.L6, html body ol.linenums li.L7, html body ol.linenums li.L8, html body ol.linenums li.L9 {
+  line-height: 18px;
+}

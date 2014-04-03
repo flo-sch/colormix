@@ -1,0 +1,37 @@
+{
+    "authors": [
+        {
+            "name": "Florent SCHILDKNECHT",
+            "email": "florent.schildknecht@gmail.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "1.*",
+        "twig/twig": ">=1.8,<2.0-dev",
+        "symfony/browser-kit": "~2.3",
+        "symfony/console": "~2.3",
+        "symfony/config": "~2.3",
+        "symfony/css-selector": "~2.3",
+        "symfony/dom-crawler": "~2.3",
+        "symfony/filesystem": "~2.3",
+        "symfony/finder": "~2.3",
+        "symfony/form": "~2.3",
+        "symfony/locale": "~2.3",
+        "symfony/process": "~2.3",
+        "symfony/security": "~2.3",
+        "symfony/serializer": "~2.3",
+        "symfony/translation": "~2.3",
+        "symfony/validator": "~2.3",
+        "symfony/monolog-bridge": "~2.3",
+        "symfony/twig-bridge": "~2.3",
+        "entea/silex-twig-simple-asset-extension": "dev-master",
+        "symfony/yaml": "~2.3",
+        "deralex/yaml-config-service-provider": "1.0.*@dev",
+        "neutron/silex-filesystem-provider": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "": "src/"
+        }
+    }
+}

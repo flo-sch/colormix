@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel='stylesheet' href='{{ asset('assets/css/weather.min.css') }}' />
+{% endblock %}
+
+{% block link_class_demonstrations %}active{% endblock %}
+
+{% block app_container %}
+    <section id='demo'>
+        <div class='panel-body'>
+            <div class='panel-group' id='demos'>
+                <div class='panel panel-default'>
+                    <div class='panel-heading'>
+                        <h4 class='panel-title'>
+                            <a class='panel-toggle' data-toggle='collapse' data-parent='#demos' href='#average-mixing'>Average mixing</a>
+                        </h4>
+                    </div>
+                    <div id='average-mixing' class='panel-collapse collapse in'>
+                        <div class='panel-body'>
+                            <h4>Average mixing of two colors</h4>
+                            <form action='#' method='post' class='form-inline' id='form-mix'>
+                                <div class='row'>
+                                    <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                                        <label for='average-mixing-color-1'>Pick a first color</label>
+                                        <input type='text' class='form-control' name='average-mixing-color-1' id='average-mixing-color-1' />
+                                    </div>
+                                    <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                                        <label for='average-mixing-color-2'>Pick a second color</label>
+                                        <input type='text' class='form-control' name='average-mixing-color-2' id='average-mixing-color-2' />
+                                    </div>
+                                </div>
+                                <input type='submit' class='btn btn-success hidden' name='submit' value='Mix it!' />
+                            </form>
+                            <h6>Result</h6>
+                            <div id='color-mix'></div>
+                        </div>
+                    </div>
+                </div>
+                <div class='panel panel-default'>
+                    <div class='panel-heading'>
+                        <h4 class='panel-title'>
+                            <a class='panel-toggle' data-toggle='collapse' data-parent='#demos' href='#gradientise'>Gradientise</a>
+                        </h4>
+                    </div>
+                    <div id='gradientise' class='panel-collapse collapse'>
+                        <div class='panel-body'>
+                            <h4>Gradientise</h4>
+                            <form action='#' method='post' class='form-inline' id='form-gradient'>
+                                <div class='row'>
+                                    <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                                        <label for='gradient-color-1'>Pick a first color</label>
+                                        <input type='text' class='form-control' name='gradient-color-1' id='gradient-color-1' />
+                                    </div>
+                                    <div class='col-lg-6 col-md-6 col-sm-6 col-xs-6'>
+                                        <label for='gradient-color-2'>Pick a second color</label>
+                                        <input type='text' class='form-control' name='gradient-color-2' id='gradient-color-2' />
+                                    </div>
+                                </div>
+                                <input type='submit' class='btn btn-success hidden' name='submit' value='Gradientise !' />
+                            </form>
+                            <h6>Result</h6>
+                            <div id='gradient' class='row'>
+                                <span class='gradient-step col-lg-1 col-md-1 col-sm-1 col-xs-1'></span>
+                                <span class='gradient-step col-lg-1 col-md-1 col-sm-1 col-xs-1'></span>
+                                <span class='gradient-step col-lg-1 col-md-1 col-sm-1 col-xs-1'></span>
+                                <span class='gradient-step col-lg-1 col-md-1 col-sm-1 col-xs-1'></span>
+                                <span class='gradient-step col-lg-1 col-md-1 col-sm-1 col-xs-1'></span>
+                                <span class='gradient-step col-lg-1 col-md-1 col-sm-1 col-xs-1'></span>
+                                <span class='gradient-step col-lg-1 col-md-1 col-sm-1 col-xs-1'></span>
+                                <span class='gradient-step col-lg-1 col-md-1 col-sm-1 col-xs-1'></span>
+                                <span class='gradient-step col-lg-1 col-md-1 col-sm-1 col-xs-1'></span>
+                                <span class='gradient-step col-lg-1 col-md-1 col-sm-1 col-xs-1'></span>
+                                <span class='gradient-step col-lg-1 col-md-1 col-sm-1 col-xs-1'></span>
+                                <span class='gradient-step col-lg-1 col-md-1 col-sm-1 col-xs-1'></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id='examples'>
+        <div class='panel-body'>
+            <div class='row-fluid'>
+                <div class='span12'>
+                    <h5>Weather widget</h5>
+                    <div id='widget-weather' class='widget'></div>
+                    <div class='small-wrapper'>
+                        <a class='btn btn-success' id='weather-button' href='#'>Find your local weather</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,59 @@
+{% extends 'base.html.twig' %}
+
+{% block app_container %}
+    <header class='jumbotron'>
+        <h1 id='app-title'>
+            <span class='character'>C</span><span class='character'>o</span><span class='character'>l</span><span class='character'>o</span><span class='character'>r</span><span class='character'>M</span><span class='character'>i</span><span class='character'>x</span>
+        </h1>
+        <h3>The color mixing open source library</h3>
+        <h6>v2.0.0</h6>
+        <a href='https://github.com/Flo-Schield-Bobby/colormix' target='_blank'>
+            <img class='github-ribbon' src='https://s3.amazonaws.com/github/ribbons/forkme_right_orange_ff7600.png' alt='Fork me on GitHub' />
+        </a>
+    </header>
+    <section id='what-is-it' class='well'>
+        <div class='panel-body'>
+            <h4>What is ColorMix.js ?</h4>
+            <p>A javascript library for mixing, blending and easily manipulating colors and color spaces [Hex, RGB, XYZ, HSL, Lab].</p>
+            <p>
+                The mixing methods are using the <a href='http://en.wikipedia.org/wiki/Lab_color_space' target='_blank'>Lab color space</a>.
+                <br />
+                This color space is designed to approximate the human vision, that's why a Lab mix is closer to our vision than a RGB mix.
+            </p>
+            <p>
+                It means that your colors will first be converted to this schema, what can be a bit heavy / slow if you use it inside an interval as requestAnimationFrame.
+            </p>
+            <h5>Okay, and technically ?</h5>
+            <p>
+                ColorMix is a global JS singleton object, so accessible from anywhere.
+                <br />
+                It contains some direct methods to mix several colors, get and set up a custom colors gradient, and blend a reference in this gradient.
+                <br />
+                It contains also two subclasses:
+            </p>
+            <ul>
+                <li>ColorMix.Color() - A class to easily manipulating colors</li>
+                <li>ColorMix.ColorSpace - A singleton to easily convert colors into different color spaces.</li>
+            </ul>
+            <p>Watch the documentation below for more informations !</p>
+            <h5>Is it free ?</h5>
+            <p>
+                Sure! And open-sourced on <a href='https://github.com/Flo-Schield-Bobby/colormix' target='_blank'>GitHub</a>. Feel free to star or fork. Pull-requests are welcome!
+            </p>
+            <h5>Do you find it usefull ?</h5>
+            <p>
+                Just <a href='mailto:florent.schildknecht@gmail.com'>send me your feedbacks!</a>
+            </p>
+            <div id='buy-me-a-beer'>
+                <p>And if you really like it, you can also </p>
+                <form action='https://www.paypal.com/cgi-bin/webscr' method='post' target='_blank' class='form-inline'>
+                    <input type='hidden' name='cmd' value='_s-xclick' />
+                    <input type='hidden' name='encrypted' value='-----BEGIN PKCS7-----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-----END PKCS7-----
+                    ' />
+                    <i id='buy-me-a-beer-icon' class='icon icon-beer'></i>
+                    <input id='buy-me-a-beer-input' class='btn btn-default' type='submit' name='submit' value='Buy me a beer' />
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock %}

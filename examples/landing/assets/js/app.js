@@ -202,6 +202,7 @@ $(function () {
 		},
 		Weather = (new WeatherWidget($weatherWidget)).init();
 
+	prettyPrint();
 	ColorMix.setGradient([{
 		'reference': 0,
 		'color': new ColorMix.Color(0, 179, 255)
