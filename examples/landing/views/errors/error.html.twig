@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block app_container %}
+    <header class='jumbotron'>
+        <h1>{{ code }}</h1>
+        <p class='lead'>{{ message }}</p>
+    </header>
+    <hr />
+    <div class='alert alert-warning'>
+        <p class='text-warning'>{{ exception.message }}</p>
+    </div>
+{% endblock %}

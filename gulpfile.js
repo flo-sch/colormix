@@ -97,8 +97,8 @@ gulp.task('serve', ['scripts', 'styles'], function () {
 });
 
 gulp.task('build', ['scripts', 'styles'], function () {
-    return gulp.src('source/v2/js/*.js')
-        .pipe(gulp.dest('build'));
+    gulp.src('source/v1/js/*.js').pipe(gulp.dest('build/v1'));
+    return gulp.src('source/v2/js/*.js').pipe(gulp.dest('build/v2'));
 });
 
 // Default task

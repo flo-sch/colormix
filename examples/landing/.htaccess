@@ -1,5 +1,33 @@
 # Apache Configuration File
 
+# ##############################################################################
+# # URL REWRITES                                                               #
+# ##############################################################################
+
+# ------------------------------------------------------------------------------
+# | Rewrite engine                                                             |
+# ------------------------------------------------------------------------------
+
+# Turning on the rewrite engine and enabling the `FollowSymLinks` option is
+# necessary for the following directives to work.
+
+# If your web host doesn't allow the `FollowSymlinks` option, you may need to
+# comment it out and use `Options +SymLinksIfOwnerMatch` but, be aware of the
+# performance impact: http://httpd.apache.org/docs/current/misc/perf-tuning.html#symlinks
+
+# Also, some cloud hosting services require `RewriteBase` to be set:
+# http://www.rackspace.com/knowledge_center/frequently-asked-question/why-is-mod-rewrite-not-working-on-my-site
+
+<IfModule mod_rewrite.c>
+    Options -MultiViews
+
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [QSA,L]
+
+    FallbackResource /index.php
+</IfModule>
+
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have access
 # to the main server config file (usually called `httpd.conf`), you should add
 # this logic there: http://httpd.apache.org/docs/current/howto/htaccess.html.
@@ -49,15 +77,6 @@
 # http://www.webmasterworld.com/apache/3808792.htm
 
 Options -MultiViews
-
-# ------------------------------------------------------------------------------
-# | Custom error messages / pages                                              |
-# ------------------------------------------------------------------------------
-
-# You can customize what Apache returns to the client in case of an error (see
-# http://httpd.apache.org/docs/current/mod/core.html#errordocument), e.g.:
-
-ErrorDocument 404 /404.html
 
 
 # ##############################################################################
@@ -149,36 +168,6 @@ AddDefaultCharset utf-8
 # Force UTF-8 for certain file formats.
 <IfModule mod_mime.c>
     AddCharset utf-8 .atom .css .js .json .rss .vtt .webapp .xml
-</IfModule>
-
-
-# ##############################################################################
-# # URL REWRITES                                                               #
-# ##############################################################################
-
-# ------------------------------------------------------------------------------
-# | Rewrite engine                                                             |
-# ------------------------------------------------------------------------------
-
-# Turning on the rewrite engine and enabling the `FollowSymLinks` option is
-# necessary for the following directives to work.
-
-# If your web host doesn't allow the `FollowSymlinks` option, you may need to
-# comment it out and use `Options +SymLinksIfOwnerMatch` but, be aware of the
-# performance impact: http://httpd.apache.org/docs/current/misc/perf-tuning.html#symlinks
-
-# Also, some cloud hosting services require `RewriteBase` to be set:
-# http://www.rackspace.com/knowledge_center/frequently-asked-question/why-is-mod-rewrite-not-working-on-my-site
-
-<IfModule mod_rewrite.c>
-    Options +FollowSymlinks
-    Options -MultiViews
-
-    RewriteEngine On
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [QSA,L]
-
-    FallbackResource /index.php
 </IfModule>
 
 # ##############################################################################
