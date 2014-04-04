@@ -25,7 +25,7 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [QSA,L]
 
-    FallbackResource /index.php
+    # FallbackResource /index.php
 </IfModule>
 
 # (!) Using `.htaccess` files slows down Apache, therefore, if you have access
@@ -185,17 +185,6 @@ AddDefaultCharset utf-8
 
 <IfModule mod_autoindex.c>
     Options -Indexes
-</IfModule>
-
-# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-# Block access to hidden files and directories.
-# This includes directories used by version control systems such as Git and SVN.
-
-<IfModule mod_rewrite.c>
-    RewriteCond %{SCRIPT_FILENAME} -d [OR]
-    RewriteCond %{SCRIPT_FILENAME} -f
-    RewriteRule "(^|/)\." - [F]
 </IfModule>
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
