@@ -149,13 +149,12 @@ $(function () {
 						dataType: 'jsonp',
 						location: _location,
 						callback: function (success, response, status, XHR) {
-							console.log(success, response, status, XHR);
 							if (success) {
 								_data = response.data;
 								displayWeather.apply(weather);
 							} else {
 								// Hummm...
-								console.log('Impossible to load the weather widget data from the API.');
+								console.error('Impossible to load the weather widget data from the API.');
 							}
 						},
 						scope: this
@@ -250,12 +249,32 @@ $(function () {
 	$weatherButton.on({
 		click: function (e) {
 			e.preventDefault();
+			var btn = $(this);
+			btn.button('loading');
 
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(function (position) {
+					btn.button('reset');
 					Weather.setLocation(String(position.coords.latitude + ',' + position.coords.longitude));
 				}, function (error) {
-					console.error(error);
+					btn.button('reset');
+					var message = 'It was impossible to retrieve your position because : ';
+					switch (error.code) {
+						case 1:
+							message += 'the permission is denied.';
+							break;
+						case 2:
+							message += 'the position is unavailable.';
+							break;
+						case 3:
+							message += 'it was too long to retrieve.';
+							break;
+						default:
+							message += 'an unknown error happened.'
+							break;
+					}
+					console.error(message);
+					alert(message);
 				});
 			} else {
 				alert('Your browser seems to not be able to use the Geolocation. Please update it, or change for a modern browser !');
