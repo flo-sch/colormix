@@ -183,32 +183,18 @@ html {
                 }
                 ul {
                     &#colormix {
-                        margin: 0 0 0 25px;
+                        margin: 0;
+                        padding: 0 0 0 10px;
                     }
-                    li {
-                        padding: 10px 0;
-                        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-                        &:last-child {
-                            border: none;
-                        }
-                        list-style-type: none;
-                        list-style-image: url('../images/icon-minus.png');
-                        &.collapsed {
-                            list-style-image: url('../images/icon-plus.png');
-                        }
-                        .collapse {
-                            > :first-child {
-                                margin-top: 15px;
-                            }
-                            h6 {
-                                color: rgb(52, 73, 94);
-                                text-decoration: underline;
-                            }
-                        }
+                    &.panel-group {
+                        padding: 0;
                     }
                 }
+                pre {
+                    margin: 10px auto;
+                }
                 .documentation-singleton {
-                    > h6,
+                    .documentation-title,
                     > span {
                         &:before {
                             content: '{Singleton} - ';
@@ -217,7 +203,7 @@ html {
                     }
                 }
                 .documentation-class {
-                    > h6,
+                    .documentation-title,
                     > span {
                         &:before {
                             content: '{Class} - ';
@@ -225,7 +211,7 @@ html {
                         color: rgb(26, 188, 156);
                     }
                     .documentation-property {
-                        > h6,
+                        .documentation-title,
                         > span {
                             &:before {
                                 content: '{Property} - ';
@@ -235,7 +221,7 @@ html {
                     }
                 }
                 .documentation-method {
-                    > h6,
+                    .documentation-title,
                     > span {
                         &:before {
                             content: '{Method} - ';
@@ -244,20 +230,20 @@ html {
                         cursor: pointer;
                     }
                 }
-                .documentation-property h6,
-                .documentation-singleton h6,
-                .documentation-class h6,
-                .documentation-method h6 {
+                .documentation-property .documentation-title,
+                .documentation-singleton .documentation-title,
+                .documentation-class .documentation-title,
+                .documentation-method .documentation-title {
                     margin: 0;
                 }
                 .documentation-property > span,
                 .documentation-singleton > span,
                 .documentation-class > span,
                 .documentation-method > span,
-                .documentation-property > h6,
-                .documentation-singleton > h6,
-                .documentation-class > h6,
-                .documentation-method > h6 {
+                .documentation-property .documentation-title,
+                .documentation-singleton .documentation-title,
+                .documentation-class .documentation-title,
+                .documentation-method .documentation-title {
                     font-size: 14px;
                     cursor: pointer;
                 }
@@ -294,6 +280,7 @@ html {
                     }
                     .documentation-arguments {
                         margin: 10px 0 10px 25px;
+                        padding: 0;
                         .documentation-argument {
                             list-style-type: circle;
                             list-style-image: none;

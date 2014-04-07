@@ -1885,74 +1885,62 @@ html body #app #documentation #root-object:before {
   content: '{Singleton} - ';
 }
 html body #app #documentation ul#colormix {
-  margin: 0 0 0 25px;
+  margin: 0;
+  padding: 0 0 0 10px;
 }
-html body #app #documentation ul li {
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-  list-style-type: none;
-  list-style-image: url("../images/icon-minus.png");
+html body #app #documentation ul.panel-group {
+  padding: 0;
 }
-html body #app #documentation ul li:last-child {
-  border: none;
+html body #app #documentation pre {
+  margin: 10px auto;
 }
-html body #app #documentation ul li.collapsed {
-  list-style-image: url("../images/icon-plus.png");
-}
-html body #app #documentation ul li .collapse > :first-child {
-  margin-top: 15px;
-}
-html body #app #documentation ul li .collapse h6 {
-  color: #34495e;
-  text-decoration: underline;
-}
-html body #app #documentation .documentation-singleton > h6,
+html body #app #documentation .documentation-singleton .documentation-title,
 html body #app #documentation .documentation-singleton > span {
   color: #f1c40f;
 }
-html body #app #documentation .documentation-singleton > h6:before,
+html body #app #documentation .documentation-singleton .documentation-title:before,
 html body #app #documentation .documentation-singleton > span:before {
   content: '{Singleton} - ';
 }
-html body #app #documentation .documentation-class > h6,
+html body #app #documentation .documentation-class .documentation-title,
 html body #app #documentation .documentation-class > span {
   color: #1abc9c;
 }
-html body #app #documentation .documentation-class > h6:before,
+html body #app #documentation .documentation-class .documentation-title:before,
 html body #app #documentation .documentation-class > span:before {
   content: '{Class} - ';
 }
-html body #app #documentation .documentation-class .documentation-property > h6,
+html body #app #documentation .documentation-class .documentation-property .documentation-title,
 html body #app #documentation .documentation-class .documentation-property > span {
   color: #2ecc71;
 }
-html body #app #documentation .documentation-class .documentation-property > h6:before,
+html body #app #documentation .documentation-class .documentation-property .documentation-title:before,
 html body #app #documentation .documentation-class .documentation-property > span:before {
   content: '{Property} - ';
 }
-html body #app #documentation .documentation-method > h6,
+html body #app #documentation .documentation-method .documentation-title,
 html body #app #documentation .documentation-method > span {
   color: #3498db;
   cursor: pointer;
 }
-html body #app #documentation .documentation-method > h6:before,
+html body #app #documentation .documentation-method .documentation-title:before,
 html body #app #documentation .documentation-method > span:before {
   content: '{Method} - ';
 }
-html body #app #documentation .documentation-property h6,
-html body #app #documentation .documentation-singleton h6,
-html body #app #documentation .documentation-class h6,
-html body #app #documentation .documentation-method h6 {
+html body #app #documentation .documentation-property .documentation-title,
+html body #app #documentation .documentation-singleton .documentation-title,
+html body #app #documentation .documentation-class .documentation-title,
+html body #app #documentation .documentation-method .documentation-title {
   margin: 0;
 }
 html body #app #documentation .documentation-property > span,
 html body #app #documentation .documentation-singleton > span,
 html body #app #documentation .documentation-class > span,
 html body #app #documentation .documentation-method > span,
-html body #app #documentation .documentation-property > h6,
-html body #app #documentation .documentation-singleton > h6,
-html body #app #documentation .documentation-class > h6,
-html body #app #documentation .documentation-method > h6 {
+html body #app #documentation .documentation-property .documentation-title,
+html body #app #documentation .documentation-singleton .documentation-title,
+html body #app #documentation .documentation-class .documentation-title,
+html body #app #documentation .documentation-method .documentation-title {
   font-size: 14px;
   cursor: pointer;
 }
@@ -2003,6 +1991,7 @@ html body #app #documentation .documentation-singleton .documentation-arguments,
 html body #app #documentation .documentation-class .documentation-arguments,
 html body #app #documentation .documentation-method .documentation-arguments {
   margin: 10px 0 10px 25px;
+  padding: 0;
 }
 html body #app #documentation .documentation-property .documentation-arguments .documentation-argument,
 html body #app #documentation .documentation-singleton .documentation-arguments .documentation-argument,
