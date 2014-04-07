@@ -1781,18 +1781,18 @@ html body #app .jumbotron .btn {
 html body #app #app-content {
   margin: 20px 0 0 0;
 }
-html body #app #what-is-it #buy-me-a-beer > form,
-html body #app #what-is-it #buy-me-a-beer > p {
+html body #app #prices #buy-me-a-beer > form,
+html body #app #prices #buy-me-a-beer > p {
   display: inline-block;
   position: relative;
   margin: 0;
 }
-html body #app #what-is-it #buy-me-a-beer #buy-me-a-beer-icon {
+html body #app #prices #buy-me-a-beer #buy-me-a-beer-icon {
   position: absolute;
   top: 9px;
   left: 8px;
 }
-html body #app #what-is-it #buy-me-a-beer #buy-me-a-beer-input {
+html body #app #prices #buy-me-a-beer #buy-me-a-beer-input {
   padding: 4px 12px 4px 26px;
 }
 html body #app #how-to-use #panel-implement {

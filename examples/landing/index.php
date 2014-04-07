@@ -77,6 +77,11 @@ $app->get('/demonstrations', function () use ($app) {
     return $app['twig']->render('/pages/demonstrations.html.twig');
 })->bind('demonstrations');
 
+// Prices
+$app->get('/prices', function () use ($app) {
+    return $app['twig']->render('/pages/prices.html.twig');
+})->bind('prices');
+
 // Errors
 $app->error(function (Exception $exception, $code) use ($app) {
     $message = '';
