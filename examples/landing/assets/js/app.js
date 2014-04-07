@@ -98,7 +98,7 @@ $(function () {
 				'reference': 11,
 				'color': c2
 			}]);
-			$('.gradient-step').each(function (i, gradientStep) {
+			$('.gradient-step', '#gradient').each(function (i, gradientStep) {
 				ColorMix.blend(i).useAsBackground($(this));
 			});
 		}
@@ -137,6 +137,11 @@ $(function () {
 							{ reference: 27.5, color: { red: 238, green: 124, blue: 60 } },
 							{ reference: 30, color: { red: 241, green: 122, blue: 55 } }
 						]);
+						var length = $('.gradient-step', '#temperature-gradient').length;
+						$('.gradient-step', '#temperature-gradient').each(function (i, gradientStep) {
+							var reference = (i - (length - 1) / 2) * (30 / ((length - 1) / 2));
+							ColorMix.blend(reference).useAsBackground($(this));
+						});
 					}
 				},
 				init = function () {

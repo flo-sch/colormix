@@ -92,8 +92,8 @@ gulp.task('watch', function () {
 });
 
 // Dev
-gulp.task('serve', ['scripts', 'styles'], function () {
-    gulp.start('connect', 'watch');
+gulp.task('serve', ['scripts', 'styles', 'connect'], function () {
+    gulp.start('watch');
 });
 
 gulp.task('build', ['scripts', 'styles'], function () {

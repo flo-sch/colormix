@@ -13,6 +13,19 @@
 
 html {
     body {
+        #temperature-gradient {
+            position: relative;
+            box-sizing: border-box;
+            width: 100%;
+            height: 20px;
+            margin: 0 auto 10px auto;
+            border: 1px solid black;
+            .gradient-step {
+                height: 100%;
+                line-height: 18px;
+                text-align: center;
+            }
+        }
         #widget-weather {
             min-width: 120px;
             max-width: 300px;
