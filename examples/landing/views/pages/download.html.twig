@@ -12,7 +12,7 @@
                 <div class='panel-body'>
                     {% for file in filesList %}
                         <div class='marged'>
-                            <a href='{{ asset(relativeBaseFolder ~ '/' ~ file.relativePathname) }}' target='_blank'><i class='icon icon-download'></i> Download the {% if 'min' in file.filename %}minified, production{% else %}unminified, development{% endif %} version - {{ file.filename }} [{{ (file.size / 1000)|number_format(2, '.', ' ') }} Kb]</a>
+                            <a href='{{ app.url_generator.generate('get', { 'filename': file.relativePathname }) }}' target='_blank'><i class='icon icon-download'></i> Download the {% if 'min' in file.filename %}minified, production{% else %}unminified, development{% endif %} version - {{ file.filename }} [{{ (file.size / 1000)|number_format(2, '.', ' ') }} Kb]</a>
                         </div>
                     {% endfor %}
                 </div>
