@@ -20,7 +20,7 @@
     font-size: 8px;
 }
 
-$footerHeight: 60px;
+$footerHeight: -60px;
 
 @mixin color-value() {
     display: table-cell;
@@ -49,13 +49,16 @@ html {
         #app {
             min-height: 100%;
             height: auto !important;
-            height: auto;
-            margin: 0 auto -$footerHeight auto;
+            height: 100%;
+            margin: 0 auto $footerHeight auto;
             .github-ribbon {
                 position: absolute;
                 top: 0;
                 right: 0;
                 border: 0;
+            }
+            #app-container {
+                padding: 70px 0 0 0;
             }
             .jumbotron {
                 margin: 0 0 20px 0;
@@ -320,10 +323,11 @@ html {
                 height: 60px;
             }
         }
-        footer {
-            height: $footerHeight;
-            line-height: $footerHeight;
+        #app-footer {
+            height: -$footerHeight;
+            line-height: -$footerHeight;
             text-align: center;
+            margin: 0;
         }
         .icon {
             display: inline-block;
