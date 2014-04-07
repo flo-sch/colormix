@@ -1802,6 +1802,9 @@ html body #app #how-to-use #panel-implement {
 html body #app #how-to-use .panel-group .panel {
   overflow: visible;
 }
+html body #app #download .marged {
+  margin: 0 0 10px 0;
+}
 html body #app #demo #form-mix {
   margin: 0;
 }

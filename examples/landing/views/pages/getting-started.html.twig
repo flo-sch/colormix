@@ -16,7 +16,7 @@
                                 <a class='panel-toggle' data-toggle='collapse' data-parent='#panel-implement' href='#step-1'>Include the library in your HTML page or template.</a>
                             </h4>
                         </div>
-                        <div id='step-1' class='panel-collapse collapse'>
+                        <div id='step-1' class='panel-collapse collapse in'>
                             <div class='panel-body'>
                                 <h5>Note - It is recommended to use it with <a href='http://jquery.com/' target='_blank'>jQuery</a>, however it is not required</h5>
 <pre class='prettyprint sublime-text linenums'>
@@ -27,8 +27,10 @@
     &lt;/head&gt;
     &lt;body&gt;
         [...]
+        &lt;!-- jQuery is recommended, but not required ! --&gt;
         &lt;script src='/path/to/your/scripts/jquery-latest.min.js'&gt;&lt;/script&gt;
-        &lt;script src='/path/to/your/scripts/colormix.js'&gt;&lt;/script&gt;
+        &lt;!-- ColorMix library - minified for better page-loading performances --&gt;
+        &lt;script src='/path/to/your/scripts/colormix.min.js'&gt;&lt;/script&gt;
         &lt;script&gt;
             // Use ColorMix here !
             var Color = new ColorMix.Color(255, 255, 255);
@@ -48,6 +50,7 @@
                         <div id='step-2' class='panel-collapse collapse'>
                             <div class='panel-body'>
 <pre class='prettyprint sublime-text linenums'>
+// JavaScript file
 var C1 = new ColorMix.Color(41, 51, 61),
     C2 = new ColorMix.Color(125, 140, 220),
     C3 = new ColorMix.Color(255, 128, 0),
@@ -69,6 +72,8 @@ alert('Your mixed color is: rgb(' + mix.red + ', ' + mix.green + ', ' + mix.blue
                             <div class='panel-body'>
                                 <h5>Note - your gradient must be an array of objects as following</h5>
 <pre class='prettyprint sublime-text linenums'>
+// JavaScript file
+
 // Your objects must have 2 properties:
 // - Reference [integer], who is basically the 'value' of the gradient step
 // - Color [object], who is just an object with red, green and blue properties [integer values; 0-255]
@@ -84,6 +89,8 @@ var gradient = [{
 </pre>
                                 <h5>Note - your gradient should be sorted by the reference property of its objects, from smallest to biggest</h5>
 <pre class='prettyprint sublime-text linenums'>
+// JavaScript file
+
 // Set an array of objects
 ColorMix.setGradient([
     { reference: 0, color: { red: 0, green: 0, blue: 255 } },
@@ -105,6 +112,8 @@ ColorMix.setGradient([
                         <div id='step-4' class='panel-collapse collapse'>
                             <div class='panel-body'>
 <pre class='prettyprint sublime-text linenums'>
+// JavaScript file
+
 var color = ColorMix.blend(69);
 console.log(color);
 alert('Your blended color is: rgb(' + color.red + ', ' + color.green + ', ' + color.blue + ')');
@@ -122,6 +131,8 @@ alert('Your blended color is: rgb(' + color.red + ', ' + color.green + ', ' + co
                             <div class='panel-body'>
                                 <h5>Note - You can chain operations for a more comfortable syntax.</h5>
 <pre class='prettyprint sublime-text linenums'>
+// JavaScript file
+
 var color = ColorMix.blend(69).useAsBackground('body');
 // New in v2 : you can now use both a jQuery object or a selector
 var color = ColorMix.blend(69).useAsBackground($('.subtitle'));
