@@ -95,6 +95,10 @@ html {
                 }
             }
             #how-to-use {
+                #panel-implement {
+                    margin: 0;
+                    padding: 0 0 0 30px;
+                }
                 .panel-group {
                     .panel {
                         overflow: visible;
@@ -184,7 +188,7 @@ html {
                 ul {
                     &#colormix {
                         margin: 0;
-                        padding: 0 0 0 10px;
+                        padding: 0;
                     }
                     &.panel-group {
                         padding: 0;

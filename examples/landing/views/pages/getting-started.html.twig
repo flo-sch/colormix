@@ -4,17 +4,21 @@
 
 {% block app_container %}
     <section id='how-to-use'>
-        <div class='panel-body'>
-            <ol class='panel-group' id='panel-implement'>
-                <li class='panel panel-default'>
-                    <div class='panel-heading'>
-                        <h4 class='panel-title'>
-                            <a class='panel-toggle' data-toggle='collapse' data-parent='#panel-implement' href='#step-1'>Include the library in your HTML page or template.</a>
-                        </h4>
-                    </div>
-                    <div id='step-1' class='panel-collapse collapse'>
-                        <div class='panel-body'>
-                            <h5>Note - It is recommended to use it with <a href='http://jquery.com/' target='_blank'>jQuery</a>, however it is not required</h5>
+        <div class='panel panel-default'>
+            <div class='panel-heading'>
+                <h3 class='panel-title'>Getting-Started Guide</h3>
+            </div>
+            <div class='panel-body'>
+                <ol class='panel-group' id='panel-implement'>
+                    <li class='panel panel-default'>
+                        <div class='panel-heading'>
+                            <h4 class='panel-title'>
+                                <a class='panel-toggle' data-toggle='collapse' data-parent='#panel-implement' href='#step-1'>Include the library in your HTML page or template.</a>
+                            </h4>
+                        </div>
+                        <div id='step-1' class='panel-collapse collapse'>
+                            <div class='panel-body'>
+                                <h5>Note - It is recommended to use it with <a href='http://jquery.com/' target='_blank'>jQuery</a>, however it is not required</h5>
 <pre class='prettyprint sublime-text linenums'>
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -32,17 +36,17 @@
     &lt;/body&gt;
 &lt;/html&gt;
 </pre>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li class='panel panel-default'>
-                    <div class='panel-heading'>
-                        <h4 class='panel-title'>
-                            <a class='panel-toggle' data-toggle='collapse' data-parent='#panel-implement' href='#step-2'>You can already use it to mix some colors!</a>
-                        </h4>
-                    </div>
-                    <div id='step-2' class='panel-collapse collapse'>
-                        <div class='panel-body'>
+                    </li>
+                    <li class='panel panel-default'>
+                        <div class='panel-heading'>
+                            <h4 class='panel-title'>
+                                <a class='panel-toggle' data-toggle='collapse' data-parent='#panel-implement' href='#step-2'>You can already use it to mix some colors!</a>
+                            </h4>
+                        </div>
+                        <div id='step-2' class='panel-collapse collapse'>
+                            <div class='panel-body'>
 <pre class='prettyprint sublime-text linenums'>
 var C1 = new ColorMix.Color(41, 51, 61),
     C2 = new ColorMix.Color(125, 140, 220),
@@ -52,18 +56,18 @@ var C1 = new ColorMix.Color(41, 51, 61),
 console.log(C1, C2, C3, mix);
 alert('Your mixed color is: rgb(' + mix.red + ', ' + mix.green + ', ' + mix.blue + ')');
 </pre>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li class='panel panel-default'>
-                    <div class='panel-heading'>
-                        <h4 class='panel-title'>
-                            <a class='panel-toggle' data-toggle='collapse' data-parent='#panel-implement' href='#step-3'>Or if you want to blend a value, just set up your own gradient to the ColorMix singleton.</a>
-                        </h4>
-                    </div>
-                    <div id='step-3' class='panel-collapse collapse'>
-                        <div class='panel-body'>
-                            <h5>Note - your gradient must be an array of objects as following</h5>
+                    </li>
+                    <li class='panel panel-default'>
+                        <div class='panel-heading'>
+                            <h4 class='panel-title'>
+                                <a class='panel-toggle' data-toggle='collapse' data-parent='#panel-implement' href='#step-3'>Or if you want to blend a value, just set up your own gradient to the ColorMix singleton.</a>
+                            </h4>
+                        </div>
+                        <div id='step-3' class='panel-collapse collapse'>
+                            <div class='panel-body'>
+                                <h5>Note - your gradient must be an array of objects as following</h5>
 <pre class='prettyprint sublime-text linenums'>
 // Your objects must have 2 properties:
 // - Reference [integer], who is basically the 'value' of the gradient step
@@ -78,7 +82,7 @@ var gradient = [{
     }
 }];
 </pre>
-                            <h5>Note - your gradient should be sorted by the reference property of its objects, from smallest to biggest</h5>
+                                <h5>Note - your gradient should be sorted by the reference property of its objects, from smallest to biggest</h5>
 <pre class='prettyprint sublime-text linenums'>
 // Set an array of objects
 ColorMix.setGradient([
@@ -89,43 +93,44 @@ ColorMix.setGradient([
     { reference: 100, color: { red: 255, green: 0, blue: 0 } }
 ]);
 </pre>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li class='panel panel-default'>
-                    <div class='panel-heading'>
-                        <h4 class='panel-title'>
-                            <a class='panel-toggle' data-toggle='collapse' data-parent='#panel-implement' href='#step-4'>Then blend the value in your fresh gradient!</a>
-                        </h4>
-                    </div>
-                    <div id='step-4' class='panel-collapse collapse'>
-                        <div class='panel-body'>
+                    </li>
+                    <li class='panel panel-default'>
+                        <div class='panel-heading'>
+                            <h4 class='panel-title'>
+                                <a class='panel-toggle' data-toggle='collapse' data-parent='#panel-implement' href='#step-4'>Then blend the value in your fresh gradient!</a>
+                            </h4>
+                        </div>
+                        <div id='step-4' class='panel-collapse collapse'>
+                            <div class='panel-body'>
 <pre class='prettyprint sublime-text linenums'>
 var color = ColorMix.blend(69);
 console.log(color);
 alert('Your blended color is: rgb(' + color.red + ', ' + color.green + ', ' + color.blue + ')');
 </pre>
+                            </div>
                         </div>
-                    </div>
-                </li>
-                <li class='panel panel-default'>
-                    <div class='panel-heading'>
-                        <h4 class='panel-title'>
-                            <a class='panel-toggle' data-toggle='collapse' data-parent='#panel-implement' href='#step-5'>Then apply it on DOM HTML elements!</a>
-                        </h4>
-                    </div>
-                    <div id='step-5' class='panel-collapse collapse'>
-                        <div class='panel-body'>
-                            <h5>Note - You can chain operations for a more comfortable syntax.</h5>
+                    </li>
+                    <li class='panel panel-default'>
+                        <div class='panel-heading'>
+                            <h4 class='panel-title'>
+                                <a class='panel-toggle' data-toggle='collapse' data-parent='#panel-implement' href='#step-5'>Then apply it on DOM HTML elements!</a>
+                            </h4>
+                        </div>
+                        <div id='step-5' class='panel-collapse collapse'>
+                            <div class='panel-body'>
+                                <h5>Note - You can chain operations for a more comfortable syntax.</h5>
 <pre class='prettyprint sublime-text linenums'>
 var color = ColorMix.blend(69).useAsBackground('body');
 // New in v2 : you can now use both a jQuery object or a selector
 var color = ColorMix.blend(69).useAsBackground($('.subtitle'));
 </pre>
+                            </div>
                         </div>
-                    </div>
-                </li>
-            </ol>
+                    </li>
+                </ol>
+            </div>
         </div>
     </section>
 {% endblock %}

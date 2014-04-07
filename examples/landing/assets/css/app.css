@@ -1795,6 +1795,10 @@ html body #app #what-is-it #buy-me-a-beer #buy-me-a-beer-icon {
 html body #app #what-is-it #buy-me-a-beer #buy-me-a-beer-input {
   padding: 4px 12px 4px 26px;
 }
+html body #app #how-to-use #panel-implement {
+  margin: 0;
+  padding: 0 0 0 30px;
+}
 html body #app #how-to-use .panel-group .panel {
   overflow: visible;
 }
@@ -1886,7 +1890,7 @@ html body #app #documentation #root-object:before {
 }
 html body #app #documentation ul#colormix {
   margin: 0;
-  padding: 0 0 0 10px;
+  padding: 0;
 }
 html body #app #documentation ul.panel-group {
   padding: 0;
