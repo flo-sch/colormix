@@ -1761,6 +1761,7 @@ html body #app .github-ribbon {
   top: 0;
   right: 0;
   border: 0;
+  z-index: 1050;
 }
 html body #app #app-container {
   padding: 70px 0 0 0;
