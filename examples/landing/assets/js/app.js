@@ -43,13 +43,6 @@ SDK.Weather = (function () {
 					show_comments: (config.comments === true ? 'yes' : 'no')
 				};
 
-			// Escape the URL and call the proxy.php file that will solve the Access-Control-Allow-Origin problem while working on localhost.
-			/*
-			if (window.location.hostname === '127.0.0.1' || window.location.hostname === 'localhost') {
-				url = 'proxy.php?type=' + config.dataType + '&url=' + encodeURIComponent(url + '?key=' + _key + '&q=' + config.location + '&format=' + config.format + '&num_of_days=' + config.days + '&includelocation=' + (config.location === true ? 'yes' : 'no') + '&show_comments=' + (config.comments === true ? 'yes' : 'no'));
-				data = null;
-			}
-			*/
 			$.ajax({
 				url: url,
 				type: 'get',
@@ -114,9 +107,8 @@ $(function () {
 		WeatherWidget = function (target) {
 			var $target = $(target),
 				_location = 'London',
-				_data = {};
-				init = function () {
-					load.apply(this);
+				_data = {},
+				resetGradient = function() {
 					if (ColorMix) {
 						ColorMix.setGradient([
 							{ reference: -30, color: { red: 123, green: 219, blue: 243 } },
@@ -147,12 +139,17 @@ $(function () {
 						]);
 					}
 				},
+				init = function () {
+					resetGradient.apply(this);
+					load.apply(this);
+				},
 				load = function () {
 					var weather = this;
 					SDK.Weather.load({
 						dataType: 'jsonp',
 						location: _location,
 						callback: function (success, response, status, XHR) {
+							console.log(success, response, status, XHR);
 							if (success) {
 								_data = response.data;
 								displayWeather.apply(weather);
@@ -165,6 +162,7 @@ $(function () {
 					});
 				},
 				displayWeather = function () {
+					resetGradient.apply(this);
 					if ($target.length > 0) {
 						$target.empty().append($('<div>', {
 							'class': 'widget-weather-location'
@@ -256,6 +254,8 @@ $(function () {
 			if (navigator.geolocation) {
 				navigator.geolocation.getCurrentPosition(function (position) {
 					Weather.setLocation(String(position.coords.latitude + ',' + position.coords.longitude));
+				}, function (error) {
+					console.error(error);
 				});
 			} else {
 				alert('Your browser seems to not be able to use the Geolocation. Please update it, or change for a modern browser !');
