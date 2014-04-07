@@ -21,7 +21,7 @@ DEFINE(__VIEWS__, 'views');
 
 $app = new Application();
 
-$app['debug'] = true;
+// $app['debug'] = true;
 
 // Session
 $app->register(new SessionServiceProvider());
