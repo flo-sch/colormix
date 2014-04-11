@@ -25,6 +25,29 @@ var gulp         = require('gulp'),
     };
 
 // Sripts
+gulp.task('assets-scripts', function () {
+    return gulp.src(['examples/landing/assets/coffee/{,*/}*.{coffee,coffee.md}', '!examples/landing/assets/coffee/{,*/}*.min*'])
+        .pipe(coffee({
+            bare: true
+        }))
+        .on('error', gutil.log)
+        .pipe(coffeelint())
+        .on('error', gutil.log)
+        .pipe(coffeelint.reporter())
+        .on('error', gutil.log)
+        .pipe(size())
+        .pipe(gulp.dest('examples/landing/assets/js'))
+        .pipe(uglify())
+        .on('error', gutil.log)
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(size())
+        .pipe(gulp.dest('examples/landing/assets/js'))
+        .pipe(livereload(server));
+});
+
+// Sripts
 gulp.task('scripts', function () {
     return gulp.src(['source/v2/coffee/{,*/}*.{coffee,coffee.md}', '!source/{,*/}*.min*'])
         .pipe(coffee({
@@ -87,12 +110,15 @@ gulp.task('watch', function () {
         gulp.watch('source/{,*/}*.{coffee,coffee.md}', ['scripts']);
 
         // Watch .coffee files
+        gulp.watch('examples/landing/assets/coffee/{,*/}*.{coffee,coffee.md}', ['assets-scripts']);
+
+        // Watch .sass files
         gulp.watch('examples/{,*/}*.{sass,scss}', ['styles']);
     });
 });
 
 // Dev
-gulp.task('serve', ['scripts', 'styles', 'connect'], function () {
+gulp.task('serve', ['scripts', 'assets-scripts', 'styles', 'connect'], function () {
     gulp.start('watch');
 });
 
