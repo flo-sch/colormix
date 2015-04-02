@@ -2,6 +2,13 @@
   "name": "colormix",
   "version": "2.0.0",
   "description": "A color mixing javascript library",
+  "homepage": "http://color-mix.it/",
+  "license": "MIT",
+  "author": {
+    "name": "Florent Schildknecht",
+    "email": "florent.schildknecht@gmail.com",
+    "url": "http://florentschildknecht.com/"
+  },
   "dependencies": {},
   "devDependencies": {
     "gulp": "~3.5.2",
