@@ -19,7 +19,7 @@ html body code.sublime-text .com {
 }
 html body pre.sublime-text .typ,
 html body code.sublime-text .typ {
-  color: white;
+  color: #ffffff;
 }
 html body pre.sublime-text .lit,
 html body code.sublime-text .lit {
@@ -31,7 +31,7 @@ html body code.sublime-text .pun {
 }
 html body pre.sublime-text .pln,
 html body code.sublime-text .pln {
-  color: white;
+  color: #ffffff;
 }
 html body pre.sublime-text .tag,
 html body code.sublime-text .tag {
@@ -74,3 +74,5 @@ html body ol.linenums {
 html body ol.linenums li.L0, html body ol.linenums li.L1, html body ol.linenums li.L2, html body ol.linenums li.L3, html body ol.linenums li.L5, html body ol.linenums li.L6, html body ol.linenums li.L7, html body ol.linenums li.L8, html body ol.linenums li.L9 {
   line-height: 18px;
 }
+
+/*# sourceMappingURL=prettify-sublime-text.scss.map */

@@ -5,7 +5,7 @@
  *
  * Copyright 2013 @ Florent SCHILDKNECHT
  *
- * Date: 2014-03-29
+ * Date: 2015-5-14
  */
 var ColorMix;
 

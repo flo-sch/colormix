@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*!
  *  Font Awesome 4.0.3 by @davegandy - http://fontawesome.io - @fontawesome
  *  License - http://fontawesome.io/license (Font: SIL OFL 1.1, CSS: MIT License)
@@ -71,7 +72,7 @@
 
 .icon-border {
   padding: .2em .25em .15em;
-  border: solid 0.08em #eeeeee;
+  border: solid 0.08em #eee;
   border-radius: .1em;
 }
 
@@ -101,7 +102,6 @@
   0% {
     -moz-transform: rotate(0deg);
   }
-
   100% {
     -moz-transform: rotate(359deg);
   }
@@ -110,7 +110,6 @@
   0% {
     -webkit-transform: rotate(0deg);
   }
-
   100% {
     -webkit-transform: rotate(359deg);
   }
@@ -119,7 +118,6 @@
   0% {
     -o-transform: rotate(0deg);
   }
-
   100% {
     -o-transform: rotate(359deg);
   }
@@ -128,7 +126,6 @@
   0% {
     -ms-transform: rotate(0deg);
   }
-
   100% {
     -ms-transform: rotate(359deg);
   }
@@ -137,7 +134,6 @@
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(359deg);
   }
@@ -212,1525 +208,1525 @@
 }
 
 .icon-inverse {
-  color: white;
+  color: #fff;
 }
 
 /* Font Awesome uses the Unicode Private Use Area (PUA) to ensure screen
    readers do not read off random characters that represent icons */
 .icon-glass:before {
-  content: "\f000";
+  content: "";
 }
 
 .icon-music:before {
-  content: "\f001";
+  content: "";
 }
 
 .icon-search:before {
-  content: "\f002";
+  content: "";
 }
 
 .icon-envelope-o:before {
-  content: "\f003";
+  content: "";
 }
 
 .icon-heart:before {
-  content: "\f004";
+  content: "";
 }
 
 .icon-star:before {
-  content: "\f005";
+  content: "";
 }
 
 .icon-star-o:before {
-  content: "\f006";
+  content: "";
 }
 
 .icon-user:before {
-  content: "\f007";
+  content: "";
 }
 
 .icon-film:before {
-  content: "\f008";
+  content: "";
 }
 
 .icon-th-large:before {
-  content: "\f009";
+  content: "";
 }
 
 .icon-th:before {
-  content: "\f00a";
+  content: "";
 }
 
 .icon-th-list:before {
-  content: "\f00b";
+  content: "";
 }
 
 .icon-check:before {
-  content: "\f00c";
+  content: "";
 }
 
 .icon-times:before {
-  content: "\f00d";
+  content: "";
 }
 
 .icon-search-plus:before {
-  content: "\f00e";
+  content: "";
 }
 
 .icon-search-minus:before {
-  content: "\f010";
+  content: "";
 }
 
 .icon-power-off:before {
-  content: "\f011";
+  content: "";
 }
 
 .icon-signal:before {
-  content: "\f012";
+  content: "";
 }
 
 .icon-gear:before,
 .icon-cog:before {
-  content: "\f013";
+  content: "";
 }
 
 .icon-trash-o:before {
-  content: "\f014";
+  content: "";
 }
 
 .icon-home:before {
-  content: "\f015";
+  content: "";
 }
 
 .icon-file-o:before {
-  content: "\f016";
+  content: "";
 }
 
 .icon-clock-o:before {
-  content: "\f017";
+  content: "";
 }
 
 .icon-road:before {
-  content: "\f018";
+  content: "";
 }
 
 .icon-download:before {
-  content: "\f019";
+  content: "";
 }
 
 .icon-arrow-circle-o-down:before {
-  content: "\f01a";
+  content: "";
 }
 
 .icon-arrow-circle-o-up:before {
-  content: "\f01b";
+  content: "";
 }
 
 .icon-inbox:before {
-  content: "\f01c";
+  content: "";
 }
 
 .icon-play-circle-o:before {
-  content: "\f01d";
+  content: "";
 }
 
 .icon-rotate-right:before,
 .icon-repeat:before {
-  content: "\f01e";
+  content: "";
 }
 
 .icon-refresh:before {
-  content: "\f021";
+  content: "";
 }
 
 .icon-list-alt:before {
-  content: "\f022";
+  content: "";
 }
 
 .icon-lock:before {
-  content: "\f023";
+  content: "";
 }
 
 .icon-flag:before {
-  content: "\f024";
+  content: "";
 }
 
 .icon-headphones:before {
-  content: "\f025";
+  content: "";
 }
 
 .icon-volume-off:before {
-  content: "\f026";
+  content: "";
 }
 
 .icon-volume-down:before {
-  content: "\f027";
+  content: "";
 }
 
 .icon-volume-up:before {
-  content: "\f028";
+  content: "";
 }
 
 .icon-qrcode:before {
-  content: "\f029";
+  content: "";
 }
 
 .icon-barcode:before {
-  content: "\f02a";
+  content: "";
 }
 
 .icon-tag:before {
-  content: "\f02b";
+  content: "";
 }
 
 .icon-tags:before {
-  content: "\f02c";
+  content: "";
 }
 
 .icon-book:before {
-  content: "\f02d";
+  content: "";
 }
 
 .icon-bookmark:before {
-  content: "\f02e";
+  content: "";
 }
 
 .icon-print:before {
-  content: "\f02f";
+  content: "";
 }
 
 .icon-camera:before {
-  content: "\f030";
+  content: "";
 }
 
 .icon-font:before {
-  content: "\f031";
+  content: "";
 }
 
 .icon-bold:before {
-  content: "\f032";
+  content: "";
 }
 
 .icon-italic:before {
-  content: "\f033";
+  content: "";
 }
 
 .icon-text-height:before {
-  content: "\f034";
+  content: "";
 }
 
 .icon-text-width:before {
-  content: "\f035";
+  content: "";
 }
 
 .icon-align-left:before {
-  content: "\f036";
+  content: "";
 }
 
 .icon-align-center:before {
-  content: "\f037";
+  content: "";
 }
 
 .icon-align-right:before {
-  content: "\f038";
+  content: "";
 }
 
 .icon-align-justify:before {
-  content: "\f039";
+  content: "";
 }
 
 .icon-list:before {
-  content: "\f03a";
+  content: "";
 }
 
 .icon-dedent:before,
 .icon-outdent:before {
-  content: "\f03b";
+  content: "";
 }
 
 .icon-indent:before {
-  content: "\f03c";
+  content: "";
 }
 
 .icon-video-camera:before {
-  content: "\f03d";
+  content: "";
 }
 
 .icon-picture-o:before {
-  content: "\f03e";
+  content: "";
 }
 
 .icon-pencil:before {
-  content: "\f040";
+  content: "";
 }
 
 .icon-map-marker:before {
-  content: "\f041";
+  content: "";
 }
 
 .icon-adjust:before {
-  content: "\f042";
+  content: "";
 }
 
 .icon-tint:before {
-  content: "\f043";
+  content: "";
 }
 
 .icon-edit:before,
 .icon-pencil-square-o:before {
-  content: "\f044";
+  content: "";
 }
 
 .icon-share-square-o:before {
-  content: "\f045";
+  content: "";
 }
 
 .icon-check-square-o:before {
-  content: "\f046";
+  content: "";
 }
 
 .icon-arrows:before {
-  content: "\f047";
+  content: "";
 }
 
 .icon-step-backward:before {
-  content: "\f048";
+  content: "";
 }
 
 .icon-fast-backward:before {
-  content: "\f049";
+  content: "";
 }
 
 .icon-backward:before {
-  content: "\f04a";
+  content: "";
 }
 
 .icon-play:before {
-  content: "\f04b";
+  content: "";
 }
 
 .icon-pause:before {
-  content: "\f04c";
+  content: "";
 }
 
 .icon-stop:before {
-  content: "\f04d";
+  content: "";
 }
 
 .icon-forward:before {
-  content: "\f04e";
+  content: "";
 }
 
 .icon-fast-forward:before {
-  content: "\f050";
+  content: "";
 }
 
 .icon-step-forward:before {
-  content: "\f051";
+  content: "";
 }
 
 .icon-eject:before {
-  content: "\f052";
+  content: "";
 }
 
 .icon-chevron-left:before {
-  content: "\f053";
+  content: "";
 }
 
 .icon-chevron-right:before {
-  content: "\f054";
+  content: "";
 }
 
 .icon-plus-circle:before {
-  content: "\f055";
+  content: "";
 }
 
 .icon-minus-circle:before {
-  content: "\f056";
+  content: "";
 }
 
 .icon-times-circle:before {
-  content: "\f057";
+  content: "";
 }
 
 .icon-check-circle:before {
-  content: "\f058";
+  content: "";
 }
 
 .icon-question-circle:before {
-  content: "\f059";
+  content: "";
 }
 
 .icon-info-circle:before {
-  content: "\f05a";
+  content: "";
 }
 
 .icon-crosshairs:before {
-  content: "\f05b";
+  content: "";
 }
 
 .icon-times-circle-o:before {
-  content: "\f05c";
+  content: "";
 }
 
 .icon-check-circle-o:before {
-  content: "\f05d";
+  content: "";
 }
 
 .icon-ban:before {
-  content: "\f05e";
+  content: "";
 }
 
 .icon-arrow-left:before {
-  content: "\f060";
+  content: "";
 }
 
 .icon-arrow-right:before {
-  content: "\f061";
+  content: "";
 }
 
 .icon-arrow-up:before {
-  content: "\f062";
+  content: "";
 }
 
 .icon-arrow-down:before {
-  content: "\f063";
+  content: "";
 }
 
 .icon-mail-forward:before,
 .icon-share:before {
-  content: "\f064";
+  content: "";
 }
 
 .icon-expand:before {
-  content: "\f065";
+  content: "";
 }
 
 .icon-compress:before {
-  content: "\f066";
+  content: "";
 }
 
 .icon-plus:before {
-  content: "\f067";
+  content: "";
 }
 
 .icon-minus:before {
-  content: "\f068";
+  content: "";
 }
 
 .icon-asterisk:before {
-  content: "\f069";
+  content: "";
 }
 
 .icon-exclamation-circle:before {
-  content: "\f06a";
+  content: "";
 }
 
 .icon-gift:before {
-  content: "\f06b";
+  content: "";
 }
 
 .icon-leaf:before {
-  content: "\f06c";
+  content: "";
 }
 
 .icon-fire:before {
-  content: "\f06d";
+  content: "";
 }
 
 .icon-eye:before {
-  content: "\f06e";
+  content: "";
 }
 
 .icon-eye-slash:before {
-  content: "\f070";
+  content: "";
 }
 
 .icon-warning:before,
 .icon-exclamation-triangle:before {
-  content: "\f071";
+  content: "";
 }
 
 .icon-plane:before {
-  content: "\f072";
+  content: "";
 }
 
 .icon-calendar:before {
-  content: "\f073";
+  content: "";
 }
 
 .icon-random:before {
-  content: "\f074";
+  content: "";
 }
 
 .icon-comment:before {
-  content: "\f075";
+  content: "";
 }
 
 .icon-magnet:before {
-  content: "\f076";
+  content: "";
 }
 
 .icon-chevron-up:before {
-  content: "\f077";
+  content: "";
 }
 
 .icon-chevron-down:before {
-  content: "\f078";
+  content: "";
 }
 
 .icon-retweet:before {
-  content: "\f079";
+  content: "";
 }
 
 .icon-shopping-cart:before {
-  content: "\f07a";
+  content: "";
 }
 
 .icon-folder:before {
-  content: "\f07b";
+  content: "";
 }
 
 .icon-folder-open:before {
-  content: "\f07c";
+  content: "";
 }
 
 .icon-arrows-v:before {
-  content: "\f07d";
+  content: "";
 }
 
 .icon-arrows-h:before {
-  content: "\f07e";
+  content: "";
 }
 
 .icon-bar-chart-o:before {
-  content: "\f080";
+  content: "";
 }
 
 .icon-twitter-square:before {
-  content: "\f081";
+  content: "";
 }
 
 .icon-facebook-square:before {
-  content: "\f082";
+  content: "";
 }
 
 .icon-camera-retro:before {
-  content: "\f083";
+  content: "";
 }
 
 .icon-key:before {
-  content: "\f084";
+  content: "";
 }
 
 .icon-gears:before,
 .icon-cogs:before {
-  content: "\f085";
+  content: "";
 }
 
 .icon-comments:before {
-  content: "\f086";
+  content: "";
 }
 
 .icon-thumbs-o-up:before {
-  content: "\f087";
+  content: "";
 }
 
 .icon-thumbs-o-down:before {
-  content: "\f088";
+  content: "";
 }
 
 .icon-star-half:before {
-  content: "\f089";
+  content: "";
 }
 
 .icon-heart-o:before {
-  content: "\f08a";
+  content: "";
 }
 
 .icon-sign-out:before {
-  content: "\f08b";
+  content: "";
 }
 
 .icon-linkedin-square:before {
-  content: "\f08c";
+  content: "";
 }
 
 .icon-thumb-tack:before {
-  content: "\f08d";
+  content: "";
 }
 
 .icon-external-link:before {
-  content: "\f08e";
+  content: "";
 }
 
 .icon-sign-in:before {
-  content: "\f090";
+  content: "";
 }
 
 .icon-trophy:before {
-  content: "\f091";
+  content: "";
 }
 
 .icon-github-square:before {
-  content: "\f092";
+  content: "";
 }
 
 .icon-upload:before {
-  content: "\f093";
+  content: "";
 }
 
 .icon-lemon-o:before {
-  content: "\f094";
+  content: "";
 }
 
 .icon-phone:before {
-  content: "\f095";
+  content: "";
 }
 
 .icon-square-o:before {
-  content: "\f096";
+  content: "";
 }
 
 .icon-bookmark-o:before {
-  content: "\f097";
+  content: "";
 }
 
 .icon-phone-square:before {
-  content: "\f098";
+  content: "";
 }
 
 .icon-twitter:before {
-  content: "\f099";
+  content: "";
 }
 
 .icon-facebook:before {
-  content: "\f09a";
+  content: "";
 }
 
 .icon-github:before {
-  content: "\f09b";
+  content: "";
 }
 
 .icon-unlock:before {
-  content: "\f09c";
+  content: "";
 }
 
 .icon-credit-card:before {
-  content: "\f09d";
+  content: "";
 }
 
 .icon-rss:before {
-  content: "\f09e";
+  content: "";
 }
 
 .icon-hdd-o:before {
-  content: "\f0a0";
+  content: "";
 }
 
 .icon-bullhorn:before {
-  content: "\f0a1";
+  content: "";
 }
 
 .icon-bell:before {
-  content: "\f0f3";
+  content: "";
 }
 
 .icon-certificate:before {
-  content: "\f0a3";
+  content: "";
 }
 
 .icon-hand-o-right:before {
-  content: "\f0a4";
+  content: "";
 }
 
 .icon-hand-o-left:before {
-  content: "\f0a5";
+  content: "";
 }
 
 .icon-hand-o-up:before {
-  content: "\f0a6";
+  content: "";
 }
 
 .icon-hand-o-down:before {
-  content: "\f0a7";
+  content: "";
 }
 
 .icon-arrow-circle-left:before {
-  content: "\f0a8";
+  content: "";
 }
 
 .icon-arrow-circle-right:before {
-  content: "\f0a9";
+  content: "";
 }
 
 .icon-arrow-circle-up:before {
-  content: "\f0aa";
+  content: "";
 }
 
 .icon-arrow-circle-down:before {
-  content: "\f0ab";
+  content: "";
 }
 
 .icon-globe:before {
-  content: "\f0ac";
+  content: "";
 }
 
 .icon-wrench:before {
-  content: "\f0ad";
+  content: "";
 }
 
 .icon-tasks:before {
-  content: "\f0ae";
+  content: "";
 }
 
 .icon-filter:before {
-  content: "\f0b0";
+  content: "";
 }
 
 .icon-briefcase:before {
-  content: "\f0b1";
+  content: "";
 }
 
 .icon-arrows-alt:before {
-  content: "\f0b2";
+  content: "";
 }
 
 .icon-group:before,
 .icon-users:before {
-  content: "\f0c0";
+  content: "";
 }
 
 .icon-chain:before,
 .icon-link:before {
-  content: "\f0c1";
+  content: "";
 }
 
 .icon-cloud:before {
-  content: "\f0c2";
+  content: "";
 }
 
 .icon-flask:before {
-  content: "\f0c3";
+  content: "";
 }
 
 .icon-cut:before,
 .icon-scissors:before {
-  content: "\f0c4";
+  content: "";
 }
 
 .icon-copy:before,
 .icon-files-o:before {
-  content: "\f0c5";
+  content: "";
 }
 
 .icon-paperclip:before {
-  content: "\f0c6";
+  content: "";
 }
 
 .icon-save:before,
 .icon-floppy-o:before {
-  content: "\f0c7";
+  content: "";
 }
 
 .icon-square:before {
-  content: "\f0c8";
+  content: "";
 }
 
 .icon-bars:before {
-  content: "\f0c9";
+  content: "";
 }
 
 .icon-list-ul:before {
-  content: "\f0ca";
+  content: "";
 }
 
 .icon-list-ol:before {
-  content: "\f0cb";
+  content: "";
 }
 
 .icon-strikethrough:before {
-  content: "\f0cc";
+  content: "";
 }
 
 .icon-underline:before {
-  content: "\f0cd";
+  content: "";
 }
 
 .icon-table:before {
-  content: "\f0ce";
+  content: "";
 }
 
 .icon-magic:before {
-  content: "\f0d0";
+  content: "";
 }
 
 .icon-truck:before {
-  content: "\f0d1";
+  content: "";
 }
 
 .icon-pinterest:before {
-  content: "\f0d2";
+  content: "";
 }
 
 .icon-pinterest-square:before {
-  content: "\f0d3";
+  content: "";
 }
 
 .icon-google-plus-square:before {
-  content: "\f0d4";
+  content: "";
 }
 
 .icon-google-plus:before {
-  content: "\f0d5";
+  content: "";
 }
 
 .icon-money:before {
-  content: "\f0d6";
+  content: "";
 }
 
 .icon-caret-down:before {
-  content: "\f0d7";
+  content: "";
 }
 
 .icon-caret-up:before {
-  content: "\f0d8";
+  content: "";
 }
 
 .icon-caret-left:before {
-  content: "\f0d9";
+  content: "";
 }
 
 .icon-caret-right:before {
-  content: "\f0da";
+  content: "";
 }
 
 .icon-columns:before {
-  content: "\f0db";
+  content: "";
 }
 
 .icon-unsorted:before,
 .icon-sort:before {
-  content: "\f0dc";
+  content: "";
 }
 
 .icon-sort-down:before,
 .icon-sort-asc:before {
-  content: "\f0dd";
+  content: "";
 }
 
 .icon-sort-up:before,
 .icon-sort-desc:before {
-  content: "\f0de";
+  content: "";
 }
 
 .icon-envelope:before {
-  content: "\f0e0";
+  content: "";
 }
 
 .icon-linkedin:before {
-  content: "\f0e1";
+  content: "";
 }
 
 .icon-rotate-left:before,
 .icon-undo:before {
-  content: "\f0e2";
+  content: "";
 }
 
 .icon-legal:before,
 .icon-gavel:before {
-  content: "\f0e3";
+  content: "";
 }
 
 .icon-dashboard:before,
 .icon-tachometer:before {
-  content: "\f0e4";
+  content: "";
 }
 
 .icon-comment-o:before {
-  content: "\f0e5";
+  content: "";
 }
 
 .icon-comments-o:before {
-  content: "\f0e6";
+  content: "";
 }
 
 .icon-flash:before,
 .icon-bolt:before {
-  content: "\f0e7";
+  content: "";
 }
 
 .icon-sitemap:before {
-  content: "\f0e8";
+  content: "";
 }
 
 .icon-umbrella:before {
-  content: "\f0e9";
+  content: "";
 }
 
 .icon-paste:before,
 .icon-clipboard:before {
-  content: "\f0ea";
+  content: "";
 }
 
 .icon-lightbulb-o:before {
-  content: "\f0eb";
+  content: "";
 }
 
 .icon-exchange:before {
-  content: "\f0ec";
+  content: "";
 }
 
 .icon-cloud-download:before {
-  content: "\f0ed";
+  content: "";
 }
 
 .icon-cloud-upload:before {
-  content: "\f0ee";
+  content: "";
 }
 
 .icon-user-md:before {
-  content: "\f0f0";
+  content: "";
 }
 
 .icon-stethoscope:before {
-  content: "\f0f1";
+  content: "";
 }
 
 .icon-suitcase:before {
-  content: "\f0f2";
+  content: "";
 }
 
 .icon-bell-o:before {
-  content: "\f0a2";
+  content: "";
 }
 
 .icon-coffee:before {
-  content: "\f0f4";
+  content: "";
 }
 
 .icon-cutlery:before {
-  content: "\f0f5";
+  content: "";
 }
 
 .icon-file-text-o:before {
-  content: "\f0f6";
+  content: "";
 }
 
 .icon-building-o:before {
-  content: "\f0f7";
+  content: "";
 }
 
 .icon-hospital-o:before {
-  content: "\f0f8";
+  content: "";
 }
 
 .icon-ambulance:before {
-  content: "\f0f9";
+  content: "";
 }
 
 .icon-medkit:before {
-  content: "\f0fa";
+  content: "";
 }
 
 .icon-fighter-jet:before {
-  content: "\f0fb";
+  content: "";
 }
 
 .icon-beer:before {
-  content: "\f0fc";
+  content: "";
 }
 
 .icon-h-square:before {
-  content: "\f0fd";
+  content: "";
 }
 
 .icon-plus-square:before {
-  content: "\f0fe";
+  content: "";
 }
 
 .icon-angle-double-left:before {
-  content: "\f100";
+  content: "";
 }
 
 .icon-angle-double-right:before {
-  content: "\f101";
+  content: "";
 }
 
 .icon-angle-double-up:before {
-  content: "\f102";
+  content: "";
 }
 
 .icon-angle-double-down:before {
-  content: "\f103";
+  content: "";
 }
 
 .icon-angle-left:before {
-  content: "\f104";
+  content: "";
 }
 
 .icon-angle-right:before {
-  content: "\f105";
+  content: "";
 }
 
 .icon-angle-up:before {
-  content: "\f106";
+  content: "";
 }
 
 .icon-angle-down:before {
-  content: "\f107";
+  content: "";
 }
 
 .icon-desktop:before {
-  content: "\f108";
+  content: "";
 }
 
 .icon-laptop:before {
-  content: "\f109";
+  content: "";
 }
 
 .icon-tablet:before {
-  content: "\f10a";
+  content: "";
 }
 
 .icon-mobile-phone:before,
 .icon-mobile:before {
-  content: "\f10b";
+  content: "";
 }
 
 .icon-circle-o:before {
-  content: "\f10c";
+  content: "";
 }
 
 .icon-quote-left:before {
-  content: "\f10d";
+  content: "";
 }
 
 .icon-quote-right:before {
-  content: "\f10e";
+  content: "";
 }
 
 .icon-spinner:before {
-  content: "\f110";
+  content: "";
 }
 
 .icon-circle:before {
-  content: "\f111";
+  content: "";
 }
 
 .icon-mail-reply:before,
 .icon-reply:before {
-  content: "\f112";
+  content: "";
 }
 
 .icon-github-alt:before {
-  content: "\f113";
+  content: "";
 }
 
 .icon-folder-o:before {
-  content: "\f114";
+  content: "";
 }
 
 .icon-folder-open-o:before {
-  content: "\f115";
+  content: "";
 }
 
 .icon-smile-o:before {
-  content: "\f118";
+  content: "";
 }
 
 .icon-frown-o:before {
-  content: "\f119";
+  content: "";
 }
 
 .icon-meh-o:before {
-  content: "\f11a";
+  content: "";
 }
 
 .icon-gamepad:before {
-  content: "\f11b";
+  content: "";
 }
 
 .icon-keyboard-o:before {
-  content: "\f11c";
+  content: "";
 }
 
 .icon-flag-o:before {
-  content: "\f11d";
+  content: "";
 }
 
 .icon-flag-checkered:before {
-  content: "\f11e";
+  content: "";
 }
 
 .icon-terminal:before {
-  content: "\f120";
+  content: "";
 }
 
 .icon-code:before {
-  content: "\f121";
+  content: "";
 }
 
 .icon-reply-all:before {
-  content: "\f122";
+  content: "";
 }
 
 .icon-mail-reply-all:before {
-  content: "\f122";
+  content: "";
 }
 
 .icon-star-half-empty:before,
 .icon-star-half-full:before,
 .icon-star-half-o:before {
-  content: "\f123";
+  content: "";
 }
 
 .icon-location-arrow:before {
-  content: "\f124";
+  content: "";
 }
 
 .icon-crop:before {
-  content: "\f125";
+  content: "";
 }
 
 .icon-code-fork:before {
-  content: "\f126";
+  content: "";
 }
 
 .icon-unlink:before,
 .icon-chain-broken:before {
-  content: "\f127";
+  content: "";
 }
 
 .icon-question:before {
-  content: "\f128";
+  content: "";
 }
 
 .icon-info:before {
-  content: "\f129";
+  content: "";
 }
 
 .icon-exclamation:before {
-  content: "\f12a";
+  content: "";
 }
 
 .icon-superscript:before {
-  content: "\f12b";
+  content: "";
 }
 
 .icon-subscript:before {
-  content: "\f12c";
+  content: "";
 }
 
 .icon-eraser:before {
-  content: "\f12d";
+  content: "";
 }
 
 .icon-puzzle-piece:before {
-  content: "\f12e";
+  content: "";
 }
 
 .icon-microphone:before {
-  content: "\f130";
+  content: "";
 }
 
 .icon-microphone-slash:before {
-  content: "\f131";
+  content: "";
 }
 
 .icon-shield:before {
-  content: "\f132";
+  content: "";
 }
 
 .icon-calendar-o:before {
-  content: "\f133";
+  content: "";
 }
 
 .icon-fire-extinguisher:before {
-  content: "\f134";
+  content: "";
 }
 
 .icon-rocket:before {
-  content: "\f135";
+  content: "";
 }
 
 .icon-maxcdn:before {
-  content: "\f136";
+  content: "";
 }
 
 .icon-chevron-circle-left:before {
-  content: "\f137";
+  content: "";
 }
 
 .icon-chevron-circle-right:before {
-  content: "\f138";
+  content: "";
 }
 
 .icon-chevron-circle-up:before {
-  content: "\f139";
+  content: "";
 }
 
 .icon-chevron-circle-down:before {
-  content: "\f13a";
+  content: "";
 }
 
 .icon-html5:before {
-  content: "\f13b";
+  content: "";
 }
 
 .icon-css3:before {
-  content: "\f13c";
+  content: "";
 }
 
 .icon-anchor:before {
-  content: "\f13d";
+  content: "";
 }
 
 .icon-unlock-alt:before {
-  content: "\f13e";
+  content: "";
 }
 
 .icon-bullseye:before {
-  content: "\f140";
+  content: "";
 }
 
 .icon-ellipsis-h:before {
-  content: "\f141";
+  content: "";
 }
 
 .icon-ellipsis-v:before {
-  content: "\f142";
+  content: "";
 }
 
 .icon-rss-square:before {
-  content: "\f143";
+  content: "";
 }
 
 .icon-play-circle:before {
-  content: "\f144";
+  content: "";
 }
 
 .icon-ticket:before {
-  content: "\f145";
+  content: "";
 }
 
 .icon-minus-square:before {
-  content: "\f146";
+  content: "";
 }
 
 .icon-minus-square-o:before {
-  content: "\f147";
+  content: "";
 }
 
 .icon-level-up:before {
-  content: "\f148";
+  content: "";
 }
 
 .icon-level-down:before {
-  content: "\f149";
+  content: "";
 }
 
 .icon-check-square:before {
-  content: "\f14a";
+  content: "";
 }
 
 .icon-pencil-square:before {
-  content: "\f14b";
+  content: "";
 }
 
 .icon-external-link-square:before {
-  content: "\f14c";
+  content: "";
 }
 
 .icon-share-square:before {
-  content: "\f14d";
+  content: "";
 }
 
 .icon-compass:before {
-  content: "\f14e";
+  content: "";
 }
 
 .icon-toggle-down:before,
 .icon-caret-square-o-down:before {
-  content: "\f150";
+  content: "";
 }
 
 .icon-toggle-up:before,
 .icon-caret-square-o-up:before {
-  content: "\f151";
+  content: "";
 }
 
 .icon-toggle-right:before,
 .icon-caret-square-o-right:before {
-  content: "\f152";
+  content: "";
 }
 
 .icon-euro:before,
 .icon-eur:before {
-  content: "\f153";
+  content: "";
 }
 
 .icon-gbp:before {
-  content: "\f154";
+  content: "";
 }
 
 .icon-dollar:before,
 .icon-usd:before {
-  content: "\f155";
+  content: "";
 }
 
 .icon-rupee:before,
 .icon-inr:before {
-  content: "\f156";
+  content: "";
 }
 
 .icon-cny:before,
 .icon-rmb:before,
 .icon-yen:before,
 .icon-jpy:before {
-  content: "\f157";
+  content: "";
 }
 
 .icon-ruble:before,
 .icon-rouble:before,
 .icon-rub:before {
-  content: "\f158";
+  content: "";
 }
 
 .icon-won:before,
 .icon-krw:before {
-  content: "\f159";
+  content: "";
 }
 
 .icon-bitcoin:before,
 .icon-btc:before {
-  content: "\f15a";
+  content: "";
 }
 
 .icon-file:before {
-  content: "\f15b";
+  content: "";
 }
 
 .icon-file-text:before {
-  content: "\f15c";
+  content: "";
 }
 
 .icon-sort-alpha-asc:before {
-  content: "\f15d";
+  content: "";
 }
 
 .icon-sort-alpha-desc:before {
-  content: "\f15e";
+  content: "";
 }
 
 .icon-sort-amount-asc:before {
-  content: "\f160";
+  content: "";
 }
 
 .icon-sort-amount-desc:before {
-  content: "\f161";
+  content: "";
 }
 
 .icon-sort-numeric-asc:before {
-  content: "\f162";
+  content: "";
 }
 
 .icon-sort-numeric-desc:before {
-  content: "\f163";
+  content: "";
 }
 
 .icon-thumbs-up:before {
-  content: "\f164";
+  content: "";
 }
 
 .icon-thumbs-down:before {
-  content: "\f165";
+  content: "";
 }
 
 .icon-youtube-square:before {
-  content: "\f166";
+  content: "";
 }
 
 .icon-youtube:before {
-  content: "\f167";
+  content: "";
 }
 
 .icon-xing:before {
-  content: "\f168";
+  content: "";
 }
 
 .icon-xing-square:before {
-  content: "\f169";
+  content: "";
 }
 
 .icon-youtube-play:before {
-  content: "\f16a";
+  content: "";
 }
 
 .icon-dropbox:before {
-  content: "\f16b";
+  content: "";
 }
 
 .icon-stack-overflow:before {
-  content: "\f16c";
+  content: "";
 }
 
 .icon-instagram:before {
-  content: "\f16d";
+  content: "";
 }
 
 .icon-flickr:before {
-  content: "\f16e";
+  content: "";
 }
 
 .icon-adn:before {
-  content: "\f170";
+  content: "";
 }
 
 .icon-bitbucket:before {
-  content: "\f171";
+  content: "";
 }
 
 .icon-bitbucket-square:before {
-  content: "\f172";
+  content: "";
 }
 
 .icon-tumblr:before {
-  content: "\f173";
+  content: "";
 }
 
 .icon-tumblr-square:before {
-  content: "\f174";
+  content: "";
 }
 
 .icon-long-arrow-down:before {
-  content: "\f175";
+  content: "";
 }
 
 .icon-long-arrow-up:before {
-  content: "\f176";
+  content: "";
 }
 
 .icon-long-arrow-left:before {
-  content: "\f177";
+  content: "";
 }
 
 .icon-long-arrow-right:before {
-  content: "\f178";
+  content: "";
 }
 
 .icon-apple:before {
-  content: "\f179";
+  content: "";
 }
 
 .icon-windows:before {
-  content: "\f17a";
+  content: "";
 }
 
 .icon-android:before {
-  content: "\f17b";
+  content: "";
 }
 
 .icon-linux:before {
-  content: "\f17c";
+  content: "";
 }
 
 .icon-dribbble:before {
-  content: "\f17d";
+  content: "";
 }
 
 .icon-skype:before {
-  content: "\f17e";
+  content: "";
 }
 
 .icon-foursquare:before {
-  content: "\f180";
+  content: "";
 }
 
 .icon-trello:before {
-  content: "\f181";
+  content: "";
 }
 
 .icon-female:before {
-  content: "\f182";
+  content: "";
 }
 
 .icon-male:before {
-  content: "\f183";
+  content: "";
 }
 
 .icon-gittip:before {
-  content: "\f184";
+  content: "";
 }
 
 .icon-sun-o:before {
-  content: "\f185";
+  content: "";
 }
 
 .icon-moon-o:before {
-  content: "\f186";
+  content: "";
 }
 
 .icon-archive:before {
-  content: "\f187";
+  content: "";
 }
 
 .icon-bug:before {
-  content: "\f188";
+  content: "";
 }
 
 .icon-vk:before {
-  content: "\f189";
+  content: "";
 }
 
 .icon-weibo:before {
-  content: "\f18a";
+  content: "";
 }
 
 .icon-renren:before {
-  content: "\f18b";
+  content: "";
 }
 
 .icon-pagelines:before {
-  content: "\f18c";
+  content: "";
 }
 
 .icon-stack-exchange:before {
-  content: "\f18d";
+  content: "";
 }
 
 .icon-arrow-circle-o-right:before {
-  content: "\f18e";
+  content: "";
 }
 
 .icon-arrow-circle-o-left:before {
-  content: "\f190";
+  content: "";
 }
 
 .icon-toggle-left:before,
 .icon-caret-square-o-left:before {
-  content: "\f191";
+  content: "";
 }
 
 .icon-dot-circle-o:before {
-  content: "\f192";
+  content: "";
 }
 
 .icon-wheelchair:before {
-  content: "\f193";
+  content: "";
 }
 
 .icon-vimeo-square:before {
-  content: "\f194";
+  content: "";
 }
 
 .icon-turkish-lira:before,
 .icon-try:before {
-  content: "\f195";
+  content: "";
 }
 
 .icon-plus-square-o:before {
-  content: "\f196";
+  content: "";
 }
 
 html {
@@ -2050,3 +2046,5 @@ html body .icon.icon-github {
     font-size: 8px;
   }
 }
+
+/*# sourceMappingURL=app.scss.map */

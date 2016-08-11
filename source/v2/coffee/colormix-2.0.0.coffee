@@ -4,7 +4,7 @@
 #
 # Copyright 2013 @ Florent SCHILDKNECHT
 #
-# Date: 2014-03-29
+# Date: 2015-5-14
 ###
 ColorMix = do ->
     "use strict"
@@ -24,6 +24,7 @@ ColorMix = do ->
         }
     }]
     Color = (R, G, B) ->
+        console.log R, G, B
         @.red = 0
         @.green = 0
         @.blue = 0
