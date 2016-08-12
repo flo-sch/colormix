@@ -14,13 +14,14 @@
     "build": "npm install && gulp build",
     "start": "gulp"
   },
+  "dependencies": {},
   "devDependencies": {
     "babel-preset-es2015": "^6.13.2",
     "babelify": "^7.3.0",
     "bootstrap": "^3.3.7",
     "browserify": "^13.1.0",
     "gulp": "^3.9.1",
-    "gulp-autoprefixer": "~0.0.6",
+    "gulp-autoprefixer": "0.0.10",
     "gulp-cache": "~0.1.1",
     "gulp-clean": "~0.2.4",
     "gulp-coffee": "~1.4.1",
@@ -33,7 +34,7 @@
     "gulp-jade": "~0.4.2",
     "gulp-jshint": "~1.3.4",
     "gulp-notify": "^1.8.0",
-    "gulp-rename": "^1.1.0",
+    "gulp-rename": "^1.2.2",
     "gulp-ruby-sass": "~0.3.0",
     "gulp-sass": "^2.3.2",
     "gulp-size": "~0.1.2",
@@ -50,6 +51,5 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  },
-  "dependencies": {}
+  }
 }

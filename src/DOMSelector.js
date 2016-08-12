@@ -1,4 +1,6 @@
+// Singleton helper for DOM-elements selection
 class DOMSelector {
+
     querySelectorAll (selector) {
         selector = new String(selector);
 
@@ -47,6 +49,7 @@ class DOMSelector {
 
         return elements;
     }
+
 }
 
 const instance = new DOMSelector();
