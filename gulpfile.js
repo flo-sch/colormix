@@ -31,7 +31,7 @@ gulp.task('scripts', function (callback) {
                 transform: ['babelify']
             })
             .bundle(),
-        source('color-mix-3.0.0.js'),
+        source('colormix.js'),
         gulp.dest(paths.build),
         buffer(),
         uglify(),
