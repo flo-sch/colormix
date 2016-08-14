@@ -17,10 +17,11 @@ var path            = require('path'),
     babelify        = require('babelify'),
     paths           = {
         src: 'src/',
-        build: 'dist'
+        dist: 'dist'
     };
 
 // Sripts
+/*
 gulp.task('scripts', function (callback) {
     pump([
         browserify({
@@ -32,13 +33,13 @@ gulp.task('scripts', function (callback) {
             })
             .bundle(),
         source('colormix.js'),
-        gulp.dest(paths.build),
+        gulp.dest(paths.dist),
         buffer(),
         uglify(),
         rename({
             suffix: '.min'
         }),
-        gulp.dest(paths.build),
+        gulp.dest(paths.dist),
         notify({
             title: "ColorMix library",
             subtitle: 'Scripts successfully compiled',
@@ -52,12 +53,13 @@ gulp.task('scripts', function (callback) {
         })
     ], callback);
 });
+*/
 
 // Styles
 gulp.task('styles', function (callback) {
     pump([
         gulp.src([
-            'examples/landing/assets/sass/{,*/}*.{scss,sass}'
+            'examples/demo/assets/sass/{,*/}*.{scss,sass}'
         ]),
         sass({
             outputStyle: 'compressed',
@@ -73,7 +75,7 @@ gulp.task('styles', function (callback) {
         rename({
             suffix: '.min'
         }),
-        gulp.dest('examples/landing/assets/css'),
+        gulp.dest('examples/demo/assets/css'),
         notify({
             title: "ColorMix library",
             subtitle: 'Styles successfully compiled',
@@ -91,18 +93,19 @@ gulp.task('styles', function (callback) {
 // Watch
 gulp.task('watch', function () {
     // Watch .js files
-    gulp.watch('src/**/*.js', ['scripts']);
+    // gulp.watch('src/**/*.js', ['scripts']);
 
     // Watch .sass files
     gulp.watch('examples/**/*.{sass,scss}', ['styles']);
 });
 
 // Dev
-gulp.task('serve', ['scripts', 'styles'], function () {
+gulp.task('serve', ['styles'], function () {
     gulp.start('watch');
 });
 
-gulp.task('build', ['scripts', 'styles']);
+// gulp.task('build', ['scripts', 'styles']);
+gulp.task('build', ['styles']);
 
 // Default task
 gulp.task('default', ['serve']);

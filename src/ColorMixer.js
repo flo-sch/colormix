@@ -1,7 +1,7 @@
-import Color from './Color';
-import ColorSpace from './ColorSpace';
+import Color from './model/Color';
+import ColorSpace from './model/ColorSpace';
 
-class ColorMix {
+class ColorMixer {
 
     constructor() {
         this.gradient = [{
@@ -25,7 +25,7 @@ class ColorMix {
 
     mix (colors, percents) {
         if (typeof colors == 'undefined' || Object.prototype.toString.call(colors) != '[object Array]') {
-            throw new Error('"ColorMix.mix()" first parameter should be an array of ColorMix.Color objects');
+            throw new Error('"ColorMixer.mix()" first parameter should be an array of ColorMixer.Color objects');
         }
 
         if (typeof percents == 'undefined') {
@@ -36,11 +36,11 @@ class ColorMix {
                 percents[i] = 100 / colors.length;
             }
         } else if (Object.prototype.toString.call(percents) != '[object Array]') {
-            throw new Error('"ColorMix.mix()" second parameter should be an array of percents. (nnumber values)');
+            throw new Error('"ColorMixer.mix()" second parameter should be an array of percents. (nnumber values)');
         }
 
         if (colors.length != percents.length) {
-            throw new Error('"ColorMix.mix()" parameters should be arrays of the same size !');
+            throw new Error('"ColorMixer.mix()" parameters should be arrays of the same size !');
         }
 
         let i = colors.length;
@@ -51,13 +51,13 @@ class ColorMix {
 
         while (i--) {
             if (!(colors[i] instanceof Color)) {
-                throw new Error('"ColorMix.mix()" color at index: ' + i + ' should be an instance of ColorMix.Color() object !');
+                throw new Error('"ColorMixer.mix()" color at index: ' + i + ' should be an instance of ColorMixer.Color() object !');
             }
 
             P += percents[i];
 
             if (P > 100) {
-                throw new Error('Invalid "ColorMix.mix()" second parameter: the sum of all the percents array items should be 100.');
+                throw new Error('Invalid "ColorMixer.mix()" second parameter: the sum of all the percents array items should be 100.');
             }
 
             let Lab = ColorSpace.RGBtoLab(colors[i].getRed(), colors[i].getGreen(), colors[i].getBlue());
@@ -68,7 +68,7 @@ class ColorMix {
         }
 
         if (P != 100) {
-            throw new Error('Invalid "ColorMix.mix()" second parameter: the sum of all the percents array items should be 100.');
+            throw new Error('Invalid "ColorMixer.mix()" second parameter: the sum of all the percents array items should be 100.');
         }
 
         let RGB = ColorSpace.LabtoRGB(L, a, b);
@@ -90,13 +90,13 @@ class ColorMix {
 
     blend (reference) {
         if (typeof reference == 'undefined') {
-            throw new Error('Missing "ColorMix.blend()" first parameter.');
+            throw new Error('Missing "ColorMixer.blend()" first parameter.');
         }
 
         reference = parseInt(reference);
 
         if (isNaN(reference)) {
-            throw new Error('Invalid "ColorMix.blend()" first parameter: you should provide a number.');
+            throw new Error('Invalid "ColorMixer.blend()" first parameter: you should provide a number.');
         }
 
         let l = this.gradient.length;
@@ -129,13 +129,10 @@ class ColorMix {
 
         // Mix the colors on LAB Color Space
         // Then convert it to RGB again
-        // Returns a ColorMix.Color instance.
+        // Returns a ColorMixer.Color instance.
         return this.mix([C1, C2], [previous.percent, next.percent]);
     }
 }
 
-ColorMix.prototype.Color = Color;
-ColorMix.prototype.ColorSpace = ColorSpace;
-
-const instance = new ColorMix();
-module.exports = instance;
+const instance = new ColorMixer();
+export default instance;

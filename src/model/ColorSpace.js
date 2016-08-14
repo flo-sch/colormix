@@ -1,9 +1,14 @@
-// Singleton tool for ColorSpace manipulation
+/**
+ * ColorSpace
+ *
+ * A singleton containing helpers to easily manipulate colors between different colorspaces.
+ */
+
 class ColorSpace {
 
     RGB (R, G, B) {
         if (typeof R == 'undefined' || typeof G == 'undefined' || typeof B == 'undefined') {
-            throw new Error('Invalid parameter(s) provided for "ColorMix.ColorSpace.RGB()"');
+            throw new Error('Invalid parameter(s) provided for "ColorSpace.RGB()"');
         }
 
         return {
@@ -15,7 +20,7 @@ class ColorSpace {
 
     XYZ (X, Y, Z) {
         if (typeof X == 'undefined' || typeof Y == 'undefined' || typeof Z == 'undefined') {
-            throw new Error('Invalid parameter(s) provided for "ColorMix.ColorSpace.XYZ()"');
+            throw new Error('Invalid parameter(s) provided for "ColorSpace.XYZ()"');
         }
 
         return {
@@ -27,7 +32,7 @@ class ColorSpace {
 
     HSL (H, S, L) {
         if (typeof H == 'undefined' || typeof S == 'undefined' || typeof L == 'undefined') {
-            throw new Error('Invalid parameter(s) provided for "ColorMix.ColorSpace.HSL()"');
+            throw new Error('Invalid parameter(s) provided for "ColorSpace.HSL()"');
         }
 
         return {
@@ -39,7 +44,7 @@ class ColorSpace {
 
     Lab (L, a, b) {
         if (typeof L == 'undefined' || typeof a == 'undefined' || typeof b == 'undefined') {
-            throw new Error('Invalid parameter(s) provided for "ColorMix.ColorSpace.Lab()"');
+            throw new Error('Invalid parameter(s) provided for "ColorSpace.Lab()"');
         }
 
         return {
@@ -57,7 +62,7 @@ class ColorSpace {
         } else if (typeof R != 'undefined' && typeof R == 'object' && typeof R.red != 'undefined' && typeof R.green != 'undefined' && typeof R.blue != 'undefined') {
             RGB = this.RGB(R.red, R.green, R.blue);
         } else {
-            throw new Error('Invalid parameter(s) provided for "ColorMix.ColorSpace.RGBtoXYZ()".');
+            throw new Error('Invalid parameter(s) provided for "ColorSpace.RGBtoXYZ()".');
         }
 
         let red = parseFloat(RGB.red / 255); // R [0::255] as %
@@ -79,7 +84,7 @@ class ColorSpace {
         } else if (X != 'undefined' && typeof X == 'object' && typeof X.x != 'undefined' && typeof X.y != 'undefined' && typeof X.z != 'undefined') {
             XYZ = this.XYZ(X.x, X.y, X.z);
         } else {
-            throw new Error('Invalid parameter(s) provided for "ColorMix.ColorSpace.XYZtoRGB()".');
+            throw new Error('Invalid parameter(s) provided for "ColorSpace.XYZtoRGB()".');
         }
 
         let x = XYZ.x / 100 // x [0::95.047]
@@ -105,7 +110,7 @@ class ColorSpace {
         } else if (R != 'undefined' && typeof R == 'object' && typeof R.red != 'undefined' && typeof R.green != 'undefined' && typeof R.blue != 'undefined') {
             RGB = this.RGB(R.red, R.green, R.blue);
         } else {
-            throw new Error('Invalid parameter(s) provided for "ColorMix.ColorSpace.RGBtoXYZ()".');
+            throw new Error('Invalid parameter(s) provided for "ColorSpace.RGBtoXYZ()".');
         }
 
         let red = RGB.red / 255;
@@ -154,7 +159,7 @@ class ColorSpace {
         } else if (typeof X != 'undefined' && typeof X == 'object' && typeof X.x != 'undefined' && typeof X.y != 'undefined' && typeof X.z != 'undefined') {
             XYZ = this.XYZ(X.x, X.y, X.z);
         } else {
-            throw new Error('Invalid parameter(s) provided for "ColorMix.ColorSpace.XYZtoLab()".');
+            throw new Error('Invalid parameter(s) provided for "ColorSpace.XYZtoLab()".');
         }
 
         let x = XYZ.x / 95.047;
@@ -176,7 +181,7 @@ class ColorSpace {
         } else if (typeof L != 'undefined' && typeof L == 'object' && typeof L.L != 'undefined' && typeof L.a != 'undefined' && typeof L.b != 'undefined') {
             Lab = this.Lab(L.L, L.a, L.b);
         } else {
-            throw new Error('Invalid parameter(s) provided for "ColorMix.ColorSpace.LabtoXYZ()".');
+            throw new Error('Invalid parameter(s) provided for "ColorSpace.LabtoXYZ()".');
         }
 
         let Y = (Lab.L + 16) / 116;
@@ -192,7 +197,7 @@ class ColorSpace {
 
     RGBtoLab (R, G, B) {
         if (typeof R == 'undefined' || typeof G == 'undefined' || typeof B == 'undefined') {
-            throw new Error('Invalid parameter(s) provided for "ColorMix.ColorSpace.RGBtoLab()"');
+            throw new Error('Invalid parameter(s) provided for "ColorSpace.RGBtoLab()"');
         }
 
         return this.XYZtoLab(this.RGBtoXYZ(R, G, B));
@@ -200,11 +205,12 @@ class ColorSpace {
 
     LabtoRGB (L, a, b) {
         if (typeof L == 'undefined' || typeof a == 'undefined' || typeof b == 'undefined') {
-            throw new Error('Invalid parameter(s) provided for "ColorMix.ColorSpace.LabtoRGB()"');
+            throw new Error('Invalid parameter(s) provided for "ColorSpace.LabtoRGB()"');
         }
 
         return this.XYZtoRGB(this.LabtoXYZ(L, a, b));
     }
+
 }
 
 const instance = new ColorSpace();

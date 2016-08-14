@@ -1,5 +1,11 @@
+/**
+ * Color
+ *
+ * An object representation of a color.
+ */
+
 import ColorSpace from './ColorSpace';
-import DOMSelector from './DOMSelector';
+import DOMSelector from '../utils/DOMSelector';
 
 export default class Color {
 

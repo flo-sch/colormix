@@ -1,25 +1,44 @@
 {
   "name": "colormix",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "A color mixing javascript library",
   "homepage": "http://color-mix.it/",
-  "license": "MIT",
-  "main": "dist/colormix.js",
   "author": {
     "name": "Florent Schildknecht",
     "email": "florent.schildknecht@gmail.com",
     "url": "http://floschild.me/"
   },
-  "scripts": {
-    "build": "npm install && gulp build",
-    "start": "gulp"
+  "license": "MIT",
+  "main": "index.js",
+  "jsnext:main": "index.mjs",
+  "browser": "index.browser.js",
+  "jspm": {
+    "main": "colormix.js"
   },
-  "dependencies": {},
+  "scripts": {
+    "prebuild": "eslint src",
+    "build": "node tools/build",
+    "prepublish": "npm run build"
+  },
+  "dependencies": {
+    "babel-runtime": "^6.11.6"
+  },
   "devDependencies": {
+    "babel-cli": "^6.11.4",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-external-helpers": "^6.8.0",
+    "babel-plugin-transform-runtime": "^6.12.0",
     "babel-preset-es2015": "^6.13.2",
+    "babel-preset-es2015-rollup": "^1.2.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-preset-stage-1": "^6.13.0",
+    "babel-register": "^6.11.6",
     "babelify": "^7.3.0",
+    "babelrc-rollup": "^3.0.0",
     "bootstrap": "^3.3.7",
     "browserify": "^13.1.0",
+    "del": "^2.2.2",
+    "eslint": "^3.3.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "0.0.10",
     "gulp-cache": "~0.1.1",
@@ -44,12 +63,36 @@
     "gulp-util": "^2.2.20",
     "gulp-watch": "^0.5.4",
     "jquery": "^1.12.4",
+    "mkdirp": "^0.5.1",
     "pump": "^1.0.1",
+    "rimraf": "^2.5.4",
+    "rollup": "^0.34.8",
+    "rollup-plugin-babel": "^2.6.1",
+    "rollup-plugin-uglify": "^1.0.1",
+    "rollup-watch": "^2.5.0",
     "tiny-lr": "~0.0.5",
+    "uglify-js": "^2.7.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
   },
   "engines": {
     "node": ">=0.10.0"
+  },
+  "babel": {
+    "presets": [
+      "es2015",
+      "stage-1"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "eslint:recommended",
+    "env": {
+      "node": true,
+      "browser": true
+    }
   }
 }
